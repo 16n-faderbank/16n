@@ -6,13 +6,18 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 Implementation of hardware MIDI out and code is left to the reader; the two resistors and jack should be all you need - you only need an optocoupler for MIDI in.
 
+## Repository Contents
+
+Source files for Autodesk EAGLE. Make your own Gerbers if you want.
+
 ## Current status
 
 Completely untested.
 
 ## Credits
 
-Based on work by [Brian Crabtree][tehn] and Sean Hellfritsch.
+Based on work by [Brian Crabtree][tehn] and Sean Hellfritsch. Jack and switch added by [Tom Armitage][infovore].
 
 [linespost]: https://llllllll.co/t/sixteen-n-faderbank/3643
 [tehn]: https://github.com/tehn
+[infovore]: https://github.com/infovore
