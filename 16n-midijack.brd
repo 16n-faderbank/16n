@@ -190,6 +190,17 @@ Ring is +5V</text>
 <wire x1="80.3275" y1="14.478" x2="80.3275" y2="2.54" width="0.1524" layer="25"/>
 <text x="100.33" y="11.43" size="1.778" layer="25">(Korg, Makenoise, etc)</text>
 <text x="100.33" y="3.81" size="1.778" layer="25">(Arturia, Novation etc)</text>
+<text x="132.08" y="2.54" size="4.318" layer="26" ratio="12" rot="MR0">A</text>
+<text x="127" y="2.54" size="1.778" layer="26" rot="MR0">Tip is +5V
+Ring is OUT</text>
+<text x="127" y="10.16" size="1.778" layer="26" rot="MR0">Tip is Out
+Ring is +5V</text>
+<text x="132.08" y="10.16" size="4.318" layer="26" ratio="12" rot="MR0">K</text>
+<wire x1="127.9525" y1="14.478" x2="127.9525" y2="2.54" width="0.1524" layer="26"/>
+<text x="107.95" y="11.43" size="1.778" layer="26" rot="MR0">(Korg, Makenoise, etc)</text>
+<text x="107.95" y="3.81" size="1.778" layer="26" rot="MR0">(Arturia, Novation etc)</text>
+<text x="73.025" y="2.54" size="2.54" layer="26" ratio="12" rot="MR0">A</text>
+<text x="57.785" y="2.54" size="2.54" layer="26" ratio="12" rot="MR0">K</text>
 </plain>
 <libraries>
 <library name="Teensy_3_Series_Board_v1.0">
