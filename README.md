@@ -4,7 +4,7 @@ Derived from [this post on lines][linespost], but adding a minijack connection t
 
 Toggle switch allows you to swap between 'Arturia/Novation' (tip is current source) and 'Korg' (ring is current source) standards; board is labelled such.
 
-Implementation of hardware MIDI out and code is left to the reader; the two resistors and jack should be all you need - you only need an optocoupler for MIDI in.
+Implementation of hardware MIDI out and code is left to the reader; the two resistors and jack should be all you need - optocouplers are only relevant for MIDI inputs.
 
 ## Repository Contents
 
