@@ -7,7 +7,7 @@
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="12.5" unitdist="mil" unit="mil" style="lines" multiple="4" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="10" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -146,6 +146,8 @@
 <layer number="229" name="229bmp" color="7" fill="1" visible="no" active="yes"/>
 <layer number="230" name="230bmp" color="7" fill="1" visible="no" active="yes"/>
 <layer number="231" name="231bmp" color="7" fill="1" visible="no" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="no" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="no" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -1153,10 +1155,14 @@ design rules under a new name.</description>
 <wire x1="226.467675" y1="5.6992" x2="227.451875" y2="4.715" width="0.254" layer="1"/>
 </signal>
 <signal name="MIDI_OUT">
-<contactref element="U$1" pad="12"/>
 <contactref element="R2" pad="P$2"/>
-<wire x1="35.56" y1="6.35" x2="209.55" y2="6.35" width="0.4064" layer="16"/>
-<wire x1="209.55" y1="6.35" x2="223.52" y2="20.32" width="0.4064" layer="16"/>
+<contactref element="U$1" pad="10"/>
+<wire x1="30.48" y1="6.35" x2="30.48" y2="5.08" width="0.4064" layer="1"/>
+<wire x1="30.48" y1="5.08" x2="31.75" y2="3.81" width="0.4064" layer="1"/>
+<wire x1="31.75" y1="3.81" x2="38.1" y2="3.81" width="0.4064" layer="1"/>
+<wire x1="38.1" y1="3.81" x2="40.64" y2="6.35" width="0.4064" layer="1"/>
+<wire x1="209.55" y1="6.35" x2="223.52" y2="20.32" width="0.4064" layer="1"/>
+<wire x1="40.64" y1="6.35" x2="209.55" y2="6.35" width="0.4064" layer="1"/>
 </signal>
 <signal name="N$1">
 <contactref element="JP1" pad="TIP"/>
@@ -1248,22 +1254,22 @@ design rules under a new name.</description>
 <approved hash="4,1,e54adf4dde3ce0a9"/>
 <approved hash="4,16,e1197bfc7a1ce46b"/>
 <approved hash="4,16,e54adf4dde3ce0a9"/>
-<approved hash="1,20,0eb3955396740d94"/>
+<approved hash="1,20,2a7e024202722a4e"/>
+<approved hash="1,20,ab21771d7489a8b5"/>
+<approved hash="4,16,f53ce6ec6194f241"/>
+<approved hash="4,1,f53ce6ec6194f241"/>
 <approved hash="4,16,933de2e961c99018"/>
 <approved hash="4,1,933de2e961c99018"/>
-<approved hash="1,20,c1bec982c844c078"/>
-<approved hash="4,1,f53ce6ec6194f241"/>
-<approved hash="4,16,f53ce6ec6194f241"/>
-<approved hash="1,20,aa271a1b2413942f"/>
-<approved hash="1,20,72f7bacbb810702c"/>
-<approved hash="1,20,c126c91ac994c1a8"/>
-<approved hash="1,20,ad79714570b5ac89"/>
-<approved hash="1,20,ab21771d7489a8b5"/>
-<approved hash="1,20,2a7e024202722a4e"/>
-<approved hash="1,20,2b76034a04b62c8a"/>
-<approved hash="1,20,de3ec202c210de2c"/>
 <approved hash="1,20,6277c24bc2146228"/>
+<approved hash="1,20,ad79714570b5ac89"/>
+<approved hash="1,20,aa271a1b2413942f"/>
+<approved hash="1,20,0eb3955396740d94"/>
+<approved hash="1,20,de3ec202c210de2c"/>
+<approved hash="1,20,c1bec982c844c078"/>
+<approved hash="1,20,c126c91ac994c1a8"/>
+<approved hash="1,20,2b76034a04b62c8a"/>
 <approved hash="1,20,712bb917b89870a4"/>
+<approved hash="1,20,72f7bacbb810702c"/>
 </errors>
 </board>
 </drawing>
