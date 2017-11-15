@@ -9210,13 +9210,6 @@ Protocol Switching</text>
 </net>
 <net name="SDA" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
-<wire x1="78.74" y1="91.44" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
-<label x="77.47" y="92.71" size="1.778" layer="95" rot="R180"/>
-<wire x1="78.74" y1="91.44" x2="68.58" y2="91.44" width="0.1524" layer="91"/>
-<label x="68.58" y="91.44" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
 <pinref part="II" gate="A" pin="2"/>
 <wire x1="322.58" y1="111.76" x2="289.56" y2="111.76" width="0.1524" layer="91"/>
 <label x="271.78" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -9232,15 +9225,13 @@ Protocol Switching</text>
 <junction x="289.56" y="127"/>
 <junction x="289.56" y="111.76"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="30/A19/SDA1"/>
+<wire x1="127" y1="88.9" x2="129.54" y2="88.9" width="0.1524" layer="91"/>
+<label x="129.54" y="88.9" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCL" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
-<wire x1="78.74" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
-<label x="77.47" y="90.17" size="1.778" layer="95" rot="R180"/>
-<wire x1="78.74" y1="88.9" x2="68.58" y2="88.9" width="0.1524" layer="91"/>
-<label x="68.58" y="88.9" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
 <segment>
 <pinref part="II" gate="A" pin="3"/>
 <wire x1="322.58" y1="109.22" x2="269.24" y2="109.22" width="0.1524" layer="91"/>
@@ -9254,6 +9245,11 @@ Protocol Switching</text>
 <wire x1="269.24" y1="96.52" x2="269.24" y2="109.22" width="0.1524" layer="91"/>
 <junction x="269.24" y="96.52"/>
 <junction x="269.24" y="109.22"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="29/A18/SCL1"/>
+<wire x1="127" y1="86.36" x2="129.54" y2="86.36" width="0.1524" layer="91"/>
+<label x="129.54" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="W7" class="0">
@@ -9478,6 +9474,24 @@ Protocol Switching</text>
 <pinref part="U$17" gate="G$1" pin="2"/>
 <wire x1="345.44" y1="175.26" x2="347.98" y2="175.26" width="0.1524" layer="91"/>
 <label x="345.44" y="175.26" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="A4" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
+<wire x1="78.74" y1="91.44" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
+<label x="77.47" y="92.71" size="1.778" layer="95" rot="R180"/>
+<wire x1="78.74" y1="91.44" x2="68.58" y2="91.44" width="0.1524" layer="91"/>
+<label x="68.58" y="91.44" size="1.27" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="A5" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
+<wire x1="78.74" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
+<label x="77.47" y="90.17" size="1.778" layer="95" rot="R180"/>
+<wire x1="78.74" y1="88.9" x2="68.58" y2="88.9" width="0.1524" layer="91"/>
+<label x="68.58" y="88.9" size="1.27" layer="95" rot="R180"/>
 </segment>
 </net>
 </nets>
