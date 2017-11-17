@@ -8245,41 +8245,6 @@ Source: AVX .. aphvc.pdf</description>
 &lt;li&gt;Components for Eurorack modular synths 
 &lt;/ul&gt;</description>
 <packages>
-<package name="THONKICONN">
-<description>3.5mm socket for Eurorack modular synths</description>
-<pad name="P$3_TIP" x="0" y="4.84" drill="1.55" shape="square"/>
-<pad name="P$2_SWITCH" x="0" y="-3.38" drill="1.55" shape="square"/>
-<pad name="P$1_SLEEVE" x="0" y="-6.48" drill="1.35" shape="square"/>
-<wire x1="-4.5" y1="6" x2="4.5" y2="6" width="0.127" layer="21"/>
-<wire x1="4.5" y1="6" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="4.5" y1="-4.5" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="-4.5" x2="-4.5" y2="6" width="0.127" layer="21"/>
-<text x="-3.8" y="1.5" size="1" layer="21" font="vector">&gt;NAME</text>
-<wire x1="-0.5" y1="0" x2="0.5" y2="0" width="0.08" layer="21"/>
-<wire x1="0" y1="0.5" x2="0" y2="-0.5" width="0.08" layer="21"/>
-</package>
-<package name="WQP-PJ301M-12_JACK">
-<wire x1="-4.5" y1="6" x2="-1.5" y2="6" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="6" x2="1.5" y2="6" width="0.127" layer="21"/>
-<wire x1="1.5" y1="6" x2="4.5" y2="6" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="6" x2="-4.5" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="-4.5" y1="-4.5" x2="0.2" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="0.2" y1="-4.5" x2="4.5" y2="-4.5" width="0.127" layer="21"/>
-<wire x1="4.5" y1="-4.5" x2="4.5" y2="6" width="0.127" layer="21"/>
-<circle x="0" y="0" radius="3.162275" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="6" x2="-1.5" y2="4" width="0.127" layer="21"/>
-<wire x1="-1.5" y1="4" x2="1.5" y2="4" width="0.127" layer="21"/>
-<wire x1="1.5" y1="4" x2="1.5" y2="6" width="0.127" layer="21"/>
-<pad name="P$1_TIP" x="0" y="5" drill="1.1" thermals="no"/>
-<pad name="P$2_SWITCH" x="0" y="-3.5" drill="1.1"/>
-<pad name="P$3_SLEEVE" x="0" y="-6.5" drill="1.1"/>
-<circle x="0" y="0" radius="2.690721875" width="0.127" layer="21"/>
-<wire x1="-0.2" y1="-4.6" x2="-0.2" y2="-6.7" width="0.127" layer="21"/>
-<wire x1="-0.2" y1="-6.7" x2="0.2" y2="-6.7" width="0.127" layer="21"/>
-<wire x1="0.2" y1="-6.7" x2="0.2" y2="-4.5" width="0.127" layer="21"/>
-<rectangle x1="-2.8" y1="-2.8" x2="2.8" y2="2.8" layer="41"/>
-<text x="-4.7498" y="-4.4704" size="1.27" layer="21" rot="R90">&gt;NAME</text>
-</package>
 <package name="SO14">
 <description>&lt;b&gt;Small Outline Package 14&lt;/b&gt;</description>
 <wire x1="4.305" y1="-1.9" x2="-4.305" y2="-1.9" width="0.2032" layer="51"/>
@@ -8322,23 +8287,6 @@ Source: AVX .. aphvc.pdf</description>
 </package>
 </packages>
 <symbols>
-<symbol name="THONKICONN">
-<description>pj301-b vertical 3.5mm jack socket</description>
-<wire x1="-2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="1.524" y2="1.016" width="0.1524" layer="94"/>
-<wire x1="1.524" y1="1.016" x2="2.286" y2="1.778" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-0.762" y2="0" width="0.1524" layer="94"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="2.286" width="0.1524" layer="94"/>
-<wire x1="-0.762" y1="2.286" x2="-1.016" y2="1.524" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="1.524" x2="-0.508" y2="1.524" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="1.524" x2="-0.762" y2="2.286" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="4.572" y2="-2.54" width="0.1524" layer="94"/>
-<text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
-<rectangle x1="2.286" y1="-0.508" x2="7.874" y2="0.508" layer="94" rot="R90"/>
-<pin name="SLEEVE" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
-<pin name="TIP" x="-5.08" y="2.54" visible="off" length="short" direction="pas"/>
-<pin name="SWITCH" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
 <symbol name="OPAMP">
 <wire x1="-5.08" y1="5.08" x2="-5.08" y2="-5.08" width="0.4064" layer="94"/>
 <wire x1="-5.08" y1="-5.08" x2="5.08" y2="0" width="0.4064" layer="94"/>
@@ -8360,34 +8308,6 @@ Source: AVX .. aphvc.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="THONKICONN">
-<description>3.5mm socket for Eurorack modular synths</description>
-<gates>
-<gate name="G$1" symbol="THONKICONN" x="0" y="0"/>
-</gates>
-<devices>
-<device name="OLD" package="THONKICONN">
-<connects>
-<connect gate="G$1" pin="SLEEVE" pad="P$1_SLEEVE"/>
-<connect gate="G$1" pin="SWITCH" pad="P$2_SWITCH"/>
-<connect gate="G$1" pin="TIP" pad="P$3_TIP"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="NEW" package="WQP-PJ301M-12_JACK">
-<connects>
-<connect gate="G$1" pin="SLEEVE" pad="P$3_SLEEVE"/>
-<connect gate="G$1" pin="SWITCH" pad="P$2_SWITCH"/>
-<connect gate="G$1" pin="TIP" pad="P$1_TIP"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="MCP6004" prefix="U">
 <description>Generic Quad Op Amp</description>
 <gates>
@@ -8414,6 +8334,83 @@ Source: AVX .. aphvc.pdf</description>
 <connect gate="D" pin="OUT" pad="14"/>
 <connect gate="P" pin="V+" pad="4"/>
 <connect gate="P" pin="V-" pad="11"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="pj302m">
+<packages>
+<package name="PJ302M">
+<description>Library part for the PJ302M horizontal / right angled mount 3.5 mm jack socket available from Thonk.co.uk among others.</description>
+<pad name="GND" x="2.5" y="0" drill="2.3" diameter="3.3" shape="octagon" rot="R270"/>
+<pad name="SW" x="13.5" y="-5.2" drill="2.3" diameter="3.3" shape="octagon"/>
+<pad name="TIP" x="15.7" y="0.2" drill="2.3" diameter="3.3" shape="octagon" rot="R90"/>
+<text x="0" y="5.5" size="1.27" layer="25">&gt;NAME</text>
+<wire x1="15.5" y1="-5" x2="0" y2="-5" width="0.127" layer="51"/>
+<wire x1="0" y1="-5" x2="0" y2="-3" width="0.127" layer="51"/>
+<wire x1="0" y1="-3" x2="0" y2="3" width="0.127" layer="51"/>
+<wire x1="0" y1="3" x2="0" y2="5" width="0.127" layer="51"/>
+<wire x1="0" y1="5" x2="15.5" y2="5" width="0.127" layer="51"/>
+<wire x1="15.5" y1="5" x2="15.5" y2="-5" width="0.127" layer="51"/>
+<wire x1="0" y1="3" x2="-0.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-0.5" y1="3" x2="-1" y2="3" width="0.127" layer="51"/>
+<wire x1="-1" y1="3" x2="-1.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="3" x2="-2" y2="3" width="0.127" layer="51"/>
+<wire x1="-2" y1="3" x2="-2.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="2.5" x2="-3.5" y2="-2.5" width="0.127" layer="51"/>
+<wire x1="-2" y1="-3" x2="-1.5" y2="-3" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-3" x2="-1" y2="-3" width="0.127" layer="51"/>
+<wire x1="-1" y1="-3" x2="-0.5" y2="-3" width="0.127" layer="51"/>
+<wire x1="-0.5" y1="-3" x2="0" y2="-3" width="0.127" layer="51"/>
+<wire x1="0" y1="-3" x2="-0.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-0.5" y1="-3" x2="-1" y2="3" width="0.127" layer="51"/>
+<wire x1="-1" y1="-3" x2="-1.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="-3" x2="-2" y2="3" width="0.127" layer="51"/>
+<wire x1="-2" y1="-3" x2="-2.5" y2="3" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="3" x2="-3" y2="3" width="0.127" layer="51"/>
+<wire x1="-2" y1="-3" x2="-2.5" y2="-3" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-3" x2="-3" y2="-3" width="0.127" layer="51"/>
+<wire x1="-2.5" y1="-3" x2="-3" y2="3" width="0.127" layer="51"/>
+<wire x1="-3.5" y1="2.5" x2="-3" y2="3" width="0.127" layer="51" curve="-90"/>
+<wire x1="-3" y1="-3" x2="-3.5" y2="-2.5" width="0.127" layer="51" curve="-90"/>
+</package>
+</packages>
+<symbols>
+<symbol name="PJ302M">
+<description>Library part for the PJ302M horizontal / right angled mount 3.5 mm jack socket available from Thonk.co.uk among others.</description>
+<wire x1="-2.54" y1="2.54" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="1.524" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="1.524" y1="1.016" x2="2.286" y2="1.778" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-0.762" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.762" y1="0" x2="-0.762" y2="2.286" width="0.1524" layer="94"/>
+<wire x1="-0.762" y1="2.286" x2="-1.016" y2="1.524" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="1.524" x2="-0.508" y2="1.524" width="0.254" layer="94"/>
+<wire x1="-0.508" y1="1.524" x2="-0.762" y2="2.286" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="4.572" y2="-2.54" width="0.1524" layer="94"/>
+<text x="-2.54" y="4.064" size="1.778" layer="95">&gt;NAME</text>
+<rectangle x1="2.286" y1="-0.508" x2="7.874" y2="0.508" layer="94" rot="R90"/>
+<pin name="SLEEVE" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
+<pin name="TIP" x="-5.08" y="2.54" visible="off" length="short" direction="pas"/>
+<pin name="SWITCH" x="-5.08" y="0" visible="off" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PJ302M">
+<description>PJ302M horizontal / right angled mount 3.5 mm jack socket</description>
+<gates>
+<gate name="G$1" symbol="PJ302M" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="PJ302M">
+<connects>
+<connect gate="G$1" pin="SLEEVE" pad="GND"/>
+<connect gate="G$1" pin="SWITCH" pad="SW"/>
+<connect gate="G$1" pin="TIP" pad="TIP"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -8506,37 +8503,37 @@ Source: AVX .. aphvc.pdf</description>
 <part name="SUPPLY15" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+5V" device=""/>
 <part name="SUPPLY16" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+5V" device=""/>
 <part name="SUPPLY17" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+5V" device=""/>
-<part name="J1" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J1" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY18" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J2" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J2" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY19" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J3" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J3" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY20" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J4" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J4" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY21" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J5" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J5" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY22" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J6" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J6" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY23" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J7" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J7" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY24" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J8" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J8" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY25" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J9" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J9" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY26" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J10" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J10" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY27" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J11" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J11" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY28" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J12" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J12" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY29" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J13" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J13" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY30" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J14" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J14" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY31" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J15" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J15" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY32" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
-<part name="J16" library="MusicThingModular" deviceset="THONKICONN" device="NEW"/>
+<part name="J16" library="pj302m" deviceset="PJ302M" device=""/>
 <part name="SUPPLY33" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="U1" library="MusicThingModular" deviceset="MCP6004" device="_SMD"/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K"/>
