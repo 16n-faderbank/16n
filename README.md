@@ -14,19 +14,14 @@ Source files for Autodesk EAGLE. Make your own Gerbers if you want.
 
 Completely untested.
 
-## TODO
-
-* Tidy frontpanel silking.
-* Tidy legending silking
-* Credits
-
 ## Credits
 
 Based on work by [Brian Crabtree][tehn] and Sean Hellfritsch. 
 Minijack MIDI, I2C circuitry and CV outputs by [Tom Armitage][infovore].
-I2C code by TK
+I2C code by [Brendon Cassidy][bpcmusic].
 
 [linespost]: https://llllllll.co/t/sixteen-n-faderbank/3643
 [tehn]: https://github.com/tehn
+[bpcmusic]: https://github.com/bpcmusic
 [infovore]: https://github.com/infovore
 
