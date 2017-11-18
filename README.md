@@ -1,18 +1,26 @@
-# Sixteen-N Faderbank, minijack-MIDI version
+# 16n
 
-Derived from [this post on lines][linespost], but adding a minijack connection to facilitate MIDI out. 
+Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespost].
+
+**16n** is the revised version of that object.
+
+* 16 faders
+* sixteen CCs over USB-midi
+* sixten CCs over minijack midi (with switch to swap between standards)
+* sixteen 0-5V CV output jacks, one per channel.
+* Same width and similar height to monome 128.
+
+Power from 5V micro-usb into Teensy on left-hand side, or from your computer.
 
 Toggle switch allows you to swap between 'Arturia/Novation' (tip is current source) and 'Korg/Makenoise' (ring is current source) standards; board is labelled such.
 
-Implementation of hardware MIDI out and code is left to the reader; the two resistors and jack should be all you need - optocouplers are only relevant for MIDI inputs.
-
 ## Repository Contents
 
-Source files for Autodesk EAGLE. Make your own Gerbers if you want.
+Source files for Autodesk Eagle. Firmware for Teensy.
 
 ## Current status
 
-Completely untested.
+Work in progress.
 
 ## Credits
 
@@ -24,4 +32,3 @@ I2C code by [Brendon Cassidy][bpcmusic].
 [tehn]: https://github.com/tehn
 [bpcmusic]: https://github.com/bpcmusic
 [infovore]: https://github.com/infovore
-

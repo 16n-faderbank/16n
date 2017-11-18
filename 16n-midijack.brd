@@ -229,11 +229,10 @@ Ring is +5V</text>
 <wire x1="230.8225" y1="81.5975" x2="232.41" y2="83.185" width="2.0828" layer="26"/>
 <wire x1="232.41" y1="83.185" x2="233.3625" y2="83.185" width="2.0828" layer="26"/>
 <wire x1="233.68" y1="83.185" x2="235.2675" y2="83.185" width="2.0828" layer="26"/>
-<text x="228.2825" y="73.66" size="1.27" layer="26" rot="MR0">Sean Hellfritsch
+<text x="240.665" y="65.7225" size="1.27" layer="26" rot="MR0">Sean Hellfritsch
 Brian Crabtree
 Tom Armitage
 Brendan Cassidy</text>
-<text x="227.965" y="81.5975" size="2.4384" layer="26" ratio="18" rot="MR0">16n Faderbank</text>
 </plain>
 <libraries>
 <library name="Teensy_3_Series_Board_v1.0">
