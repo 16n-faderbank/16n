@@ -233,6 +233,7 @@ Ring is +5V</text>
 Brian Crabtree
 Tom Armitage
 Brendan Cassidy</text>
+<text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.1</text>
 </plain>
 <libraries>
 <library name="Teensy_3_Series_Board_v1.0">
