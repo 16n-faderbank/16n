@@ -4,8 +4,10 @@
 // You **must** also compile this with Tools->USB type set to MIDI.
 
 const int channel = 1;
-const int ports[] = {A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16};
-int v[2][16];
+const int channelCount = 1; // will be 16 in production; this must match the length of `ports`
+//const int ports[] = {A0,A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16};
+const int ports[] = {A0};
+int v[2][channelCount];
 int last;
 
 
@@ -19,14 +21,15 @@ void setup() {
 }
 
 void loop() {
-  for(int i=0;i<16;i++) {
+  for(int i=0;i<channelCount;i++) {
     last = v[0][i];
 
-    // because of voltage division, inbound range is actualy 0-1012 TODO: confirm that
-    int rawReading = map(analogRead(ports[i]), 0, 1012, 0, 1023);
+    // because of voltage division, inbound range is not quite 1023 TODO: confirm that
+    int rawReading = map(analogRead(ports[i]), 0, 1020, 0, 1023);
 
     // smooth by averaging previous reading
     v[0][i] = (rawReading / 4 + v[1][i]) / 2;
+    
     
     if(v[0][i] != last) {
       usbMIDI.sendControlChange(i, v[0][i] / 2, channel);
