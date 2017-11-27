@@ -1,5 +1,8 @@
 #include <Wire.h>
 #include <MIDI.h>
+
+MIDI_CREATE_DEFAULT_INSTANCE();
+
 // Hardware MIDI is on pin 1
 // You **must** also compile this with Tools->USB type set to MIDI.
 
