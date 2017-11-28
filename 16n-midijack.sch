@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.1">
+<eagle version="8.4.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -8468,8 +8468,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="U$16" library="monome" deviceset="SLIDEPOT-ALPS-60MM" device=""/>
 <part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="U$17" library="monome" deviceset="SLIDEPOT-ALPS-60MM" device=""/>
-<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="220"/>
+<part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47"/>
 <part name="JP1" library="SparkFun-Connectors" deviceset="AUDIO-JACK" device="PTH"/>
 <part name="GND17" library="supply1" deviceset="GND" device=""/>
 <part name="S1" library="SparkFun-Electromechanical" deviceset="SWITCH-DPDT" device="EG2211"/>
@@ -8617,6 +8617,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="R50" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
 <part name="R51" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
 <part name="R52" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-EU_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="100"/>
+<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8738,6 +8739,7 @@ Protocol Switching</text>
 <instance part="SUPPLY32" gate="GND" x="332.74" y="203.2"/>
 <instance part="J16" gate="G$1" x="360.68" y="208.28"/>
 <instance part="SUPPLY33" gate="GND" x="353.06" y="203.2"/>
+<instance part="+3V1" gate="G$1" x="241.3" y="119.38"/>
 </instances>
 <busses>
 </busses>
@@ -8952,6 +8954,12 @@ Protocol Switching</text>
 <wire x1="276.86" y1="96.52" x2="279.4" y2="96.52" width="0.1524" layer="91"/>
 <pinref part="+3V21" gate="G$1" pin="+3V3"/>
 </segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="236.22" y1="114.3" x2="241.3" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="241.3" y1="114.3" x2="241.3" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="+3V1" gate="G$1" pin="+3V3"/>
+</segment>
 </net>
 <net name="A0" class="0">
 <segment>
@@ -9056,11 +9064,6 @@ Protocol Switching</text>
 <pinref part="U$1" gate="G$1" pin="VUSB"/>
 <wire x1="127" y1="139.7" x2="127" y2="147.32" width="0.1524" layer="91"/>
 <label x="126.238" y="142.24" size="1.778" layer="95" rot="R90"/>
-</segment>
-<segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="236.22" y1="114.3" x2="241.3" y2="114.3" width="0.1524" layer="91"/>
-<label x="236.22" y="115.062" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="II" gate="A" pin="1"/>
