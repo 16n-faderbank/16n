@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.4.3">
+<eagle version="8.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -1787,6 +1787,7 @@ Please make sure your boards conform to these design rules.</description>
 <param name="checkFont" value="1"/>
 <param name="checkRestrict" value="1"/>
 <param name="checkStop" value="0"/>
+<param name="checkValues" value="0"/>
 <param name="useDiameter" value="13"/>
 <param name="maxErrors" value="50"/>
 </designrules>
@@ -3036,11 +3037,13 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="152.0825" y1="20.0025" x2="153.35" y2="20.0025" width="0.254" layer="1"/>
 <wire x1="153.35" y1="20.0025" x2="153.3525" y2="20" width="0.254" layer="1"/>
 <wire x1="151.765" y1="18.0975" x2="151.765" y2="19.685" width="0.254" layer="1"/>
-<wire x1="151.07" y1="98.5" x2="151.07" y2="23.7525" width="0.254" layer="1"/>
-<wire x1="148.2725" y1="20.955" x2="151.07" y2="23.7525" width="0.254" layer="1"/>
 <wire x1="149.92" y1="17.78" x2="148.59" y2="17.78" width="0.254" layer="1"/>
 <wire x1="148.59" y1="17.78" x2="148.2725" y2="18.0975" width="0.254" layer="1"/>
-<wire x1="148.2725" y1="18.0975" x2="148.2725" y2="20.955" width="0.254" layer="1"/>
+<wire x1="148.2725" y1="20.955" x2="148.2725" y2="18.0975" width="0.254" layer="1"/>
+<wire x1="148.9075" y1="21.59" x2="148.2725" y2="20.955" width="0.254" layer="1"/>
+<wire x1="151.07" y1="98.5" x2="151.07" y2="23.0572375" width="0.254" layer="1"/>
+<wire x1="151.07" y1="23.0572375" x2="149.6027625" y2="21.59" width="0.254" layer="1"/>
+<wire x1="149.6027625" y1="21.59" x2="148.9075" y2="21.59" width="0.254" layer="1"/>
 </signal>
 <signal name="W10">
 <contactref element="U6" pad="3"/>
@@ -3057,10 +3060,8 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="174.3075" y1="15.24" x2="173.6169" y2="15.9306" width="0.254" layer="1"/>
 <wire x1="166.31" y1="98.5" x2="166.37" y2="98.44" width="0.254" layer="1"/>
 <wire x1="166.37" y1="98.44" x2="166.37" y2="26.67" width="0.254" layer="1"/>
-<wire x1="166.37" y1="26.67" x2="165.1" y2="25.4" width="0.254" layer="1"/>
-<wire x1="164.465" y1="25.4" x2="165.1" y2="25.4" width="0.254" layer="1"/>
-<wire x1="163.83" y1="17.145" x2="163.83" y2="24.765" width="0.254" layer="1"/>
-<wire x1="163.83" y1="24.765" x2="164.465" y2="25.4" width="0.254" layer="1"/>
+<wire x1="163.83" y1="17.145" x2="163.83" y2="24.13" width="0.254" layer="1"/>
+<wire x1="166.37" y1="26.67" x2="163.83" y2="24.13" width="0.254" layer="1"/>
 </signal>
 <signal name="W12">
 <contactref element="U7" pad="3"/>
@@ -3074,12 +3075,10 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="194.8894" y1="15.9306" x2="195.2625" y2="15.5575" width="0.254" layer="1"/>
 <wire x1="195.2625" y1="15.5575" x2="195.2625" y2="14.285" width="0.254" layer="1"/>
 <wire x1="196.79" y1="98.5" x2="196.79" y2="34.23" width="0.254" layer="1"/>
-<wire x1="196.79" y1="34.23" x2="195.2625" y2="32.7025" width="0.254" layer="1"/>
-<wire x1="195.2625" y1="32.7025" x2="187.325" y2="32.7025" width="0.254" layer="1"/>
-<wire x1="185.57875" y1="30.95625" x2="187.325" y2="32.7025" width="0.254" layer="1"/>
-<wire x1="185.57875" y1="30.95625" x2="185.1025" y2="30.48" width="0.254" layer="1"/>
 <wire x1="184.785" y1="17.4625" x2="184.785" y2="30.1625" width="0.254" layer="1"/>
-<wire x1="184.785" y1="30.1625" x2="185.57875" y2="30.95625" width="0.254" layer="1"/>
+<wire x1="196.79" y1="34.23" x2="195.0339" y2="32.4739" width="0.254" layer="1"/>
+<wire x1="187.0964" y1="32.4739" x2="195.0339" y2="32.4739" width="0.254" layer="1"/>
+<wire x1="184.785" y1="30.1625" x2="187.0964" y2="32.4739" width="0.254" layer="1"/>
 </signal>
 <signal name="W13">
 <contactref element="U7" pad="12"/>
