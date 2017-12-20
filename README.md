@@ -8,6 +8,7 @@ Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespo
 * sixteen CCs over USB-midi
 * sixten CCs over minijack midi (with switch to swap between standards)
 * sixteen 0-5V CV output jacks, one per channel.
+* II (monome-style I2C protocol) over TRS: tip is SDA, ring is SCL).
 * Same width and similar height to monome 128.
 
 Power from 5V micro-usb into Teensy on left-hand side, or from your computer.
@@ -21,6 +22,11 @@ Source files for Autodesk Eagle. Firmware for Teensy.
 ## Current status
 
 Work in progress.
+
+
+## BOM
+
+TBD
 
 ## Credits
 
