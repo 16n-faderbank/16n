@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.5.0">
+<eagle version="8.5.1">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -191,7 +191,7 @@ Ring is +5V</text>
 <text x="193.8875" y="6.0325" size="3.302" layer="25" ratio="12">K</text>
 <wire x1="197.0625" y1="9.398" x2="197.0625" y2="1.27" width="0.1524" layer="25"/>
 <text x="172.9325" y="6.0325" size="1.0668" layer="25">(Korg, Makenoise, etc)</text>
-<text x="172.9325" y="1.27" size="1.0668" layer="25">(Arturia, Novation etc)</text>
+<text x="172.9325" y="1.27" size="1.0668" layer="25">(Arturia, Novation, etc)</text>
 <text x="235.585" y="1.905" size="2.54" layer="26" ratio="12" rot="MR0">A</text>
 <text x="218.1225" y="1.905" size="2.54" layer="26" ratio="12" rot="MR0">K</text>
 <text x="48.895" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">SCL</text>
@@ -214,8 +214,8 @@ Ring is Out</text>
 Ring is +5V</text>
 <text x="208.385" y="6.0325" size="3.302" layer="26" ratio="12" rot="MR0">K</text>
 <wire x1="205.21" y1="9.398" x2="205.21" y2="1.27" width="0.1524" layer="26"/>
-<text x="191.9825" y="6.0325" size="1.0668" layer="26" rot="MR0">(Korg, Makenoise, etc)</text>
-<text x="192.3" y="1.27" size="1.0668" layer="26" rot="MR0">(Arturia, Novation etc)</text>
+<text x="191.9825" y="6.35" size="1.0668" layer="26" rot="MR0">(Korg, Makenoise, etc)</text>
+<text x="192.3" y="1.27" size="1.0668" layer="26" rot="MR0">(Arturia, Novation, etc)</text>
 <text x="238.4425" y="83.185" size="2.4384" layer="26" ratio="20" rot="MR0" align="center">16</text>
 <wire x1="239.7125" y1="74.93" x2="239.7125" y2="80.645" width="2.0828" layer="26"/>
 <wire x1="230.8225" y1="74.93" x2="230.8225" y2="80.01" width="2.0828" layer="26"/>
