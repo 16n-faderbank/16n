@@ -17,7 +17,7 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 ## Repository Contents
 
-Source files for Autodesk Eagle. Firmware for Teensy.
+Source files for Autodesk Eagle. Firmware for Teensy. Panel DXF files.
 
 ## Current status
 
@@ -26,7 +26,7 @@ Work in progress.
 
 ## BOM
 
-TBD
+[Available on Octopart](octobom).
 
 ## Credits
 
@@ -38,3 +38,4 @@ I2C code by [Brendon Cassidy][bpcmusic].
 [tehn]: https://github.com/tehn
 [bpcmusic]: https://github.com/bpcmusic
 [infovore]: https://github.com/infovore
+[octobom]: https://octopart.com/bom-tool/nlacEI7z
