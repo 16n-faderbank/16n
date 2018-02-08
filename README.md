@@ -30,9 +30,9 @@ Work in progress.
 
 ## Credits
 
-Based on work by [Brian Crabtree][tehn] and Sean Hellfritsch. 
+Based on original work by [Brian Crabtree][tehn] and Sean Hellfritsch. 
 Minijack MIDI, I2C circuitry and CV outputs by [Tom Armitage][infovore].
-I2C code by [Brendon Cassidy][bpcmusic].
+Firmware by [Brian Crabtree], [Tom Armitage][infovore], and [Brendon Cassidy][bpcmusic].
 
 [linespost]: https://llllllll.co/t/sixteen-n-faderbank/3643
 [tehn]: https://github.com/tehn
