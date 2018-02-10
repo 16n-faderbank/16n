@@ -26,7 +26,7 @@
 //
 // NOTE: in MASTER MODE the 16n will not respond to the Teletype
 //
-#define MASTER 1
+//#define MASTER 1
  
 #include <i2c_t3.h>
 #include <MIDI.h>
