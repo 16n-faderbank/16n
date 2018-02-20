@@ -20,6 +20,9 @@
 // activates printing of debug messages
 // #define DEBUG 1
 
+// turn on power LED
+// #define LED 1
+
 // MASTER MODE allows you to broadcast values from the 16n
 // this supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301
 // uncomment this #define and compile the firmware
@@ -157,14 +160,18 @@ void setup() {
   // turn on the MIDI party
   MIDI.begin();
   midiWriteTimer.begin(writeMidi, midiInterval);
-  
+
+  #ifdef LED
+  pinMode(13, OUTPUT);
+  digitalWrite(13, HIGH);
+  #endif
 }
+
 
 /*
  * The main read loop that goes through all of the sliders
  */
 void loop() {
-  
   // read loop using the i counter
   for(i=0; i<channelCount; i++) {
     
