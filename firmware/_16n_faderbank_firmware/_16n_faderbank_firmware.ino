@@ -69,6 +69,12 @@ const int ports[] = { A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13
 const int usb_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
 const int trs_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
 
+// set up MIDI channels for each fader
+// if you wish to have different channels for TRS and USB - or for each channel - specify them here.
+
+const int usb_channels[]= {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+const int trs_channels[]= {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+
 #endif
 
 // loop helpers
@@ -211,10 +217,9 @@ void writeMidi(){
     
     // if there was a change in the midi value
     if(shiftyTemp != lastMidiValue[q]) {
-      
       // send the message over USB and physical MIDI
-      usbMIDI.sendControlChange(usb_ccs[q], shiftyTemp, channel);
-      MIDI.sendControlChange(trs_ccs[q], shiftyTemp, channel);
+      usbMIDI.sendControlChange(usb_ccs[q], shiftyTemp, usb_channels[q]);
+      MIDI.sendControlChange(trs_ccs[q], shiftyTemp, trs_channels[q]);
       
       // store the shifted value for future comparison
       lastMidiValue[q] = shiftyTemp;
@@ -222,7 +227,6 @@ void writeMidi(){
       #ifdef DEBUG
       Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp);
       #endif
-      
     }
     
     #ifdef MASTER
