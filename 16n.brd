@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.6.0">
+<eagle version="8.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting keepoldvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="12.5" unitdist="mil" unit="mil" style="lines" multiple="4" display="yes" altdistance="25" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="10" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -159,16 +159,14 @@
 <plain>
 <wire x1="2.54" y1="0" x2="246.38" y2="0" width="0" layer="20"/>
 <wire x1="246.38" y1="0" x2="248.92" y2="2.54" width="0" layer="20" curve="90"/>
-<wire x1="248.92" y1="2.54" x2="248.609309375" y2="118.1169125" width="0" layer="20"/>
-<wire x1="248.609309375" y1="118.1169125" x2="246.06931875" y2="120.65" width="0" layer="20" curve="89.845975"/>
-<wire x1="246.06931875" y1="120.65" x2="2.54" y2="120.65" width="0" layer="20"/>
+<wire x1="248.92" y1="2.54" x2="248.92" y2="118.11" width="0" layer="20"/>
+<wire x1="248.92" y1="118.11" x2="246.38" y2="120.65" width="0" layer="20" curve="90"/>
+<wire x1="246.38" y1="120.65" x2="2.54" y2="120.65" width="0" layer="20"/>
 <wire x1="2.54" y1="120.65" x2="0" y2="118.11" width="0" layer="20" curve="90"/>
 <wire x1="0" y1="118.11" x2="0" y2="2.54" width="0" layer="20"/>
 <wire x1="0" y1="2.54" x2="2.54" y2="0" width="0" layer="20" curve="90"/>
 <hole x="2.54" y="2.54" drill="2.5"/>
-<hole x="246.38" y="99.06" drill="2.5"/>
 <hole x="246.38" y="2.54" drill="2.5"/>
-<hole x="2.54" y="99.06" drill="2.5"/>
 <wire x1="-5.08" y1="104.14" x2="-5.08" y2="-2.54" width="0" layer="48"/>
 <wire x1="-5.08" y1="-2.54" x2="-2.54" y2="-5.08" width="0" layer="48" curve="90"/>
 <wire x1="-2.54" y1="-5.08" x2="251.46" y2="-5.08" width="0" layer="48"/>
@@ -198,13 +196,13 @@ Ring is +5V</text>
 <text x="51.435" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">SDA</text>
 <text x="53.975" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">5V</text>
 <text x="46.355" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">GND</text>
-<text x="120.3325" y="10.4775" size="2.4384" layer="25" ratio="20" align="center">16</text>
-<wire x1="119.0625" y1="2.2225" x2="119.0625" y2="7.9375" width="2.0828" layer="25"/>
-<wire x1="127.9525" y1="2.2225" x2="127.9525" y2="7.3025" width="2.0828" layer="25"/>
-<wire x1="127.9525" y1="7.3025" x2="127.9525" y2="8.89" width="2.0828" layer="25"/>
-<wire x1="127.9525" y1="8.89" x2="126.365" y2="10.4775" width="2.0828" layer="25"/>
-<wire x1="126.365" y1="10.4775" x2="125.4125" y2="10.4775" width="2.0828" layer="25"/>
-<wire x1="125.095" y1="10.4775" x2="123.5075" y2="10.4775" width="2.0828" layer="25"/>
+<text x="121.285" y="10.4775" size="2.4384" layer="25" ratio="20" align="center">16</text>
+<wire x1="120.015" y1="2.2225" x2="120.015" y2="7.9375" width="2.0828" layer="25"/>
+<wire x1="128.905" y1="2.2225" x2="128.905" y2="7.3025" width="2.0828" layer="25"/>
+<wire x1="128.905" y1="7.3025" x2="128.905" y2="8.89" width="2.0828" layer="25"/>
+<wire x1="128.905" y1="8.89" x2="127.3175" y2="10.4775" width="2.0828" layer="25"/>
+<wire x1="127.3175" y1="10.4775" x2="126.365" y2="10.4775" width="2.0828" layer="25"/>
+<wire x1="126.0475" y1="10.4775" x2="124.46" y2="10.4775" width="2.0828" layer="25"/>
 <hole x="2.54" y="118.11" drill="2.5"/>
 <hole x="246.38" y="118.11" drill="2.5"/>
 <text x="208.385" y="1.27" size="3.302" layer="26" ratio="12" rot="MR0">A</text>
@@ -234,7 +232,16 @@ DO NOT HOT PLUG</text>
 <text x="44.45" y="3.4925" size="1.778" layer="25" rot="R180">II</text>
 <hole x="63.5" y="63.5" drill="2.5"/>
 <hole x="185.42" y="63.5" drill="2.5"/>
-<hole x="124.46" y="63.5" drill="2.5"/>
+<hole x="124.46" y="2.54" drill="2.5"/>
+<hole x="124.46" y="118.11" drill="2.5"/>
+<circle x="2.54" y="2.54" radius="2.5" width="0.1524" layer="51"/>
+<circle x="2.54" y="118.11" radius="2.5" width="0.1524" layer="51"/>
+<circle x="124.46" y="118.11" radius="2.5" width="0.1524" layer="51"/>
+<circle x="246.38" y="118.11" radius="2.5" width="0.1524" layer="51"/>
+<circle x="246.38" y="2.54" radius="2.5" width="0.1524" layer="51"/>
+<circle x="63.5" y="63.5" radius="2.5" width="0.1524" layer="51"/>
+<circle x="185.42" y="63.5" radius="2.5" width="0.1524" layer="51"/>
+<circle x="124.46" y="2.54" radius="2.5" width="0.1524" layer="51"/>
 </plain>
 <libraries>
 <library name="Teensy_3_Series_Board_v1.0">
