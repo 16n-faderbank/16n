@@ -156,6 +156,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyOTViNDRl" projecturn="a.cGVyc29uYWw6dWUyOTViNDRlIzIwMTgwMTA4MTExMjk1Mzc2" f3durn="urn:adsk.wipprod:dm.lineage:1LPsho2iRQCPn5uxACv-6A" pcbguid="234bef35-d82d-46ce-857c-37a291aa7fed" lastpulledtime="" lastsyncedchangeguid="997eabcc-99a1-b09b-9ab4-6687188ddba9"/>
 <plain>
 <wire x1="2.54" y1="0" x2="246.38" y2="0" width="0" layer="20"/>
 <wire x1="246.38" y1="0" x2="248.92" y2="2.54" width="0" layer="20" curve="90"/>
@@ -225,7 +226,7 @@ Ring is +5V</text>
 Brian Crabtree
 Tom Armitage
 Brendan Cassidy</text>
-<text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.21</text>
+<text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.25</text>
 <text x="57.785" y="1.27" size="1.778" layer="25">I2C: Tip SDA, Ring SCL
 DO NOT HOT PLUG</text>
 <text x="243.205" y="21.9075" size="1.778" layer="25">MIDI</text>
@@ -1883,8 +1884,8 @@ Please make sure your boards conform to these design rules.</description>
 <element name="J5" library="pj302m" package="PJ302M" value="PJ302M" x="71.12" y="118.4275" smashed="yes" rot="R270"/>
 <element name="J6" library="pj302m" package="PJ302M" value="PJ302M" x="86.36" y="118.4275" smashed="yes" rot="R270"/>
 <element name="J7" library="pj302m" package="PJ302M" value="PJ302M" x="101.6" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J8" library="pj302m" package="PJ302M" value="PJ302M" x="116.84" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J9" library="pj302m" package="PJ302M" value="PJ302M" x="132.08" y="118.4275" smashed="yes" rot="R270"/>
+<element name="J8" library="pj302m" package="PJ302M" value="PJ302M" x="116.205" y="118.4275" smashed="yes" rot="R270"/>
+<element name="J9" library="pj302m" package="PJ302M" value="PJ302M" x="132.715" y="118.4275" smashed="yes" rot="R270"/>
 <element name="J10" library="pj302m" package="PJ302M" value="PJ302M" x="147.32" y="118.4275" smashed="yes" rot="R270"/>
 <element name="J11" library="pj302m" package="PJ302M" value="PJ302M" x="162.56" y="118.4275" smashed="yes" rot="R270"/>
 <element name="J12" library="pj302m" package="PJ302M" value="PJ302M" x="177.8" y="118.4275" smashed="yes" rot="R270"/>
@@ -3179,20 +3180,19 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="CV7">
 <contactref element="J7" pad="TIP"/>
 <wire x1="101.8" y1="102.7275" x2="103.2125" y2="104.14" width="0.254" layer="1"/>
-<wire x1="109.22" y1="104.14" x2="103.2125" y2="104.14" width="0.254" layer="1"/>
-<wire x1="110.1725" y1="103.1875" x2="109.22" y2="104.14" width="0.254" layer="1"/>
+<wire x1="108.585" y1="104.14" x2="103.2125" y2="104.14" width="0.254" layer="1"/>
 <contactref element="R22" pad="2"/>
-<wire x1="110.17" y1="101.6" x2="110.1725" y2="101.6025" width="0.254" layer="1"/>
-<wire x1="110.1725" y1="101.6025" x2="110.1725" y2="103.1875" width="0.254" layer="1"/>
+<wire x1="110.17" y1="101.6" x2="110.17" y2="102.555" width="0.254" layer="1"/>
+<wire x1="110.17" y1="102.555" x2="108.585" y2="104.14" width="0.254" layer="1"/>
 </signal>
 <signal name="CV8">
 <contactref element="J8" pad="TIP"/>
 <contactref element="R46" pad="2"/>
-<wire x1="117.04" y1="102.7275" x2="118.11" y2="103.7975" width="0.254" layer="1"/>
-<wire x1="118.11" y1="103.7975" x2="118.11" y2="104.14" width="0.254" layer="1"/>
 <wire x1="118.11" y1="104.14" x2="124.46" y2="104.14" width="0.254" layer="1"/>
 <wire x1="124.46" y1="104.14" x2="125.41" y2="103.19" width="0.254" layer="1"/>
 <wire x1="125.41" y1="103.19" x2="125.41" y2="101.6" width="0.254" layer="1"/>
+<wire x1="116.405" y1="102.7275" x2="117.8175" y2="104.14" width="0.254" layer="1"/>
+<wire x1="117.8175" y1="104.14" x2="118.11" y2="104.14" width="0.254" layer="1"/>
 </signal>
 <signal name="CV10">
 <contactref element="J10" pad="TIP"/>
@@ -3262,12 +3262,12 @@ Please make sure your boards conform to these design rules.</description>
 <signal name="CV9">
 <contactref element="J9" pad="TIP"/>
 <contactref element="R27" pad="2"/>
-<wire x1="132.28" y1="102.7275" x2="132.28" y2="103.07" width="0.254" layer="1"/>
-<wire x1="132.28" y1="103.07" x2="133.35" y2="104.14" width="0.254" layer="1"/>
-<wire x1="133.35" y1="104.14" x2="139.7" y2="104.14" width="0.254" layer="1"/>
+<wire x1="134.3025" y1="104.14" x2="139.7" y2="104.14" width="0.254" layer="1"/>
 <wire x1="139.7" y1="104.14" x2="140.6525" y2="103.1875" width="0.254" layer="1"/>
 <wire x1="140.6525" y1="103.1875" x2="140.6525" y2="101.6025" width="0.254" layer="1"/>
 <wire x1="140.6525" y1="101.6025" x2="140.65" y2="101.6" width="0.254" layer="1"/>
+<wire x1="132.915" y1="102.7275" x2="132.915" y2="102.7525" width="0.254" layer="1"/>
+<wire x1="132.915" y1="102.7525" x2="134.3025" y2="104.14" width="0.254" layer="1"/>
 </signal>
 <signal name="N$9">
 <contactref element="U1" pad="5"/>
@@ -3810,6 +3810,11 @@ which will not be processed correctly with this version.
 Since Version 8.2, EAGLE supports online libraries. The ids
 of those online libraries will not be understood (or retained)
 with this version.
+</note>
+<note version="8.3" severity="warning">
+Since Version 8.3, EAGLE supports Fusion synchronisation.
+This feature will not be available in this version and saving
+the document will break the link to the Fusion PCB feature.
 </note>
 <note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library
