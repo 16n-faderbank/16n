@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg3469"
+   height="1052.36220472"
+   width="744.094488189">
+  <metadata
+     id="metadata3509">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <desc
+     id="desc3471">/Users/twra2/Documents/eagle/projects/16n/panel/16n-125-bottom.dxf - scale = 1.000000, origin = (0.000000, 0.000000), auto = False</desc>
+  <defs
+     id="defs3473">
+    <marker
+       style="overflow:visible"
+       refY="0.0"
+       refX="0.0"
+       orient="auto"
+       id="DistanceX">
+      <path
+         id="path3476"
+         style="stroke:#000000; stroke-width:0.5"
+         d="M 3,-3 L -3,3 M 0,-5 L  0,5" />
+    </marker>
+    <pattern
+       y="0"
+       x="0"
+       width="8"
+       patternUnits="userSpaceOnUse"
+       id="Hatch"
+       height="8">
+      <path
+         id="path3479"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M8 4 l-4,4" />
+      <path
+         id="path3481"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M6 2 l-4,4" />
+      <path
+         id="path3483"
+         stroke-width="0.25"
+         stroke="#000000"
+         linecap="square"
+         d="M4 0 l-4,4" />
+    </pattern>
+    <symbol
+       id="*MODEL_SPACE" />
+    <symbol
+       id="*PAPER_SPACE" />
+  </defs>
+  <g
+     id="g3487">
+    <path
+       id="path3489"
+       style="fill:none;stroke:#000000"
+       d="m 49.624598,40.507424 a 4.429134,4.429134 0 1 0 -8.858268,0 4.429134,4.429134 0 0 0 8.858268,0 z" />
+    <path
+       id="path3491"
+       style="fill:none;stroke:#000000"
+       d="m 49.624598,450.00742 a 4.429134,4.429134 0 1 0 -8.858268,0 4.429134,4.429134 0 0 0 8.858268,0 z" />
+    <path
+       id="path3493"
+       style="fill:none;stroke:#000000"
+       d="m 913.6246,40.507424 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 0 0 8.85827,0 z" />
+    <path
+       id="path3495"
+       style="fill:none;stroke:#000000"
+       d="m 481.6246,450.00742 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 1 0 8.85827,0 z" />
+    <path
+       id="path3497"
+       style="fill:none;stroke:#000000"
+       d="m 481.6246,40.507424 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 1 0 8.85827,0 z" />
+    <path
+       id="path3499"
+       style="fill:none;stroke:#000000"
+       d="m 913.6246,450.00742 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 0 0 8.85827,0 z" />
+    <path
+       id="path3501"
+       style="fill:none;stroke:#000000"
+       d="m 265.6246,256.49041 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 0 0 8.85827,0 z" />
+    <path
+       id="path3503"
+       style="fill:none;stroke:#000000"
+       d="m 697.6246,256.49041 a 4.429134,4.429134 0 1 0 -8.85827,0 4.429134,4.429134 0 0 0 8.85827,0 z" />
+    <path
+       id="path3505"
+       style="fill:none;stroke:#000000"
+       d="m 27.195464,450.00742 0,-409.499996 a 18,18 0 0 1 18,-18 l 863.999996,0 a 18,18 0 0 1 18,18 l 0,409.499996 a 18,18 0 0 1 -18,18 l -863.999996,0 a 18,18 0 0 1 -18,-18 z" />
+  </g>
+</svg>
