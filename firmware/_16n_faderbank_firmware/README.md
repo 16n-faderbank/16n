@@ -9,7 +9,7 @@ Latest Teensyduino install.
 ## Compilation
 
 - You **must** compile this with Tools->USB type set to MIDI or MIDI/Serial (for debugging)
-- Be sure that the board speed is set to 120mhz (overclock) for maximum snappiness.
+- Be sure that the board speed is set to 120mhz (overclock) for maximum repsonsiveness.
 
 ## Customisation and configuration
 
@@ -37,7 +37,11 @@ will log debug messages to the serial port.
 #define MASTER 1
 ```
 
-MASTER MODE allows you to broadcast values from the 16n directly. This supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301. In MASTER MODE the 16n will not respond to a monome Teletype.
+will put the 16n into I2C MASTER mode, broadcasting values from the 16n directly.
+
+MASTER MODE supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301. 
+
+If you want to use 16n with an ER-301, you need to turn MASTER MODE on. If you want to use it with a Monome Teletype, leave you want MASTER MODE off - leave it commented out.
 
 ### Customising continuous controller numbers and MIDI channels
 
