@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.5.0">
+<eagle version="9.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -8861,104 +8861,6 @@ Protocol Switching</text>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
-<net name="A0" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="14/A0"/>
-<wire x1="78.74" y1="101.6" x2="81.28" y2="101.6" width="0.1524" layer="91"/>
-<label x="77.47" y="102.87" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A1" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="15/A1/T"/>
-<wire x1="78.74" y1="99.06" x2="81.28" y2="99.06" width="0.1524" layer="91"/>
-<label x="77.47" y="100.33" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A2" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="16/A2/T"/>
-<wire x1="78.74" y1="96.52" x2="81.28" y2="96.52" width="0.1524" layer="91"/>
-<label x="77.47" y="97.79" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A3" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="17/A3/T"/>
-<wire x1="78.74" y1="93.98" x2="81.28" y2="93.98" width="0.1524" layer="91"/>
-<label x="77.47" y="95.25" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A6" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="20/A6/PWM"/>
-<wire x1="78.74" y1="86.36" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
-<label x="77.47" y="87.63" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A7" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="21/A7/PWM"/>
-<wire x1="78.74" y1="83.82" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
-<label x="77.47" y="85.09" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A8" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="22/A8/T/PWM"/>
-<wire x1="78.74" y1="81.28" x2="81.28" y2="81.28" width="0.1524" layer="91"/>
-<label x="77.47" y="82.55" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A9" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="23/A9/T/PWM"/>
-<wire x1="78.74" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
-<label x="77.47" y="80.01" size="1.778" layer="95" rot="R180"/>
-</segment>
-</net>
-<net name="A10" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="A10"/>
-<wire x1="129.54" y1="101.6" x2="127" y2="101.6" width="0.1524" layer="91"/>
-<label x="130.81" y="100.33" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A11" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="A11"/>
-<wire x1="129.54" y1="104.14" x2="127" y2="104.14" width="0.1524" layer="91"/>
-<label x="130.81" y="102.87" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A12" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="A12"/>
-<wire x1="129.54" y1="106.68" x2="127" y2="106.68" width="0.1524" layer="91"/>
-<label x="130.81" y="105.41" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A13" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="A13"/>
-<wire x1="129.54" y1="109.22" x2="127" y2="109.22" width="0.1524" layer="91"/>
-<label x="130.81" y="107.95" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A14" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="A14/DAC"/>
-<wire x1="129.54" y1="111.76" x2="127" y2="111.76" width="0.1524" layer="91"/>
-<label x="130.81" y="110.49" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="A15" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="26/A15"/>
-<wire x1="129.54" y1="78.74" x2="127" y2="78.74" width="0.1524" layer="91"/>
-<label x="130.81" y="77.47" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="VUSB"/>
@@ -9370,22 +9272,116 @@ Protocol Switching</text>
 <label x="345.44" y="175.26" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
+<net name="A0" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="14/A0"/>
+<wire x1="78.74" y1="101.6" x2="81.28" y2="101.6" width="0.1524" layer="91"/>
+<label x="77.47" y="102.87" size="1.778" layer="95" rot="R180"/>
+</segment>
+</net>
+<net name="A1" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="15/A1/T"/>
+<wire x1="81.28" y1="99.06" x2="68.58" y2="99.06" width="0.1524" layer="91"/>
+<label x="71.12" y="99.06" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A2" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="16/A2/T"/>
+<wire x1="81.28" y1="96.52" x2="68.58" y2="96.52" width="0.1524" layer="91"/>
+<label x="71.12" y="96.52" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A3" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="17/A3/T"/>
+<wire x1="81.28" y1="93.98" x2="68.58" y2="93.98" width="0.1524" layer="91"/>
+<label x="71.12" y="93.98" size="1.778" layer="95"/>
+</segment>
+</net>
 <net name="A4" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
-<wire x1="78.74" y1="91.44" x2="81.28" y2="91.44" width="0.1524" layer="91"/>
-<label x="77.47" y="92.71" size="1.778" layer="95" rot="R180"/>
-<wire x1="78.74" y1="91.44" x2="68.58" y2="91.44" width="0.1524" layer="91"/>
-<label x="68.58" y="91.44" size="1.27" layer="95" rot="R180"/>
+<wire x1="81.28" y1="91.44" x2="68.58" y2="91.44" width="0.1524" layer="91"/>
+<label x="71.12" y="91.44" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A5" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
-<wire x1="78.74" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
-<label x="77.47" y="90.17" size="1.778" layer="95" rot="R180"/>
-<wire x1="78.74" y1="88.9" x2="68.58" y2="88.9" width="0.1524" layer="91"/>
-<label x="68.58" y="88.9" size="1.27" layer="95" rot="R180"/>
+<wire x1="81.28" y1="88.9" x2="68.58" y2="88.9" width="0.1524" layer="91"/>
+<label x="71.12" y="88.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A6" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="20/A6/PWM"/>
+<wire x1="81.28" y1="86.36" x2="68.58" y2="86.36" width="0.1524" layer="91"/>
+<label x="71.12" y="86.36" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A7" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="21/A7/PWM"/>
+<wire x1="81.28" y1="83.82" x2="68.58" y2="83.82" width="0.1524" layer="91"/>
+<label x="71.12" y="83.82" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A8" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="22/A8/T/PWM"/>
+<wire x1="81.28" y1="81.28" x2="68.58" y2="81.28" width="0.1524" layer="91"/>
+<label x="71.12" y="81.28" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A9" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="23/A9/T/PWM"/>
+<wire x1="81.28" y1="78.74" x2="68.58" y2="78.74" width="0.1524" layer="91"/>
+<label x="71.12" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="A10" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="A10"/>
+<wire x1="127" y1="101.6" x2="139.7" y2="101.6" width="0.1524" layer="91"/>
+<label x="137.16" y="101.6" size="1.778" layer="95" align="bottom-right"/>
+</segment>
+</net>
+<net name="A11" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="A11"/>
+<wire x1="127" y1="104.14" x2="139.7" y2="104.14" width="0.1524" layer="91"/>
+<label x="137.16" y="104.14" size="1.778" layer="95" align="bottom-right"/>
+</segment>
+</net>
+<net name="A12" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="A12"/>
+<wire x1="127" y1="106.68" x2="139.7" y2="106.68" width="0.1524" layer="91"/>
+<label x="137.16" y="106.68" size="1.778" layer="95" align="bottom-right"/>
+</segment>
+</net>
+<net name="A13" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="A13"/>
+<wire x1="127" y1="109.22" x2="139.7" y2="109.22" width="0.1524" layer="91"/>
+<label x="137.16" y="109.22" size="1.778" layer="95" align="bottom-right"/>
+</segment>
+</net>
+<net name="A14" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="A14/DAC"/>
+<wire x1="127" y1="111.76" x2="139.7" y2="111.76" width="0.1524" layer="91"/>
+<label x="137.16" y="111.76" size="1.778" layer="95" align="bottom-right"/>
+</segment>
+</net>
+<net name="A15" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="26/A15"/>
+<wire x1="127" y1="78.74" x2="139.7" y2="78.74" width="0.1524" layer="91"/>
+<label x="137.16" y="78.74" size="1.778" layer="95" align="bottom-right"/>
 </segment>
 </net>
 </nets>
@@ -9404,7 +9400,7 @@ Protocol Switching</text>
 <instance part="U1" gate="D" x="91.44" y="185.42" rot="MR180"/>
 <instance part="U1" gate="C" x="91.44" y="167.64" rot="MR180"/>
 <instance part="R8" gate="G$1" x="83.82" y="157.48" rot="R90"/>
-<instance part="SUPPLY35" gate="GND" x="83.82" y="152.4"/>
+<instance part="SUPPLY35" gate="GND" x="81.28" y="149.86"/>
 <instance part="R9" gate="G$1" x="78.74" y="165.1"/>
 <instance part="U2" gate="A" x="144.78" y="185.42" rot="MR180"/>
 <instance part="U2" gate="B" x="144.78" y="167.64" rot="MR180"/>
@@ -9531,7 +9527,7 @@ Protocol Switching</text>
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
 <pinref part="SUPPLY35" gate="GND" pin="GND"/>
-<wire x1="83.82" y1="152.4" x2="83.82" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="152.4" x2="81.28" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R11" gate="G$1" pin="1"/>
@@ -10542,6 +10538,11 @@ will not be understood (or retained) with this version.
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
+</note>
+<note version="9.0" severity="warning">
+Since Version 9.0, EAGLE supports the align property for labels. 
+Labels in schematic will not be understood with this version. Update EAGLE to the latest version 
+for full support of labels. 
 </note>
 </compatibility>
 </eagle>
