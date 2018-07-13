@@ -23,7 +23,7 @@ The two sets of 0805 resistor pads marked `DNP` are pull-ups for the I2C line. Y
 As ever, you want to bulid up your board in height order. So:
 
 * First, solder the eight MCP6004 op-amp ICs. Sloping side should be on the LEFT, same side as the Teensy is.
-  ![](build/DSC01715.jpg)
+  ![](build/DSC01715.JPG)
 
   
 
@@ -36,35 +36,35 @@ As ever, you want to bulid up your board in height order. So:
   * Two 47 ohm resistors by the switch
 
 * Next up diodes: four SOD-123 diodes, line should be on the BOTTOM, as marked by the symbol on the board.
-  ![](build/DSC01717.jpg)
+  ![](build/DSC01717.JPG)
 
 * Next, through-hole switch. This should snap in and stand just off the board. Make sure it's as flush as it can be and solder it in.
-  ![](build/DSC01720.jpg)
+  ![](build/DSC01720.JPG)
 
 * Now the stereo jack sockets for MIDI and I2C. These won't snap in, so make sure they're flush before you solder them.
-  ![](build/DSC01721.jpg)
+  ![](build/DSC01721.JPG)
 
 * Now let's do the Teensy. 
   * Before you attach the through hole headers, attach the surface-mount header to the bottom of the Teensy for its 'inner' ins. This is **very hard to do if you already have outer headers on.** Attach only at two opposing corners for now - then put the teensy in place on the board and confirm all the 'outer' pins will also line-up. If so, finish soldering the inner headers.
   * Solder the outer through-hole headers onto the Teensy. Every single one needs to be attached. The best way to do this is:
     * Take two rows of 14 headers, place one on each side, and solder in just one pin on each side. Now try sliding the Teensy into position on the board. You may need to adjust the angle of the fourteen-pin headers. When they're good, solder them in.
-      ![](build/DSC01722.jpg)
+      ![](build/DSC01722.JPG)
 
     * Now do the same with five pins across the front of the Teensy. Again, check the fit.
 
     * Finally, the 3x1 and 1x1 pins on the inner side; repeat again.
 
-      ![](build/DSC01724.jpg)
+      ![](build/DSC01724.JPG)
 
-      ![](build/DSC01725.jpg)
+      ![](build/DSC01725.JPG)
   * Mount the Teensy into the 16n PCB, flip the board over, and solder it in. (The board is designed for the Teensy to be permanently attached.) The header plastic should be flush with the PCB on the top. Trim all the overhanging legs, one at a time, to get them super-short.
-    ![](build/DSC01726.jpg)
+    ![](build/DSC01726.JPG)
 
 * Now the 16 mono jacks. These should push in and stay flush, too - the hole is the size of the mounting pin. Lots of solder to make a good connection.
-  ![](build/DSC01727.jpg)
+  ![](build/DSC01727.JPG)
 
 * Finally, the faders. These should snap in to the board and rest against it vertically. They're hard to remove, so make sure you get them straight.
-  ![](build/DSC01728.jpg)
+  ![](build/DSC01728.JPG)
 
 ## ASSEMBLING THE HARDWARE
 
@@ -72,7 +72,7 @@ Quite easy this:
 
 * the short M-F headers go through the UNDERSIDE of the board
 * the M-M headers are on the TOP of the board.
-  ![](build/DSC01729.jpg)
+  ![](build/DSC01729.JPG)
 * Line up panels, screw in place with M2.5 screws.
 * Attach fader knobs or rubber covers to taste - stander 4mm fader knobs will fit.
 * Attached rubber feet to base to taste.
