@@ -2,8 +2,9 @@
 
 Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespost].
 
-**16n** is the revised version of that object. It is currently at version
-**1.26**
+**16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack. 
+
+It is currently at version **1.26**
 
 # Repository contents
 
@@ -25,6 +26,12 @@ Power from 5V micro-usb into Teensy on left-hand side, or from your computer.
 
 Toggle switch allows you to swap between 'Arturia/Novation' (tip is current source) and 'Korg/Makenoise' (ring is current source) standards; board is labelled such.
 
+## Give us a picture, then
+
+![](faderbank.jpg)
+
+Here's a prototype board with the case off.
+
 ## Current status
 
 Work in progress.
@@ -35,12 +42,21 @@ Work in progress.
 
 ## Credits
 
-Based on original work by [Brian Crabtree][tehn] and Sean Hellfritsch. 
-Minijack MIDI, I2C circuitry and CV outputs by [Tom Armitage][infovore].
-Firmware by [Brian Crabtree][tehn], [Tom Armitage][infovore], and [Brendon Cassidy][bpcmusic].
+Based on original work by [Brian Crabtree][tehn] and Sean Hellfritsch.  
+Minijack MIDI, I2C circuitry and CV outputs by [Tom Armitage][infovore].  
+Firmware by [Brian Crabtree][tehn], [Tom Armitage][infovore], and [Brendon Cassidy][bpcmusic].  
+
+## Licensing
+
+Panels and electronic schematics/layouts/gerber files are licensed under
+[Creative Commons Attribution Share-Alike 4.0][ccbysa].
+
+Firmware is licensed under the [MIT License][mitlicense].
 
 [linespost]: https://llllllll.co/t/sixteen-n-faderbank/3643
 [tehn]: https://github.com/tehn
 [bpcmusic]: https://github.com/bpcmusic
 [infovore]: https://github.com/infovore
 [octobom]: https://octopart.com/bom-tool/nlacEI7z
+[ccbysa]: https://creativecommons.org/licenses/by-sa/4.0/
+[mitlicense]: https://opensource.org/licenses/MIT
