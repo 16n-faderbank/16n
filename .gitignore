@@ -3,3 +3,4 @@
 *.s#*
 .DS_Store
 build/orig
+**.hex
