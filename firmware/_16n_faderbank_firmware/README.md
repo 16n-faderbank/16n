@@ -8,7 +8,7 @@ Latest Teensyduino install.
 
 ## Compilation
 
-- You **must** compile this with Tools->USB type set to MIDI or MIDI/Serial (for debugging)
+- You **must** compile this with Tools->USB type set to MIDI.
 - Be sure that the board speed is set to 120mhz (overclock) for maximum repsonsiveness.
 
 ## Customisation and configuration
