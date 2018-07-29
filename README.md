@@ -38,7 +38,9 @@ Work in progress.
 
 ## BOM
 
-[Available on Octopart][octobom].
+[Available on Octopart][octobom]; a CSV version is in `electronics/bom-csv.csv`
+
+Most parts you can get from eg. Mouser. I recommend buying PJ-302 jacks from [Thonk](https://thonk.co.uk) as an alternative to the more expensive CUI parts.
 
 ## Credits
 
