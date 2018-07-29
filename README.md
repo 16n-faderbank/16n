@@ -8,10 +8,10 @@ It is currently at version **1.26**
 
 # Repository contents
 
-* `firmware` is the Teensy source code
-* `electronics` is schematics and gerber files for the PCB
-* `panel` is SVG/DXF files for top and bottom panels
-* `build` is build documentation
+* `firmware` is the Teensy source code.
+* `electronics` is schematics and gerber files for the PCB.
+* `panel` is SVG/DXF files for top and bottom panels.
+* `build` is build documentation.
 
 ## 16n Details
 
