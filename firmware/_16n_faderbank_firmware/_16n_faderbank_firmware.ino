@@ -20,6 +20,8 @@
 #include <i2c_t3.h>
 #include <MIDI.h>
 #include <ResponsiveAnalogRead.h>
+#include <CD74HC4067.h>
+
 
 #include "TxHelper.h"
 
@@ -53,6 +55,15 @@ uint8_t port = 0;
 // the thing that smartly smooths the input
 ResponsiveAnalogRead *analog[channelCount];
 
+// mux config
+CD74HC4067 mux(8,7,6,5);
+#ifdef REV
+const int[16] muxMapping =  { 8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0 };
+#else
+const int[16] muxMapping = { 0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8 };
+#endif
+// TODO add support for Reversed ports
+
 // the MIDI write timer
 IntervalTimer midiWriteTimer;
 int midiInterval = 5000; // 5ms
@@ -82,6 +93,7 @@ void setup() {
   // initialize the value storage
   for (i=0; i<channelCount; i++){
     // analog[i] = new ResponsiveAnalogRead(0, false);
+    my
     analog[i] = new ResponsiveAnalogRead(0, true, .0001);
     analog[i]->setAnalogResolution(1<<13); 
     currentValue[i] = 0;
@@ -128,9 +140,10 @@ void setup() {
 void loop() {
   // read loop using the i counter
   for(i=0; i<channelCount; i++) {
-    
+    // set mux to channelCount
+    mux.channel(muxMapping[i]);
     // read the value
-    temp = analogRead(ports[i]);
+    temp = analogRead(0); // mux goes into A0
     
     // put the value into the smoother
     analog[i]->update(temp);
