@@ -58,11 +58,10 @@ ResponsiveAnalogRead *analog[channelCount];
 // mux config
 CD74HC4067 mux(8,7,6,5);
 #ifdef REV
-const int[16] muxMapping =  { 8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0 };
+const int muxMapping[16] =  { 8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0 };
 #else
-const int[16] muxMapping = { 0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8 };
+const int muxMapping[16] = { 0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8 };
 #endif
-// TODO add support for Reversed ports
 
 // the MIDI write timer
 IntervalTimer midiWriteTimer;
@@ -93,7 +92,7 @@ void setup() {
   // initialize the value storage
   for (i=0; i<channelCount; i++){
     // analog[i] = new ResponsiveAnalogRead(0, false);
-    my
+
     analog[i] = new ResponsiveAnalogRead(0, true, .0001);
     analog[i]->setAnalogResolution(1<<13); 
     currentValue[i] = 0;
