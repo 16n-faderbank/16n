@@ -8748,7 +8748,7 @@ Source: AVX .. aphvc.pdf</description>
 </library>
 <library name="Teensy_3_and_LC_Series_Boards_v1.4">
 <packages>
-<package name="TEENSY_3.0-3.2&amp;LC_DIL+4">
+<package name="TEENSY_3.0-3.2&amp;LC_DIL">
 <pad name="GND" x="-7.62" y="16.51" drill="0.9652"/>
 <pad name="0" x="-7.62" y="13.97" drill="0.9652"/>
 <pad name="1" x="-7.62" y="11.43" drill="0.9652"/>
@@ -8791,62 +8791,54 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="-1.27" y1="17.78" x2="-1.27" y2="16.51" width="0.2032" layer="21"/>
 <text x="-3.81" y="13.97" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-3.81" y="-13.97" size="1.27" layer="27" font="vector">&gt;VALUE</text>
-<pad name="VUSB" x="5.08" y="13.97" drill="0.9652"/>
-<pad name="AREF" x="5.08" y="8.89" drill="0.9652"/>
-<pad name="A10" x="5.08" y="6.35" drill="0.9652"/>
-<pad name="A11" x="5.08" y="3.81" drill="0.9652"/>
 </package>
 </packages>
 <symbols>
-<symbol name="TEENSY_3.1-3.2_DIL+4">
-<wire x1="-17.78" y1="-35.56" x2="17.78" y2="-35.56" width="0.254" layer="94"/>
-<wire x1="17.78" y1="-35.56" x2="17.78" y2="33.02" width="0.254" layer="94"/>
-<wire x1="17.78" y1="33.02" x2="-17.78" y2="33.02" width="0.254" layer="94"/>
-<wire x1="-17.78" y1="33.02" x2="-17.78" y2="-35.56" width="0.254" layer="94"/>
-<pin name="12/MISO" x="-22.86" y="-2.54" visible="pin" length="middle"/>
-<pin name="11/MOSI" x="-22.86" y="0" visible="pin" length="middle"/>
-<pin name="10/TX2/PWM" x="-22.86" y="2.54" visible="pin" length="middle"/>
-<pin name="9/RX2/PWM" x="-22.86" y="5.08" visible="pin" length="middle"/>
-<pin name="8/TX3" x="-22.86" y="7.62" visible="pin" length="middle"/>
-<pin name="7/RX3" x="-22.86" y="10.16" visible="pin" length="middle"/>
-<pin name="6/PWM" x="-22.86" y="12.7" visible="pin" length="middle"/>
-<pin name="5/PWM" x="-22.86" y="15.24" visible="pin" length="middle"/>
-<pin name="4/CAN-RX-PWM" x="-22.86" y="17.78" visible="pin" length="middle"/>
-<pin name="3/CAN-TX/PWM" x="-22.86" y="20.32" visible="pin" length="middle"/>
-<pin name="2" x="-22.86" y="22.86" visible="pin" length="middle"/>
-<pin name="1/TX1/T" x="-22.86" y="25.4" visible="pin" length="middle"/>
-<pin name="0/RX1/T" x="-22.86" y="27.94" visible="pin" length="middle"/>
-<pin name="GND" x="22.86" y="20.32" visible="pin" length="middle" direction="pwr" rot="R180"/>
-<pin name="AGND" x="22.86" y="7.62" visible="pin" length="middle" direction="pwr" rot="R180"/>
-<pin name="3.3V" x="22.86" y="25.4" visible="pin" length="middle" direction="pwr" rot="R180"/>
-<pin name="23/A9/T/PWM" x="-22.86" y="-30.48" visible="pin" length="middle"/>
-<pin name="22/A8/T/PWM" x="-22.86" y="-27.94" visible="pin" length="middle"/>
-<pin name="21/A7/PWM" x="-22.86" y="-25.4" visible="pin" length="middle"/>
-<pin name="20/A6/PWM" x="-22.86" y="-22.86" visible="pin" length="middle"/>
-<pin name="19/A5/T/SCL0" x="-22.86" y="-20.32" visible="pin" length="middle"/>
-<pin name="18/A4/T/SDA0" x="-22.86" y="-17.78" visible="pin" length="middle"/>
-<pin name="17/A3/T" x="-22.86" y="-15.24" visible="pin" length="middle"/>
-<pin name="16/A2/T" x="-22.86" y="-12.7" visible="pin" length="middle"/>
-<pin name="15/A1/T" x="-22.86" y="-10.16" visible="pin" length="middle"/>
-<pin name="14/A0" x="-22.86" y="-7.62" visible="pin" length="middle"/>
-<pin name="13/SCK/LED" x="-22.86" y="-5.08" visible="pin" length="middle"/>
-<text x="-5.588" y="34.29" size="1.27" layer="95" font="vector" ratio="15">&gt;NAME</text>
-<text x="-2.794" y="-38.1" size="1.27" layer="96" font="vector" ratio="15">&gt;VALUE</text>
-<pin name="A10" x="22.86" y="-7.62" visible="pin" length="middle" rot="R180"/>
-<pin name="A11" x="22.86" y="-5.08" visible="pin" length="middle" rot="R180"/>
-<pin name="AREF" x="22.86" y="10.16" visible="pin" length="middle" direction="pwr" rot="R180"/>
-<pin name="VUSB" x="22.86" y="30.48" visible="pin" length="middle" direction="pwr" rot="R180"/>
-<pin name="VIN" x="22.86" y="27.94" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<symbol name="TEENSY_3.1-3.2_DIL">
+<wire x1="-17.78" y1="-38.1" x2="17.78" y2="-38.1" width="0.254" layer="94"/>
+<wire x1="17.78" y1="-38.1" x2="17.78" y2="30.48" width="0.254" layer="94"/>
+<wire x1="17.78" y1="30.48" x2="-17.78" y2="30.48" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="30.48" x2="-17.78" y2="-38.1" width="0.254" layer="94"/>
+<pin name="12/MISO" x="-22.86" y="-5.08" visible="pin" length="middle"/>
+<pin name="11/MOSI" x="-22.86" y="-2.54" visible="pin" length="middle"/>
+<pin name="10/TX2/PWM" x="-22.86" y="0" visible="pin" length="middle"/>
+<pin name="9/RX2/PWM" x="-22.86" y="2.54" visible="pin" length="middle"/>
+<pin name="8/TX3" x="-22.86" y="5.08" visible="pin" length="middle"/>
+<pin name="7/RX3" x="-22.86" y="7.62" visible="pin" length="middle"/>
+<pin name="6/PWM" x="-22.86" y="10.16" visible="pin" length="middle"/>
+<pin name="5/PWM" x="-22.86" y="12.7" visible="pin" length="middle"/>
+<pin name="4/CAN-RX/PWM" x="-22.86" y="15.24" visible="pin" length="middle"/>
+<pin name="3/CAN-TX/PWM" x="-22.86" y="17.78" visible="pin" length="middle"/>
+<pin name="2" x="-22.86" y="20.32" visible="pin" length="middle"/>
+<pin name="1/TX1/T" x="-22.86" y="22.86" visible="pin" length="middle"/>
+<pin name="0/RX1/T" x="-22.86" y="25.4" visible="pin" length="middle"/>
+<pin name="GND" x="22.86" y="17.78" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<pin name="AGND" x="22.86" y="5.08" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<pin name="3.3V" x="22.86" y="22.86" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<pin name="23/A9/T/PWM" x="-22.86" y="-33.02" visible="pin" length="middle"/>
+<pin name="22/A8/T/PWM" x="-22.86" y="-30.48" visible="pin" length="middle"/>
+<pin name="21/A7/PWM" x="-22.86" y="-27.94" visible="pin" length="middle"/>
+<pin name="20/A6/PWM" x="-22.86" y="-25.4" visible="pin" length="middle"/>
+<pin name="19/A5/T/SCL0" x="-22.86" y="-22.86" visible="pin" length="middle"/>
+<pin name="18/A4/T/SDA0" x="-22.86" y="-20.32" visible="pin" length="middle"/>
+<pin name="17/A3/T" x="-22.86" y="-17.78" visible="pin" length="middle"/>
+<pin name="16/A2/T" x="-22.86" y="-15.24" visible="pin" length="middle"/>
+<pin name="15/A1/T" x="-22.86" y="-12.7" visible="pin" length="middle"/>
+<pin name="14/A1" x="-22.86" y="-10.16" visible="pin" length="middle"/>
+<pin name="13/SCK/LED" x="-22.86" y="-7.62" visible="pin" length="middle"/>
+<text x="-5.588" y="31.75" size="1.27" layer="95" font="vector" ratio="15">&gt;NAME</text>
+<pin name="VIN" x="22.86" y="25.4" visible="pin" length="middle" direction="pwr" rot="R180"/>
+<text x="-7.112" y="-40.894" size="1.27" layer="96" font="vector" ratio="15">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="TEENSY_3.1-3.2_DIL+4">
-<description>Teensy 3.1 and 3.2 in a DIL package with the inner 4 pins</description>
+<deviceset name="TEENSY_3.1-3.2_DIL">
+<description>Teensy 3.1 or 3.2 in a DIL Layout.</description>
 <gates>
-<gate name="G$1" symbol="TEENSY_3.1-3.2_DIL+4" x="0" y="0"/>
+<gate name="G$1" symbol="TEENSY_3.1-3.2_DIL" x="0" y="2.54"/>
 </gates>
 <devices>
-<device name="" package="TEENSY_3.0-3.2&amp;LC_DIL+4">
+<device name="" package="TEENSY_3.0-3.2&amp;LC_DIL">
 <connects>
 <connect gate="G$1" pin="0/RX1/T" pad="0"/>
 <connect gate="G$1" pin="1/TX1/T" pad="1"/>
@@ -8854,7 +8846,7 @@ Source: AVX .. aphvc.pdf</description>
 <connect gate="G$1" pin="11/MOSI" pad="11"/>
 <connect gate="G$1" pin="12/MISO" pad="12"/>
 <connect gate="G$1" pin="13/SCK/LED" pad="13"/>
-<connect gate="G$1" pin="14/A0" pad="14/A0"/>
+<connect gate="G$1" pin="14/A1" pad="14/A0"/>
 <connect gate="G$1" pin="15/A1/T" pad="15/A1"/>
 <connect gate="G$1" pin="16/A2/T" pad="16/A2"/>
 <connect gate="G$1" pin="17/A3/T" pad="17/A3"/>
@@ -8867,19 +8859,15 @@ Source: AVX .. aphvc.pdf</description>
 <connect gate="G$1" pin="23/A9/T/PWM" pad="23/A9"/>
 <connect gate="G$1" pin="3.3V" pad="3.3V"/>
 <connect gate="G$1" pin="3/CAN-TX/PWM" pad="3"/>
-<connect gate="G$1" pin="4/CAN-RX-PWM" pad="4"/>
+<connect gate="G$1" pin="4/CAN-RX/PWM" pad="4"/>
 <connect gate="G$1" pin="5/PWM" pad="5"/>
 <connect gate="G$1" pin="6/PWM" pad="6"/>
 <connect gate="G$1" pin="7/RX3" pad="7"/>
 <connect gate="G$1" pin="8/TX3" pad="8"/>
 <connect gate="G$1" pin="9/RX2/PWM" pad="9"/>
-<connect gate="G$1" pin="A10" pad="A10"/>
-<connect gate="G$1" pin="A11" pad="A11"/>
 <connect gate="G$1" pin="AGND" pad="AGND"/>
-<connect gate="G$1" pin="AREF" pad="AREF"/>
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="VIN" pad="VIN"/>
-<connect gate="G$1" pin="VUSB" pad="VUSB"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -9090,7 +9078,7 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n"/>
-<part name="U$18" library="Teensy_3_and_LC_Series_Boards_v1.4" deviceset="TEENSY_3.1-3.2_DIL+4" device=""/>
+<part name="U$1" library="Teensy_3_and_LC_Series_Boards_v1.4" deviceset="TEENSY_3.1-3.2_DIL" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9216,7 +9204,7 @@ Protocol Switching</text>
 <instance part="GND21" gate="1" x="139.7" y="40.64"/>
 <instance part="GND24" gate="1" x="124.46" y="12.7"/>
 <instance part="C9" gate="G$1" x="134.62" y="48.26"/>
-<instance part="U$18" gate="G$1" x="104.14" y="109.22"/>
+<instance part="U$1" gate="G$1" x="104.14" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -9226,13 +9214,13 @@ Protocol Switching</text>
 <pinref part="GND22" gate="1" pin="GND"/>
 <wire x1="127" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="129.54" x2="132.08" y2="128.27" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="GND"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND23" gate="1" pin="GND"/>
 <wire x1="127" y1="116.84" x2="142.24" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="116.84" x2="142.24" y2="115.57" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="AGND"/>
+<pinref part="U$1" gate="G$1" pin="AGND"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="3"/>
@@ -9420,7 +9408,7 @@ Protocol Switching</text>
 <pinref part="+3V22" gate="G$1" pin="+3V3"/>
 <wire x1="127" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="U$18" gate="G$1" pin="3.3V"/>
+<pinref part="U$1" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
 <pinref part="R4" gate="G$1" pin="2"/>
@@ -9541,7 +9529,7 @@ Protocol Switching</text>
 <wire x1="127" y1="137.16" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="137.16" x2="129.54" y2="144.78" width="0.1524" layer="91"/>
 <label x="129.54" y="144.78" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="VIN"/>
+<pinref part="U$1" gate="G$1" pin="VIN"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -9567,7 +9555,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="134.62" x2="76.2" y2="134.62" width="0.1524" layer="91"/>
 <label x="76.2" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="U$18" gate="G$1" pin="1/TX1/T"/>
+<pinref part="U$1" gate="G$1" pin="1/TX1/T"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -9620,7 +9608,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="91.44" x2="73.66" y2="91.44" width="0.1524" layer="91"/>
 <label x="76.2" y="91.44" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="18/A4/T/SDA0"/>
+<pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -9641,7 +9629,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="88.9" x2="73.66" y2="88.9" width="0.1524" layer="91"/>
 <label x="76.2" y="88.9" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="19/A5/T/SCL0"/>
+<pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
 </segment>
 </net>
 <net name="W7" class="0">
@@ -9872,7 +9860,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="101.6" x2="73.66" y2="101.6" width="0.1524" layer="91"/>
 <label x="68.58" y="101.6" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="14/A0"/>
+<pinref part="U$1" gate="G$1" pin="14/A1"/>
 </segment>
 <segment>
 <pinref part="U9" gate="U1" pin="COM"/>
@@ -9883,7 +9871,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="116.84" x2="68.58" y2="116.84" width="0.1524" layer="91"/>
 <label x="71.12" y="116.84" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="8/TX3"/>
+<pinref part="U$1" gate="G$1" pin="8/TX3"/>
 </segment>
 <segment>
 <pinref part="U9" gate="U1" pin="S0"/>
@@ -9895,7 +9883,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="119.38" x2="68.58" y2="119.38" width="0.1524" layer="91"/>
 <label x="71.12" y="119.38" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="7/RX3"/>
+<pinref part="U$1" gate="G$1" pin="7/RX3"/>
 </segment>
 <segment>
 <pinref part="U9" gate="U1" pin="S1"/>
@@ -9907,7 +9895,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="121.92" x2="68.58" y2="121.92" width="0.1524" layer="91"/>
 <label x="71.12" y="121.92" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="6/PWM"/>
+<pinref part="U$1" gate="G$1" pin="6/PWM"/>
 </segment>
 <segment>
 <pinref part="U9" gate="U1" pin="S2"/>
@@ -9919,7 +9907,7 @@ Protocol Switching</text>
 <segment>
 <wire x1="81.28" y1="124.46" x2="68.58" y2="124.46" width="0.1524" layer="91"/>
 <label x="71.12" y="124.46" size="1.778" layer="95"/>
-<pinref part="U$18" gate="G$1" pin="5/PWM"/>
+<pinref part="U$1" gate="G$1" pin="5/PWM"/>
 </segment>
 <segment>
 <pinref part="U9" gate="U1" pin="S3"/>
