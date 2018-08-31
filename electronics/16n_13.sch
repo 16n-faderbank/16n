@@ -9865,6 +9865,7 @@ Protocol Switching</text>
 <segment>
 <pinref part="U9" gate="U1" pin="COM"/>
 <wire x1="119.38" y1="25.4" x2="132.08" y2="25.4" width="0.1524" layer="91"/>
+<label x="132.08" y="25.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="S0" class="0">
@@ -9974,8 +9975,8 @@ Protocol Switching</text>
 <net name="A8" class="0">
 <segment>
 <pinref part="U9" gate="U1" pin="CHAN15"/>
-<wire x1="93.98" y1="15.24" x2="86.36" y2="15.24" width="0.1524" layer="91"/>
-<label x="88.9" y="15.24" size="1.778" layer="95"/>
+<wire x1="93.98" y1="15.24" x2="81.28" y2="15.24" width="0.1524" layer="91"/>
+<label x="83.82" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A9" class="0">
