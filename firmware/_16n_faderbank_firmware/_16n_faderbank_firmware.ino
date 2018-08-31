@@ -22,7 +22,6 @@
 #include <ResponsiveAnalogRead.h>
 #include <CD74HC4067.h>
 
-
 #include "TxHelper.h"
 
 MIDI_CREATE_DEFAULT_INSTANCE();
