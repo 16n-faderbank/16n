@@ -108,14 +108,14 @@ void setup() {
   Serial.println("Enabling i2c in MASTER mode");
   #endif
   
-  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000); 
+  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   #else
   
   #ifdef DEBUG
   Serial.println("Enabling i2c enabled in SLAVE mode");
   #endif
   
-  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000); 
+  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   Wire1.onReceive(i2cWrite);  
   Wire1.onRequest(i2cReadRequest);
   
