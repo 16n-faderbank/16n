@@ -4,8 +4,9 @@ Written for Teensy 3.2.
 
 ## Requirements
 
-* Latest Teensyduino install.
-* `ResponsiveAnalogRead` library
+- Latest Teensyduino install.
+- `ResponsiveAnalogRead` library
+- `CD74HC4067` library
 
 ## Compilation
 
@@ -23,7 +24,7 @@ Most configuration you'll want to do is handled in `config.h`, through a set of 
 will restrict everything to a single channel. Designed for breadboard development.
 
 ```C
-define REV 1
+#define REV 1
 ```
 
 will reverse the order of the analogue ports.
