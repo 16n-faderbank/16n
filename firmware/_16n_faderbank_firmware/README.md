@@ -4,7 +4,8 @@ Written for Teensy 3.2.
 
 ## Requirements
 
-Latest Teensyduino install.
+* Latest Teensyduino install.
+* `ResponsiveAnalogRead` library
 
 ## Compilation
 
