@@ -81,7 +81,7 @@ void setup() {
   #endif
 
   // initialize the TX Helper
-  TxHelper::UseWire1(true);
+  TxHelper::UseWire1(false);
   TxHelper::SetPorts(16);
   TxHelper::SetModes(4);
 
@@ -101,23 +101,23 @@ void setup() {
     #endif
   }
 
-  // i2c using the alternate I2C pins on a Teensy 3.2
+  // i2c using the default I2C pins on a Teensy 3.2
   #ifdef MASTER
 
   #ifdef DEBUG
   Serial.println("Enabling i2c in MASTER mode");
   #endif
   
-  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  Wire.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   #else
   
   #ifdef DEBUG
   Serial.println("Enabling i2c enabled in SLAVE mode");
   #endif
-  
-  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
-  Wire1.onReceive(i2cWrite);  
-  Wire1.onRequest(i2cReadRequest);
+
+  Wire.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  Wire.onReceive(i2cWrite);  
+  Wire.onRequest(i2cReadRequest);
   
   #endif
 
@@ -138,8 +138,9 @@ void setup() {
 void loop() {
   // read loop using the i counter
   for(i=0; i<channelCount; i++) {
-    // set mux to channelCount
+    // set mux to appropriate channel
     mux.channel(muxMapping[i]);
+    
     // read the value
     temp = analogRead(0); // mux goes into A0
     
@@ -230,11 +231,11 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
       messageBuffer[2] = valueTemp >> 8;
       messageBuffer[3] = valueTemp & 0xff;
 
-      Wire1.beginTransmission(model + deviceIndex);
+      Wire.beginTransmission(model + deviceIndex);
       messageBuffer[0] = cmd; 
       messageBuffer[1] = (uint8_t)devicePort;
-      Wire1.write(messageBuffer, 4);
-      Wire1.endTransmission();
+      Wire.write(messageBuffer, 4);
+      Wire.endTransmission();
 }
 
 #else
@@ -308,8 +309,8 @@ void i2cReadRequest(){
   #endif
 
   // send the puppy as a pair of bytes
-  Wire1.write(shiftReady >> 8);
-  Wire1.write(shiftReady & 255);
+  Wire.write(shiftReady >> 8);
+  Wire.write(shiftReady & 255);
 
 }
 
