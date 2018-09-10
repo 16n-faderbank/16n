@@ -24,9 +24,6 @@
 //
 //#define MASTER 1
  
-// the midi channel for the device to output
-const int channel = 1;
-
 // minimum and maximum values for faders (to deal with tolerances)
 #define MINFADER 15
 #define MAXFADER 8135
