@@ -9204,7 +9204,7 @@ Protocol Switching</text>
 <instance part="GND21" gate="1" x="139.7" y="40.64"/>
 <instance part="GND24" gate="1" x="124.46" y="12.7"/>
 <instance part="C9" gate="G$1" x="134.62" y="48.26"/>
-<instance part="U$1" gate="G$1" x="104.14" y="111.76"/>
+<instance part="U$1" gate="G$1" x="106.68" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -9212,13 +9212,13 @@ Protocol Switching</text>
 <net name="GND" class="0">
 <segment>
 <pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="127" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="129.54" x2="132.08" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="129.54" x2="132.08" y2="128.27" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="GND23" gate="1" pin="GND"/>
-<wire x1="127" y1="116.84" x2="142.24" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="116.84" x2="142.24" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="142.24" y1="116.84" x2="142.24" y2="115.57" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="AGND"/>
 </segment>
@@ -9406,7 +9406,7 @@ Protocol Switching</text>
 <net name="+3V3" class="0">
 <segment>
 <pinref part="+3V22" gate="G$1" pin="+3V3"/>
-<wire x1="127" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="134.62" x2="132.08" y2="134.62" width="0.1524" layer="91"/>
 <wire x1="132.08" y1="134.62" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="3.3V"/>
 </segment>
@@ -9526,7 +9526,6 @@ Protocol Switching</text>
 <wire x1="358.14" y1="187.96" x2="358.14" y2="185.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="127" y1="137.16" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="137.16" x2="129.54" y2="144.78" width="0.1524" layer="91"/>
 <label x="129.54" y="144.78" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="VIN"/>
@@ -9553,7 +9552,7 @@ Protocol Switching</text>
 <label x="235.712" y="105.156" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="81.28" y1="134.62" x2="76.2" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="134.62" x2="76.2" y2="134.62" width="0.1524" layer="91"/>
 <label x="76.2" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="U$1" gate="G$1" pin="1/TX1/T"/>
 </segment>
@@ -9606,7 +9605,7 @@ Protocol Switching</text>
 <pinref part="JP2" gate="G$1" pin="LEFT"/>
 </segment>
 <segment>
-<wire x1="81.28" y1="91.44" x2="73.66" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="91.44" x2="73.66" y2="91.44" width="0.1524" layer="91"/>
 <label x="76.2" y="91.44" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
 </segment>
@@ -9627,7 +9626,7 @@ Protocol Switching</text>
 <pinref part="JP2" gate="G$1" pin="RIGHT"/>
 </segment>
 <segment>
-<wire x1="81.28" y1="88.9" x2="73.66" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="88.9" x2="73.66" y2="88.9" width="0.1524" layer="91"/>
 <label x="76.2" y="88.9" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
 </segment>
@@ -9858,7 +9857,7 @@ Protocol Switching</text>
 </net>
 <net name="ANALOG_IN" class="0">
 <segment>
-<wire x1="81.28" y1="101.6" x2="73.66" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="101.6" x2="73.66" y2="101.6" width="0.1524" layer="91"/>
 <label x="68.58" y="101.6" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="14/A1"/>
 </segment>
@@ -9870,7 +9869,7 @@ Protocol Switching</text>
 </net>
 <net name="S0" class="0">
 <segment>
-<wire x1="81.28" y1="116.84" x2="68.58" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="116.84" x2="68.58" y2="116.84" width="0.1524" layer="91"/>
 <label x="71.12" y="116.84" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="8/TX3"/>
 </segment>
@@ -9882,7 +9881,7 @@ Protocol Switching</text>
 </net>
 <net name="S1" class="0">
 <segment>
-<wire x1="81.28" y1="119.38" x2="68.58" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="119.38" x2="68.58" y2="119.38" width="0.1524" layer="91"/>
 <label x="71.12" y="119.38" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="7/RX3"/>
 </segment>
@@ -9894,7 +9893,7 @@ Protocol Switching</text>
 </net>
 <net name="S2" class="0">
 <segment>
-<wire x1="81.28" y1="121.92" x2="68.58" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="121.92" x2="68.58" y2="121.92" width="0.1524" layer="91"/>
 <label x="71.12" y="121.92" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="6/PWM"/>
 </segment>
@@ -9906,7 +9905,7 @@ Protocol Switching</text>
 </net>
 <net name="S3" class="0">
 <segment>
-<wire x1="81.28" y1="124.46" x2="68.58" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="124.46" x2="68.58" y2="124.46" width="0.1524" layer="91"/>
 <label x="71.12" y="124.46" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="5/PWM"/>
 </segment>

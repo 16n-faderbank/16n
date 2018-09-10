@@ -203,8 +203,6 @@ Ring is +5V</text>
 <text x="218.1225" y="1.905" size="2.54" layer="26" ratio="12" rot="MR0">K</text>
 <text x="48.895" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">SCL</text>
 <text x="51.435" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">SDA</text>
-<text x="53.975" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">5V</text>
-<text x="46.355" y="14.9225" size="1.524" layer="25" rot="R90" align="center-left">GND</text>
 <text x="121.285" y="10.4775" size="2.4384" layer="25" ratio="20" align="center">16</text>
 <wire x1="120.015" y1="2.2225" x2="120.015" y2="7.9375" width="2.0828" layer="25"/>
 <wire x1="128.905" y1="2.2225" x2="128.905" y2="7.3025" width="2.0828" layer="25"/>
@@ -234,7 +232,7 @@ Ring is +5V</text>
 Brian Crabtree
 Tom Armitage
 Brendan Cassidy</text>
-<text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.3</text>
+<text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.31</text>
 <text x="57.785" y="1.27" size="1.778" layer="25">I2C: Tip SDA, Ring SCL
 DO NOT HOT PLUG</text>
 <text x="243.205" y="21.9075" size="1.778" layer="25">MIDI</text>
@@ -2657,14 +2655,14 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="R15" pad="1"/>
 <contactref element="U3" pad="3"/>
 <contactref element="U$13" pad="2"/>
-<wire x1="122.07875" y1="17.62125" x2="122.2375" y2="17.78" width="0.254" layer="1"/>
+<wire x1="122.2375" y1="17.78" x2="122.07875" y2="17.62125" width="0.254" layer="1"/>
 <wire x1="122.07875" y1="17.62125" x2="121.92" y2="17.4625" width="0.254" layer="1"/>
 <wire x1="121.92" y1="16.1925" x2="122.2375" y2="15.875" width="0.254" layer="1"/>
 <wire x1="131.7625" y1="15.875" x2="132.3975" y2="15.24" width="0.254" layer="1"/>
 <wire x1="132.3975" y1="15.24" x2="132.3975" y2="14.285" width="0.254" layer="1"/>
 <wire x1="121.92" y1="17.4625" x2="121.92" y2="16.1925" width="0.254" layer="1"/>
 <wire x1="122.2375" y1="15.875" x2="131.7625" y2="15.875" width="0.254" layer="1"/>
-<wire x1="120.015" y1="17.78" x2="115.57" y2="22.225" width="0.254" layer="1"/>
+<wire x1="115.57" y1="22.225" x2="120.015" y2="17.78" width="0.254" layer="1"/>
 <wire x1="115.57" y1="22.225" x2="115.57" y2="33.655" width="0.254" layer="1"/>
 <wire x1="115.57" y1="33.655" x2="114.2111" y2="35.0139" width="0.254" layer="1"/>
 <wire x1="114.2111" y1="35.0139" x2="107.423075" y2="35.0139" width="0.254" layer="1"/>
