@@ -25,6 +25,8 @@
           console.log('This browser supports WebMIDI!');
       } else {
           console.log('WebMIDI is not supported in this browser.');
+          document.querySelector("#midi").style.display = "none";
+          document.querySelector("#nomidi").style.display = "block";
       }
 
       navigator.requestMIDIAccess()
@@ -69,6 +71,11 @@
       background: #aaa;
       font-family: sans-serif;
     }
+    
+    #nomidi {
+      display: none;
+    }
+
     #backdrop {
       background: #aaa;
       position: relative;
@@ -104,44 +111,46 @@
 </head>
 <body>
   <h1>16n MIDI test</h1>
-  <p style="width: 640px">This test page requires Google Chrome. You should see sixteen sliders that move independently when your 16n is connected. This assumes the default midi settings of CCs 32-47.</p>
-  <div id="backdrop">
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='slider'></div>
-    <div class='clear'></div></div>
+  <div id="nomidi">This test page requires a WebMIDI compatible browser; we recommend Google Chrome.</div>
+  <div id="midi">
+    <p style="width: 640px">Connect your 16n via USB _or_ hardware MIDI, not both. You should see sixteen sliders that move independently when your 16n is connected. This assumes the default midi settings of CCs 32-47.</p>
+    <div id="backdrop">
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='clear'></div>
+    </div>
+    <div id="labels">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
   </div>
-  <div id="labels">
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-    <div>1</div>
-  </div>
-  
 </body>
 </html>
