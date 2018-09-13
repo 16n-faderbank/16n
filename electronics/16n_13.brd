@@ -231,7 +231,7 @@ Ring is +5V</text>
 <text x="240.665" y="65.7225" size="1.27" layer="26" rot="MR0">Sean Hellfritsch
 Brian Crabtree
 Tom Armitage
-Brendan Cassidy</text>
+Brendon Cassidy</text>
 <text x="240.665" y="63.5" size="1.0668" layer="26" ratio="10" rot="MR0" align="top-left">v1.31</text>
 <text x="57.785" y="1.27" size="1.778" layer="25">I2C: Tip SDA, Ring SCL
 DO NOT HOT PLUG</text>
