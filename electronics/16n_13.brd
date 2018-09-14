@@ -2350,8 +2350,12 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="216.8525" y="21.2725" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="U8" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="231.14" y="16.51" smashed="yes" rot="R270"/>
-<element name="R40" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="6.35" smashed="yes" rot="R270"/>
-<element name="R41" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="6.35" smashed="yes" rot="R270"/>
+<element name="R40" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="6.35" smashed="yes" rot="R270">
+<attribute name="VALUE" x="234.6325" y="8.89" size="1.27" layer="27" rot="R270"/>
+</element>
+<element name="R41" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="6.35" smashed="yes" rot="R270">
+<attribute name="VALUE" x="240.665" y="8.5725" size="1.27" layer="27" rot="R270"/>
+</element>
 <element name="R42" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="231.14" y="101.6" smashed="yes">
 <attribute name="VALUE" x="230.1875" y="99.06" size="1.27" layer="27"/>
 </element>
@@ -2523,7 +2527,6 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U9" pad="15"/>
 <contactref element="U9" pad="12"/>
 <contactref element="C9" pad="2"/>
-<via x="240.9825" y="7.3025" extent="1-16" drill="0.35"/>
 <contactref element="U$1" pad="GND"/>
 <contactref element="U$1" pad="AGND"/>
 <via x="85.09" y="26.67" extent="1-16" drill="0.35"/>
