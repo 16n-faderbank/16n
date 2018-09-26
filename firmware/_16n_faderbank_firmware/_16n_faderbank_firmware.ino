@@ -81,7 +81,11 @@ void setup() {
   #endif
 
   // initialize the TX Helper
+  #ifdef V125
+  TxHelper::UseWire1(true);
+  #else
   TxHelper::UseWire1(false);
+  #endif
   TxHelper::SetPorts(16);
   TxHelper::SetModes(4);
 
@@ -108,16 +112,28 @@ void setup() {
   Serial.println("Enabling i2c in MASTER mode");
   #endif
   
-  Wire.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  #ifdef V125
+  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   #else
+  Wire.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  #endif
+
+  #else
+  // non-master mode
   
   #ifdef DEBUG
   Serial.println("Enabling i2c enabled in SLAVE mode");
   #endif
 
+  #ifdef V125
+  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
+  Wire1.onReceive(i2cWrite);  
+  Wire1.onRequest(i2cReadRequest);
+  #else
   Wire.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   Wire.onReceive(i2cWrite);  
   Wire.onRequest(i2cReadRequest);
+  #endif
   
   #endif
 
@@ -138,11 +154,15 @@ void setup() {
 void loop() {
   // read loop using the i counter
   for(i=0; i<channelCount; i++) {
+    #ifdef V125
+    temp = analogRead(ports[i]); // mux goes into A0
+    #else
     // set mux to appropriate channel
     mux.channel(muxMapping[i]);
     
     // read the value
     temp = analogRead(0); // mux goes into A0
+    #endif
     
     // put the value into the smoother
     analog[i]->update(temp);
@@ -204,6 +224,7 @@ void writeMidi(){
       port = q % 4;
       device = q / 4;
 
+
       // TXo
       sendi2c(0x60, device, 0x11, port, notShiftyTemp);
 
@@ -231,11 +252,19 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
       messageBuffer[2] = valueTemp >> 8;
       messageBuffer[3] = valueTemp & 0xff;
 
+      #ifdef V125
+      Wire1.beginTransmission(model + deviceIndex);
+      messageBuffer[0] = cmd; 
+      messageBuffer[1] = (uint8_t)devicePort;
+      Wire1.write(messageBuffer, 4);
+      Wire1.endTransmission();
+      #else
       Wire.beginTransmission(model + deviceIndex);
       messageBuffer[0] = cmd; 
       messageBuffer[1] = (uint8_t)devicePort;
       Wire.write(messageBuffer, 4);
       Wire.endTransmission();
+      #endif
 }
 
 #else
@@ -309,8 +338,13 @@ void i2cReadRequest(){
   #endif
 
   // send the puppy as a pair of bytes
+  #ifdef V125
+  Wire1.write(shiftReady >> 8);
+  Wire1.write(shiftReady & 255);
+  #else
   Wire.write(shiftReady >> 8);
   Wire.write(shiftReady & 255);
+  #endif
 
 }
 
