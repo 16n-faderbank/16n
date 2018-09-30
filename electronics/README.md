@@ -2,6 +2,10 @@
 
 Electronics CAD and design for the 16n faderbank.
 
+## VERSION
+
+1.31
+
 ## Directory contents
 
 * `16n.sch` and `16n.brd` are EAGLE 9.1.3 format schematic and board layout for the project.

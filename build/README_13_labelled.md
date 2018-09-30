@@ -1,4 +1,4 @@
-# 16n: build guide
+# 16n: v1.31 build guide
 
 This is a basic build guide for putting a 16n together. 
 
