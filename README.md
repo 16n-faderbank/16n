@@ -12,6 +12,8 @@ It is currently at version **1.31**
 * `electronics` is schematics and gerber files for the PCB.
 * `panel` is SVG/DXF files for top and bottom panels.
 * `build` is build documentation.
+* `browser_test` is a webpage you can use in Google Chrome to test your 16n
+  using WebMIDI.
 
 ## 16n Details
 
