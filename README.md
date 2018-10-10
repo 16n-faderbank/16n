@@ -50,11 +50,17 @@ Connect USB to computer/USB host, or a USB power supply. Faders 1-16 emit 0-~5V 
 
 ### I2C
 
-I2C is complex. 
+I2C is complex and requires a bit more care when connecting up with your 16n. You can do some very powerful things with it, but you need to be very mindful of a few key points:
 
-By default, things are setup to work with a monome Teletype. Connect the I2C socket (tip SDA, ring SCL) to your Teletype's I2C (`II`) bus. Further instructions can be found somewhere on the internet.
+- I2C is very picky about cable length. Keep your cable runs as short as possible. If your cables are too long, your bus may “hang” and cause connected instruments to become unresponsive until reboot.
+- Connect and disconnect devices only when they are powered down. This keeps your instruments from locking up or being damaged. (I2C just wasn’t designed to be as robust and hot-pluggable as MIDI or USB.)
+- Be extremely careful not to connect audio or MIDI cables to the I2C jack. This could damage your 16n’s processor.
+- 16n’s I2C jack is a 3.5mm stereo jack wired as follows: tip SDA, ring SCL, and sleeve GND (ground). The various devices in the ecosystem that support I2C order these pins differently. Check your devices documentation or PCB to ensure that you are connecting to it properly.
+- Depending on the number of devices on the I2C bus and your configuration, you my need to utilize a bus board to add additional “pull up” resistance to the bus in order to have reliable communications. There are a number of options available for this in the community.
 
-To emit I2C data to TXo, Ansible, or ER-301, flash the board with firmware where `MASTER` is enabled. If you need pull-up resistors on your I2C line, fit them on the 16n circuitboard. Connect I2C lines before powering up your system. Supply power to 16n and your modular system. I2C should be transmitted for fader moves.
+By default, the 16n firmware is set up to work with a monome Teletype out of the box. Make sure you are running the latest firmware (3.0 as of this writing). Simply connect to the I2C bus and go. The 16n commands are listed in the Teletype documentation available here: [https://monome.org/docs/modular/teletype/manual/#n-faderbank](http://tracking.llllllll.co/tracking/click?d=IOYovprfykolJMD1O-b5g0sH_UCMpaRTdapajLxYzyjuOnfdl1UReWSlnBP6TCep8WL_TY5OV75xMf_QJQxMSbmJlyznTtbvo7ofvBp-3_KlOJFdEKIzGPMdXG3vqgnEXv6ZP6_NSmTGE7Mdf4N56w_JhrfzBrPNqAuS6LrjvooW0). These commands allow for the Teletype to programmatically read the position of any of the 16n’s faders.
+
+The “MASTER” version of the 16n firmware causes the 16n to emit commands directly to a number of modules. (You need to compile and/or flash it to your 16n over USB - see the documentation in the `firmware` directory.) In MASTER mode, 16n sends CV values to up to four monome Ansible, four bpcmusic TXo, and the Orthogonal Devices’ ER-301 all at the same time. Note: In this configuration, you need to have additional pull-up resistors on the I2C line (as mentioned above). Either use one of the available powered I2C busboards for this purpose or, if you don’t plan on connecting your 16n to a Teletype, you can populate the pull-up resistors on the 16n PCB.
 
 ## BOM
 
