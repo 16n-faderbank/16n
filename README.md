@@ -34,7 +34,7 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 Here's a prototype board with the case off.
 
-## Usage
+## User guide
 
 ### USB MIDI
 
