@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.1.3">
+<eagle version="9.2.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -2219,285 +2219,285 @@ Please make sure your boards conform to these design rules.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="U$16" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="238.76" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$15" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="223.52" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$14" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="208.28" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$13" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="193.04" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$12" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="177.8" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$11" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="162.56" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$10" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="147.32" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$9" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="132.08" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$8" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="116.84" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$7" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="101.6" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$6" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="86.36" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$5" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="71.12" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$4" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="55.88" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$3" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="40.64" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$2" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="25.4" y="63.5" smashed="yes" rot="R270"/>
-<element name="U$1" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="10.16" y="63.5" smashed="yes" rot="R270"/>
-<element name="R52" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47" x="212.09" y="2.54" smashed="yes" rot="R180">
+<element name="U$16" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="238.76" y="63.5" rot="R270"/>
+<element name="U$15" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="223.52" y="63.5" rot="R270"/>
+<element name="U$14" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="208.28" y="63.5" rot="R270"/>
+<element name="U$13" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="193.04" y="63.5" rot="R270"/>
+<element name="U$12" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="177.8" y="63.5" rot="R270"/>
+<element name="U$11" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="162.56" y="63.5" rot="R270"/>
+<element name="U$10" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="147.32" y="63.5" rot="R270"/>
+<element name="U$9" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="132.08" y="63.5" rot="R270"/>
+<element name="U$8" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="116.84" y="63.5" rot="R270"/>
+<element name="U$7" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="101.6" y="63.5" rot="R270"/>
+<element name="U$6" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="86.36" y="63.5" rot="R270"/>
+<element name="U$5" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="71.12" y="63.5" rot="R270"/>
+<element name="U$4" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="55.88" y="63.5" rot="R270"/>
+<element name="U$3" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="40.64" y="63.5" rot="R270"/>
+<element name="U$2" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="25.4" y="63.5" rot="R270"/>
+<element name="U$1" library="monome" package="RS6011SP600" value="SLIDEPOT-ALPS-60MM" x="10.16" y="63.5" rot="R270"/>
+<element name="R52" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47" x="212.09" y="2.54" rot="R180">
 <attribute name="NAME" x="213.995" y="1.5875" size="1.27" layer="25" rot="R180"/>
 </element>
-<element name="R49" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47" x="212.09" y="5.715" smashed="yes" rot="R180">
+<element name="R49" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="47" x="212.09" y="5.715" rot="R180">
 <attribute name="NAME" x="213.995" y="8.255" size="1.27" layer="25" rot="R180"/>
 </element>
-<element name="JP1" library="SparkFun-Connectors" package="AUDIO-JACK" value="" x="245" y="15" smashed="yes" rot="R180">
+<element name="JP1" library="SparkFun-Connectors" package="AUDIO-JACK" value="" x="245" y="15" rot="R180">
 <attribute name="VALUE" x="246.27" y="13.73" size="0.4064" layer="27" rot="R180"/>
 </element>
-<element name="S1" library="SparkFun-Electromechanical" package="EG2211" value="" x="226.06" y="5.715" smashed="yes" rot="R90"/>
-<element name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="DNP" x="56.515" y="21.59" smashed="yes" rot="R270">
+<element name="S1" library="SparkFun-Electromechanical" package="EG2211" value="" x="226.06" y="5.715" rot="R90"/>
+<element name="R18" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="DNP" x="56.515" y="21.59" rot="R270">
 <attribute name="NAME" x="55.5625" y="18.0975" size="1.27" layer="25"/>
 <attribute name="VALUE" x="59.055" y="25.0825" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="DNP" x="43.815" y="21.59" smashed="yes" rot="R270">
+<element name="R17" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="DNP" x="43.815" y="21.59" rot="R270">
 <attribute name="NAME" x="41.5925" y="18.0975" size="1.27" layer="25"/>
 <attribute name="VALUE" x="44.7675" y="25.0825" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="D3" library="foxfield" package="SOD-123" value="" x="51.435" y="21.59" smashed="yes" rot="R90">
+<element name="D3" library="foxfield" package="SOD-123" value="" x="51.435" y="21.59" rot="R90">
 <attribute name="NAME" x="52.6415" y="25.6032" size="1.016" layer="25" rot="R180"/>
 <attribute name="VALUE" x="52.9336" y="20.574" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="D4" library="foxfield" package="SOD-123" value="" x="53.975" y="21.59" smashed="yes" rot="R90">
+<element name="D4" library="foxfield" package="SOD-123" value="" x="53.975" y="21.59" rot="R90">
 <attribute name="NAME" x="55.1815" y="25.6032" size="1.016" layer="25" rot="R180"/>
 <attribute name="VALUE" x="55.4736" y="20.574" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="D2" library="foxfield" package="SOD-123" value="" x="48.895" y="21.59" smashed="yes" rot="R90">
+<element name="D2" library="foxfield" package="SOD-123" value="" x="48.895" y="21.59" rot="R90">
 <attribute name="NAME" x="50.1015" y="25.6032" size="1.016" layer="25" rot="R180"/>
 <attribute name="VALUE" x="50.3936" y="20.574" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="D1" library="foxfield" package="SOD-123" value="" x="46.355" y="21.59" smashed="yes" rot="R90">
+<element name="D1" library="foxfield" package="SOD-123" value="" x="46.355" y="21.59" rot="R90">
 <attribute name="NAME" x="47.5615" y="25.6032" size="1.016" layer="25" rot="R180"/>
 <attribute name="VALUE" x="47.8536" y="20.574" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="J1" library="pj302m" package="PJ302M" value="PJ302M" x="10.6" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J2" library="pj302m" package="PJ302M" value="PJ302M" x="25.4" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J3" library="pj302m" package="PJ302M" value="PJ302M" x="40.64" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J4" library="pj302m" package="PJ302M" value="PJ302M" x="55.88" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J5" library="pj302m" package="PJ302M" value="PJ302M" x="71.12" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J6" library="pj302m" package="PJ302M" value="PJ302M" x="86.36" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J7" library="pj302m" package="PJ302M" value="PJ302M" x="101.6" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J8" library="pj302m" package="PJ302M" value="PJ302M" x="116.205" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J9" library="pj302m" package="PJ302M" value="PJ302M" x="132.715" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J10" library="pj302m" package="PJ302M" value="PJ302M" x="147.32" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J11" library="pj302m" package="PJ302M" value="PJ302M" x="162.56" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J12" library="pj302m" package="PJ302M" value="PJ302M" x="177.8" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J13" library="pj302m" package="PJ302M" value="PJ302M" x="193.04" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J14" library="pj302m" package="PJ302M" value="PJ302M" x="208.28" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J15" library="pj302m" package="PJ302M" value="PJ302M" x="223.52" y="118.4275" smashed="yes" rot="R270"/>
-<element name="J16" library="pj302m" package="PJ302M" value="PJ302M" x="238.3" y="118.4275" smashed="yes" rot="R270"/>
-<element name="U2" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="84.455" y="16.51" smashed="yes" rot="R270">
+<element name="J1" library="pj302m" package="PJ302M" value="PJ302M" x="10.6" y="118.4275" rot="R270"/>
+<element name="J2" library="pj302m" package="PJ302M" value="PJ302M" x="25.4" y="118.4275" rot="R270"/>
+<element name="J3" library="pj302m" package="PJ302M" value="PJ302M" x="40.64" y="118.4275" rot="R270"/>
+<element name="J4" library="pj302m" package="PJ302M" value="PJ302M" x="55.88" y="118.4275" rot="R270"/>
+<element name="J5" library="pj302m" package="PJ302M" value="PJ302M" x="71.12" y="118.4275" rot="R270"/>
+<element name="J6" library="pj302m" package="PJ302M" value="PJ302M" x="86.36" y="118.4275" rot="R270"/>
+<element name="J7" library="pj302m" package="PJ302M" value="PJ302M" x="101.6" y="118.4275" rot="R270"/>
+<element name="J8" library="pj302m" package="PJ302M" value="PJ302M" x="116.205" y="118.4275" rot="R270"/>
+<element name="J9" library="pj302m" package="PJ302M" value="PJ302M" x="132.715" y="118.4275" rot="R270"/>
+<element name="J10" library="pj302m" package="PJ302M" value="PJ302M" x="147.32" y="118.4275" rot="R270"/>
+<element name="J11" library="pj302m" package="PJ302M" value="PJ302M" x="162.56" y="118.4275" rot="R270"/>
+<element name="J12" library="pj302m" package="PJ302M" value="PJ302M" x="177.8" y="118.4275" rot="R270"/>
+<element name="J13" library="pj302m" package="PJ302M" value="PJ302M" x="193.04" y="118.4275" rot="R270"/>
+<element name="J14" library="pj302m" package="PJ302M" value="PJ302M" x="208.28" y="118.4275" rot="R270"/>
+<element name="J15" library="pj302m" package="PJ302M" value="PJ302M" x="223.52" y="118.4275" rot="R270"/>
+<element name="J16" library="pj302m" package="PJ302M" value="PJ302M" x="238.3" y="118.4275" rot="R270"/>
+<element name="U2" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="84.455" y="16.51" rot="R270">
 <attribute name="NAME" x="82.55" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R35" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="90.4875" y="13.335" smashed="yes" rot="R270">
+<element name="R35" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="90.4875" y="13.335" rot="R270">
 <attribute name="NAME" x="89.8525" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R36" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="92.71" y="13.335" smashed="yes" rot="R270">
+<element name="R36" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="92.71" y="13.335" rot="R270">
 <attribute name="NAME" x="92.075" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="17.78" y="101.6" smashed="yes">
+<element name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="17.78" y="101.6">
 <attribute name="NAME" x="15.875" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R22" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="92.71" y="19.05" smashed="yes" rot="R270">
+<element name="R22" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="92.71" y="19.05" rot="R270">
 <attribute name="NAME" x="92.075" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="90.4875" y="19.05" smashed="yes" rot="R270">
+<element name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="90.4875" y="19.05" rot="R270">
 <attribute name="NAME" x="89.8525" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U3" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="105.41" y="16.51" smashed="yes" rot="R270">
+<element name="U3" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="105.41" y="16.51" rot="R270">
 <attribute name="NAME" x="103.505" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R37" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="111.4425" y="13.335" smashed="yes" rot="R270">
+<element name="R37" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="111.4425" y="13.335" rot="R270">
 <attribute name="NAME" x="110.8075" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R38" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="113.665" y="13.335" smashed="yes" rot="R270">
+<element name="R38" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="113.665" y="13.335" rot="R270">
 <attribute name="NAME" x="113.03" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R24" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="113.665" y="19.05" smashed="yes" rot="R270">
+<element name="R24" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="113.665" y="19.05" rot="R270">
 <attribute name="NAME" x="113.03" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="111.4425" y="19.05" smashed="yes" rot="R270">
+<element name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="111.4425" y="19.05" rot="R270">
 <attribute name="NAME" x="110.8075" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U4" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="126.365" y="16.51" smashed="yes" rot="R270">
+<element name="U4" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="126.365" y="16.51" rot="R270">
 <attribute name="NAME" x="120.3325" y="19.4945" size="1.27" layer="25"/>
 </element>
-<element name="R39" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="132.3975" y="13.335" smashed="yes" rot="R270">
+<element name="R39" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="132.3975" y="13.335" rot="R270">
 <attribute name="NAME" x="131.7625" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R40" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="134.62" y="13.335" smashed="yes" rot="R270">
+<element name="R40" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="134.62" y="13.335" rot="R270">
 <attribute name="NAME" x="133.985" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="78.74" y="101.6" smashed="yes">
+<element name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="78.74" y="101.6">
 <attribute name="NAME" x="76.835" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R26" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="134.62" y="19.05" smashed="yes" rot="R270">
+<element name="R26" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="134.62" y="19.05" rot="R270">
 <attribute name="NAME" x="133.985" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R25" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="132.3975" y="19.05" smashed="yes" rot="R270">
+<element name="R25" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="132.3975" y="19.05" rot="R270">
 <attribute name="NAME" x="131.7625" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U5" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="147.32" y="16.51" smashed="yes" rot="R270">
+<element name="U5" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="147.32" y="16.51" rot="R270">
 <attribute name="NAME" x="145.415" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R41" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="153.3525" y="13.335" smashed="yes" rot="R270">
+<element name="R41" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="153.3525" y="13.335" rot="R270">
 <attribute name="NAME" x="152.7175" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R42" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="155.575" y="13.335" smashed="yes" rot="R270">
+<element name="R42" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="155.575" y="13.335" rot="R270">
 <attribute name="NAME" x="154.94" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="109.22" y="101.6" smashed="yes">
+<element name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="109.22" y="101.6">
 <attribute name="NAME" x="107.315" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R28" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="155.575" y="19.05" smashed="yes" rot="R270">
+<element name="R28" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="155.575" y="19.05" rot="R270">
 <attribute name="NAME" x="154.94" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R27" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="153.3525" y="19.05" smashed="yes" rot="R270">
+<element name="R27" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="153.3525" y="19.05" rot="R270">
 <attribute name="NAME" x="152.7175" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U6" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="168.275" y="16.51" smashed="yes" rot="R270">
+<element name="U6" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="168.275" y="16.51" rot="R270">
 <attribute name="NAME" x="166.37" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R43" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="174.3075" y="13.335" smashed="yes" rot="R270">
+<element name="R43" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="174.3075" y="13.335" rot="R270">
 <attribute name="NAME" x="173.6725" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R44" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="176.53" y="13.335" smashed="yes" rot="R270">
+<element name="R44" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="176.53" y="13.335" rot="R270">
 <attribute name="NAME" x="175.895" y="11.43" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="139.7" y="101.6" smashed="yes">
+<element name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="139.7" y="101.6">
 <attribute name="NAME" x="137.795" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R30" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="176.53" y="19.05" smashed="yes" rot="R270">
+<element name="R30" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="176.53" y="19.05" rot="R270">
 <attribute name="NAME" x="175.895" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R29" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="174.3075" y="19.05" smashed="yes" rot="R270">
+<element name="R29" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="174.3075" y="19.05" rot="R270">
 <attribute name="NAME" x="173.6725" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U7" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="189.23" y="16.51" smashed="yes" rot="R270">
+<element name="U7" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="189.23" y="16.51" rot="R270">
 <attribute name="NAME" x="187.325" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R45" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="195.2625" y="13.335" smashed="yes" rot="R270">
+<element name="R45" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="195.2625" y="13.335" rot="R270">
 <attribute name="NAME" x="190.8175" y="10.4775" size="1.27" layer="25"/>
 </element>
-<element name="R46" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="197.485" y="13.335" smashed="yes" rot="R270">
+<element name="R46" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="197.485" y="13.335" rot="R270">
 <attribute name="NAME" x="198.755" y="14.9225" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="170.18" y="101.6" smashed="yes">
+<element name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="170.18" y="101.6">
 <attribute name="NAME" x="168.275" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R32" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="197.485" y="19.05" smashed="yes" rot="R270">
+<element name="R32" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="197.485" y="19.05" rot="R270">
 <attribute name="NAME" x="196.85" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R31" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="195.2625" y="19.05" smashed="yes" rot="R270">
+<element name="R31" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="195.2625" y="19.05" rot="R270">
 <attribute name="NAME" x="194.6275" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U8" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="210.185" y="16.51" smashed="yes" rot="R270">
+<element name="U8" library="MusicThingModular" package="SO14" value="MCP6004_SMD" x="210.185" y="16.51" rot="R270">
 <attribute name="NAME" x="208.28" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R47" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="216.2175" y="13.335" smashed="yes" rot="R270">
+<element name="R47" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="216.2175" y="13.335" rot="R270">
 <attribute name="NAME" x="215.5825" y="11.1125" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R48" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="218.44" y="13.335" smashed="yes" rot="R270">
+<element name="R48" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="218.44" y="13.335" rot="R270">
 <attribute name="NAME" x="217.805" y="11.1125" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="200.66" y="101.6" smashed="yes">
+<element name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="200.66" y="101.6">
 <attribute name="NAME" x="198.755" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R34" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="218.44" y="19.05" smashed="yes" rot="R270">
+<element name="R34" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="218.44" y="19.05" rot="R270">
 <attribute name="NAME" x="217.805" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R33" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="216.2175" y="19.05" smashed="yes" rot="R270">
+<element name="R33" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="216.2175" y="19.05" rot="R270">
 <attribute name="NAME" x="215.5825" y="24.765" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="U9" library="MusicThingModular" package="SO14" value="MCP6004" x="231.14" y="16.51" smashed="yes" rot="R270">
+<element name="U9" library="MusicThingModular" package="SO14" value="MCP6004" x="231.14" y="16.51" rot="R270">
 <attribute name="NAME" x="229.235" y="10.6045" size="1.27" layer="25"/>
 </element>
-<element name="R50" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="6.35" smashed="yes" rot="R270">
+<element name="R50" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="6.35" rot="R270">
 <attribute name="NAME" x="236.5375" y="4.1275" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R51" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="6.35" smashed="yes" rot="R270">
+<element name="R51" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="6.35" rot="R270">
 <attribute name="NAME" x="238.76" y="4.1275" size="1.27" layer="25" rot="R270"/>
 </element>
-<element name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="231.14" y="101.6" smashed="yes">
+<element name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="231.14" y="101.6">
 <attribute name="NAME" x="229.235" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="23.495" smashed="yes" rot="R270">
+<element name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10K" x="239.395" y="23.495" rot="R270">
 <attribute name="NAME" x="238.76" y="26.035" size="1.27" layer="25"/>
 </element>
-<element name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="23.495" smashed="yes" rot="R270">
+<element name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="5.6K" x="237.1725" y="23.495" rot="R270">
 <attribute name="NAME" x="234.95" y="26.035" size="1.27" layer="25"/>
 </element>
-<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="84.445" y="22.86" smashed="yes">
+<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="84.445" y="22.86">
 <attribute name="NAME" x="83.4925" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="63.5" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="105.41" y="22.86" smashed="yes">
+<element name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="105.41" y="22.86">
 <attribute name="NAME" x="104.4575" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="84.455" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="126.365" y="22.86" smashed="yes">
+<element name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="126.365" y="22.86">
 <attribute name="NAME" x="125.4125" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="105.41" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="147.32" y="22.86" smashed="yes">
+<element name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="147.32" y="22.86">
 <attribute name="NAME" x="146.3675" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="126.365" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="168.275" y="22.86" smashed="yes">
+<element name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="168.275" y="22.86">
 <attribute name="NAME" x="167.3225" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="147.32" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="189.23" y="22.86" smashed="yes">
+<element name="C7" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="189.23" y="22.86">
 <attribute name="NAME" x="188.2775" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="168.275" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="210.185" y="22.86" smashed="yes">
+<element name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="210.185" y="22.86">
 <attribute name="NAME" x="209.2325" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="189.23" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="231.14" y="22.86" smashed="yes">
+<element name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="231.14" y="22.86">
 <attribute name="NAME" x="230.1875" y="24.13" size="1.27" layer="25"/>
 <attribute name="SPICEPREFIX" value="C" x="210.185" y="22.86" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="33.02" y="101.6" smashed="yes">
+<element name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="33.02" y="101.6">
 <attribute name="NAME" x="31.115" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="63.5" y="101.6" smashed="yes">
+<element name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="63.5" y="101.6">
 <attribute name="NAME" x="61.595" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="124.46" y="101.6" smashed="yes">
+<element name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="124.46" y="101.6">
 <attribute name="NAME" x="122.555" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="93.98" y="101.6" smashed="yes">
+<element name="R6" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="93.98" y="101.6">
 <attribute name="NAME" x="92.075" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="154.94" y="101.6" smashed="yes">
+<element name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="154.94" y="101.6">
 <attribute name="NAME" x="153.035" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="185.42" y="101.6" smashed="yes">
+<element name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="185.42" y="101.6">
 <attribute name="NAME" x="183.515" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="215.9" y="101.6" smashed="yes">
+<element name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="215.9" y="101.6">
 <attribute name="NAME" x="213.995" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="R16" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="245.11" y="92.71" smashed="yes" rot="R90">
+<element name="R16" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="245.11" y="92.71" rot="R90">
 <attribute name="NAME" x="244.1575" y="88.9" size="1.27" layer="25"/>
 </element>
-<element name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="48.26" y="101.6" smashed="yes">
+<element name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="1K" x="48.26" y="101.6">
 <attribute name="NAME" x="46.355" y="98.7425" size="1.27" layer="25"/>
 </element>
-<element name="FID1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="FIDUCIAL_1MM" value="FIDUCIAL" x="2.54" y="114.3" smashed="yes"/>
-<element name="FID2" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="FIDUCIAL_1MM" value="FIDUCIAL" x="246.38" y="6.35" smashed="yes"/>
-<element name="JP2" library="SparkFun-Connectors" package="AUDIO-JACK" value="" x="50.4825" y="5.08" smashed="yes" rot="R90">
+<element name="FID1" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="FIDUCIAL_1MM" value="FIDUCIAL" x="2.54" y="114.3"/>
+<element name="FID2" library="adafruit" library_urn="urn:adsk.eagle:library:420" package="FIDUCIAL_1MM" value="FIDUCIAL" x="246.38" y="6.35"/>
+<element name="JP2" library="SparkFun-Connectors" package="AUDIO-JACK" value="" x="50.4825" y="5.08" rot="R90">
 <attribute name="VALUE" x="49.2125" y="3.81" size="0.4064" layer="27" rot="R90"/>
 </element>
-<element name="U1" library="foxfield" package="SOIC127P1030X265-24" package3d_urn="urn:adsk.eagle:package:4041879/1" value="CD74HC4067SM96" x="67.31" y="16.51" smashed="yes">
+<element name="U1" library="foxfield" package="SOIC127P1030X265-24" package3d_urn="urn:adsk.eagle:package:4041879/1" value="CD74HC4067SM96" x="67.31" y="16.51">
 <attribute name="NAME" x="64.77" y="7.0874" size="1.27" layer="25" align="bottom-center"/>
 </element>
-<element name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="63.5" y="26.3525" smashed="yes" rot="R180">
+<element name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="100n" x="63.5" y="26.3525" rot="R180">
 <attribute name="NAME" x="64.77" y="28.8925" size="1.27" layer="25" rot="R180"/>
 <attribute name="SPICEPREFIX" value="C" x="-2.8575" y="-17.145" size="1.778" layer="27" display="off"/>
 </element>
-<element name="U$17" library="Teensy_3_and_LC_Series_Boards_v1.4" package="TEENSY_3.0-3.2&amp;LC_DIL" value="TEENSY_3.1-3.2_DIL" x="19.05" y="14.605" smashed="yes" rot="R90"/>
+<element name="U$17" library="Teensy_3_and_LC_Series_Boards_v1.4" package="TEENSY_3.0-3.2&amp;LC_DIL" value="TEENSY_3.1-3.2_DIL" x="19.05" y="14.605" rot="R90"/>
 </elements>
 <signals>
 <signal name="GND" airwireshidden="yes">
