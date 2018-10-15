@@ -20,6 +20,7 @@
 #include <i2c_t3.h>
 #include <MIDI.h>
 #include <ResponsiveAnalogRead.h>
+#include <CD74HC4067.h>
 
 #include "TxHelper.h"
 
@@ -53,6 +54,14 @@ uint8_t port = 0;
 // the thing that smartly smooths the input
 ResponsiveAnalogRead *analog[channelCount];
 
+// mux config
+CD74HC4067 mux(8,7,6,5);
+#ifdef REV
+const int muxMapping[16] =  { 8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0 };
+#else
+const int muxMapping[16] = { 0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8 };
+#endif
+
 // the MIDI write timer
 IntervalTimer midiWriteTimer;
 int midiInterval = 5000; // 5ms
@@ -72,7 +81,11 @@ void setup() {
   #endif
 
   // initialize the TX Helper
+  #ifdef V125
   TxHelper::UseWire1(true);
+  #else
+  TxHelper::UseWire1(false);
+  #endif
   TxHelper::SetPorts(16);
   TxHelper::SetModes(4);
 
@@ -82,6 +95,7 @@ void setup() {
   // initialize the value storage
   for (i=0; i<channelCount; i++){
     // analog[i] = new ResponsiveAnalogRead(0, false);
+
     analog[i] = new ResponsiveAnalogRead(0, true, .0001);
     analog[i]->setAnalogResolution(1<<13); 
     currentValue[i] = 0;
@@ -91,23 +105,35 @@ void setup() {
     #endif
   }
 
-  // i2c using the alternate I2C pins on a Teensy 3.2
+  // i2c using the default I2C pins on a Teensy 3.2
   #ifdef MASTER
 
   #ifdef DEBUG
   Serial.println("Enabling i2c in MASTER mode");
   #endif
   
-  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000); 
+  #ifdef V125
+  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   #else
+  Wire.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  #endif
+
+  #else
+  // non-master mode
   
   #ifdef DEBUG
   Serial.println("Enabling i2c enabled in SLAVE mode");
   #endif
-  
-  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000); 
+
+  #ifdef V125
+  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   Wire1.onReceive(i2cWrite);  
   Wire1.onRequest(i2cReadRequest);
+  #else
+  Wire.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  Wire.onReceive(i2cWrite);  
+  Wire.onRequest(i2cReadRequest);
+  #endif
   
   #endif
 
@@ -128,9 +154,15 @@ void setup() {
 void loop() {
   // read loop using the i counter
   for(i=0; i<channelCount; i++) {
+    #ifdef V125
+    temp = analogRead(ports[i]); // mux goes into A0
+    #else
+    // set mux to appropriate channel
+    mux.channel(muxMapping[i]);
     
     // read the value
-    temp = analogRead(ports[i]);
+    temp = analogRead(0); // mux goes into A0
+    #endif
     
     // put the value into the smoother
     analog[i]->update(temp);
@@ -192,6 +224,7 @@ void writeMidi(){
       port = q % 4;
       device = q / 4;
 
+
       // TXo
       sendi2c(0x60, device, 0x11, port, notShiftyTemp);
 
@@ -219,11 +252,19 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
       messageBuffer[2] = valueTemp >> 8;
       messageBuffer[3] = valueTemp & 0xff;
 
+      #ifdef V125
       Wire1.beginTransmission(model + deviceIndex);
       messageBuffer[0] = cmd; 
       messageBuffer[1] = (uint8_t)devicePort;
       Wire1.write(messageBuffer, 4);
       Wire1.endTransmission();
+      #else
+      Wire.beginTransmission(model + deviceIndex);
+      messageBuffer[0] = cmd; 
+      messageBuffer[1] = (uint8_t)devicePort;
+      Wire.write(messageBuffer, 4);
+      Wire.endTransmission();
+      #endif
 }
 
 #else
@@ -297,8 +338,13 @@ void i2cReadRequest(){
   #endif
 
   // send the puppy as a pair of bytes
+  #ifdef V125
   Wire1.write(shiftReady >> 8);
   Wire1.write(shiftReady & 255);
+  #else
+  Wire.write(shiftReady >> 8);
+  Wire.write(shiftReady & 255);
+  #endif
 
 }
 

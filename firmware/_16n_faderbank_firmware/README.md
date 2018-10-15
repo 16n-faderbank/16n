@@ -4,11 +4,13 @@ Written for Teensy 3.2.
 
 ## Requirements
 
-Latest Teensyduino install.
+- Latest Teensyduino install.
+- `ResponsiveAnalogRead` library
+- `CD74HC4067` library
 
 ## Compilation
 
-- You **must** compile this with Tools->USB type set to MIDI.
+- You **must** compile this with Tools->USB type set to **MIDI** or **Serial+MIDI**.
 - Be sure that the board speed is set to 120mhz (overclock) for maximum repsonsiveness.
 
 ## Customisation and configuration
@@ -22,7 +24,7 @@ Most configuration you'll want to do is handled in `config.h`, through a set of 
 will restrict everything to a single channel. Designed for breadboard development.
 
 ```C
-define REV 1
+#define REV 1
 ```
 
 will reverse the order of the analogue ports.

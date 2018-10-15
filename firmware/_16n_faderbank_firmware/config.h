@@ -13,6 +13,9 @@
 // activates printing of debug messages
 // #define DEBUG 1
 
+// enables legacy compatibility with non-multiplexer boards
+// #define V125
+
 // turn on power LED
 // #define LED 1
 
@@ -24,9 +27,6 @@
 //
 //#define MASTER 1
  
-// the midi channel for the device to output
-const int channel = 1;
-
 // minimum and maximum values for faders (to deal with tolerances)
 #define MINFADER 15
 #define MAXFADER 8135
@@ -42,17 +42,21 @@ const int trs_ccs[]= { 32 };
 
 const int channelCount = 16;
 
+#ifdef V125
+// analog ports on the Teensy for the 1.25 board.
 #ifdef REV
 const int ports[] = { A15, A14, A13, A12, A11, A10, A9, A8, A7, A6, A5, A4, A3, A2, A1, A0 };
 #else
 const int ports[] = { A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15 };
 #endif
 
+#endif
+
 // set up CCs.
 // if you wish to have different CCs for TRS and USB, specify them here.
 
-const int usb_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
-const int trs_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48 };
+const int usb_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47 };
+const int trs_ccs[]= { 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47 };
 
 // set up MIDI channels for each fader
 // if you wish to have different channels for TRS and USB - or for each channel - specify them here.

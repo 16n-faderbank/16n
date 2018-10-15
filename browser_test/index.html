@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>16n test page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type='text/javascript'>
+    window.addEventListener("DOMContentLoaded", function(event) {
+      var count = 16;
+      for(var i = 0; i < count; i++) {
+        // document.querySelectorAll('.slider')[i].attr('height', i*8);
+        var slider = document.querySelectorAll('.slider')[i]
+        slider.style.height = 1 + "px";
+        slider.style.top = 128 + "px";
+        slider.style.left = (i*25)+5 + "px";
+
+        var label = document.querySelectorAll('#labels div')[i];
+        label.innerHTML = i+1;
+        label.style.left = (i*25)+10 + "px";
+        label.style.top = "135px";
+      }
+
+      if (navigator.requestMIDIAccess) {
+          console.log('This browser supports WebMIDI!');
+      } else {
+          console.log('WebMIDI is not supported in this browser.');
+          document.querySelector("#midi").style.display = "none";
+          document.querySelector("#nomidi").style.display = "block";
+      }
+
+      navigator.requestMIDIAccess()
+          .then(onMIDISuccess, onMIDIFailure);
+
+      function onMIDISuccess(midiAccess) {
+          console.log(midiAccess);
+
+          var inputs = midiAccess.inputs;
+          var outputs = midiAccess.outputs;
+      }
+
+      function onMIDIFailure() {
+          console.log('Could not access your MIDI devices.');
+      }
+
+      function onMIDISuccess(midiAccess) {
+        for (var input of midiAccess.inputs.values()) {
+            input.onmidimessage = getMIDIMessage;
+        }
+      }
+
+      function getMIDIMessage(midiMessage) {
+        console.log(midiMessage);
+        var command = midiMessage.data[0];
+        var ccOrNote = midiMessage.data[1];
+        var data = midiMessage.data[2];
+
+        if(command == 176) {
+          var index = ccOrNote-32;
+            document.querySelectorAll('.slider')[index].style.height = data + 1 + "px"; 
+            document.querySelectorAll('.slider')[index].style.top = 129-data + "px"; 
+
+        }
+      }
+
+    });
+  </script>
+  <style>
+
+    body {
+      background: #aaa;
+      font-family: sans-serif;
+    }
+    
+    #nomidi {
+      display: none;
+    }
+
+    #backdrop {
+      background: #aaa;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    #labels {
+      position: relative;
+      position: absolute;
+      width: 20px;
+      text-align: center;
+    }
+
+    #labels > div {
+      position: absolute;
+      width: 20px;
+      color: #444;
+    }
+
+    .clear {
+      clear: both;
+      display: block;
+    }
+
+    .slider {
+      position: absolute;
+      width: 20px;
+      margin-left: 5px;
+      display: block;
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>16n MIDI test</h1>
+  <div id="nomidi">This test page requires a WebMIDI compatible browser; we recommend Google Chrome.</div>
+  <div id="midi">
+    <p style="width: 640px">Connect your 16n via USB _or_ hardware MIDI, not both. You should see sixteen sliders that move independently when your 16n is connected. This assumes the default midi settings of CCs 32-47.</p>
+    <div id="backdrop">
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='slider'></div>
+      <div class='clear'></div>
+    </div>
+    <div id="labels">
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
+  </div>
+</body>
+</html>
