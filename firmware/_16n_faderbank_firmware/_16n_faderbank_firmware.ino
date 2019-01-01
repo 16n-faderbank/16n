@@ -64,6 +64,7 @@ const int muxMapping[16] = { 0,1,2,3,4,5,6,7,15,14,13,12,11,10,9,8 };
 
 // the MIDI write timer
 IntervalTimer midiWriteTimer;
+IntervalTimer midiReadTimer;
 int midiInterval = 5000; // 5ms
 
 // helper values for i2c reading and future expansion
@@ -140,6 +141,7 @@ void setup() {
   // turn on the MIDI party
   MIDI.begin();
   midiWriteTimer.begin(writeMidi, midiInterval);
+  midiReadTimer.begin(readMidi,midiInterval);
 
   #ifdef LED
   pinMode(13, OUTPUT);
@@ -178,6 +180,12 @@ void loop() {
     currentValue[i] = temp;
     interrupts();
   }
+}
+
+void readMidi() {
+  // important to catch inbound MIDI messages even if we do nothiing with them.
+  MIDI.read();
+  usbMIDI.read();
 }
 
 /*
