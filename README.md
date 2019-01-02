@@ -15,6 +15,8 @@ It is currently at version **1.31**.
 * `browser_test` is a webpage you can use in Google Chrome to test your 16n
   using WebMIDI.
 
+Each directory has further `README` files in for you to read.
+
 ## 16n Details
 
 * 16 60mm faders
@@ -32,8 +34,6 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 ![](faderbank.jpg)
 
-Here's a prototype board with the case off.
-
 ## User guide
 
 ### USB MIDI
@@ -46,7 +46,7 @@ Connect USB to computer/USB host, or a USB power supply. Set toggle switch to ap
 
 ### CV
 
-Connect USB to computer/USB host, or a USB power supply. Faders 1-16 emit 0-~5V out of their relevant jacks. Connect jack sockets to _inputs_ on your synthesizer. Do **not** connect jack sockets to _outputs_ on your Eurorack system; there is power protection on the Teensy, impedence resistors on the sockets, but damage may occur if you do so.
+Connect USB to a USB power supply. Faders 1-16 emit 0-~5V out of their relevant jacks. Connect jack sockets to _inputs_ on your synthesizer. Do **not** connect jack sockets to _outputs_ on your Eurorack system; there is power protection on the Teensy, impedence resistors on the sockets, but damage may occur if you do so.
 
 ### I2C
 
