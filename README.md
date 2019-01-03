@@ -85,6 +85,6 @@ Firmware is licensed under the [MIT License][mitlicense].
 [tehn]: https://github.com/tehn
 [bpcmusic]: https://github.com/bpcmusic
 [infovore]: https://github.com/infovore
-[octobom]: https://octopart.com/bom-tool/nlacEI7z
+[octobom]: https://octopart.com/bom-tool/unJxkzvR
 [ccbysa]: https://creativecommons.org/licenses/by-sa/4.0/
 [mitlicense]: https://opensource.org/licenses/MIT
