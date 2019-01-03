@@ -24,7 +24,6 @@ Each directory has further `README` files in for you to read.
 * sixten CCs over minijack midi (with switch to swap between standards)
 * sixteen 0-5V CV output jacks, one per channel.
 * I2C: monome-style I2C protocol over TRS (tip is SDA, ring is SCL), works with Monome Teletype; also, I2C MASTER mode, works with monome Ansible, ER-301, TXo, etc (may require firmware patching or modification to connected device).
-* Same width and similar height to monome 128 grid.
 
 Power from 5V micro-usb into Teensy on left-hand side, or from your computer.
 
