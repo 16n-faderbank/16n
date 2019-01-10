@@ -14,9 +14,9 @@ Looking down on the board on your desk, we'll call the side the Teensy is on the
 
 ![](build/16n_orientation.png)
 
-## BULIDING THE ELECTRONICS
+## BUILDING THE ELECTRONICS
 
-As ever, you want to bulid up your board in height order. Let's do the ICs first:
+As ever, you want to build up your board in height order. Let's do the ICs first:
 
 * `U1` is the 74HC4067 multiplexer: this is the larg(er) IC. The sloping side should be on the LEFT, same side of the board as the Teensy, with the dot (if visible) top left.
 * Next: `U2` to `U9` are the eight MCP6004 op-amp ICs. Sloping side should be on the LEFT, same side as the Teensy is, just like the multiplexer.
@@ -87,7 +87,7 @@ Move each fader up and down for its full travel on its own. You should see a bar
 
 When the USB-MIDI is good, you might want to check the CV. Using a voltmeter or an oscilloscope, measure the voltage at each jack socket as you throw a fader up and down. It should go smoothly from 0V to nearly 5V. If it moves 'suddenly' rather than smoothly, check the op-amp pins are soldered correctly.
 
-By default, TRS-MIDI emits the same data as USB-MIDI. A good way to test it is to power 16n from a mobile phone power adaptor, rather than USB, and watch the traffic. Note that some mini-TRS MIDI dongles can be a little tempramental and require jiggling; this is the universal problem of dongles.
+By default, TRS-MIDI emits the same data as USB-MIDI. A good way to test it is to power 16n from a mobile phone power adaptor, rather than USB, and watch the traffic. Note that some mini-TRS MIDI dongles can be a little temperamental and require jiggling; this is the universal problem of dongles.
 
 ## ASSEMBLING THE ENCLOSURE
 
