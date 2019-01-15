@@ -237,7 +237,7 @@ void writeMidi(){
       sendi2c(0x60, device, 0x11, port, notShiftyTemp);
 
       // ER-301
-      sendi2c(0xB0, 0, 0x11, q, notShiftyTemp);
+      sendi2c(0x31, 0, 0x11, q, notShiftyTemp);
 
       // ANSIBLE
       sendi2c(0xA0, device << 1, 0x06, port, notShiftyTemp);
