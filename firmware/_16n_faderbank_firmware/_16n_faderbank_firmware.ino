@@ -114,9 +114,9 @@ void setup() {
   #endif
   
   #ifdef V125
-  Wire1.begin(I2C_MASTER, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
+  Wire1.begin(I2C_MASTER, 0x34, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   #else
-  Wire.begin(I2C_MASTER, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  Wire.begin(I2C_MASTER, 0x34, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   #endif
 
   #else
@@ -127,11 +127,11 @@ void setup() {
   #endif
 
   #ifdef V125
-  Wire1.begin(I2C_SLAVE, 0x80, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
+  Wire1.begin(I2C_SLAVE, 0x34, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   Wire1.onReceive(i2cWrite);  
   Wire1.onRequest(i2cReadRequest);
   #else
-  Wire.begin(I2C_SLAVE, 0x80, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
+  Wire.begin(I2C_SLAVE, 0x34, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); 
   Wire.onReceive(i2cWrite);  
   Wire.onRequest(i2cReadRequest);
   #endif
@@ -237,7 +237,7 @@ void writeMidi(){
       sendi2c(0x60, device, 0x11, port, notShiftyTemp);
 
       // ER-301
-      sendi2c(0xB0, 0, 0x11, q, notShiftyTemp);
+      sendi2c(0x31, 0, 0x11, q, notShiftyTemp);
 
       // ANSIBLE
       sendi2c(0xA0, device << 1, 0x06, port, notShiftyTemp);
