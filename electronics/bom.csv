@@ -7,7 +7,7 @@ Qty ,Value              ,Device             ,Package               ,Parts       
 16,1K                 ,R-EU_R0805         ,R0805                 ,"R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16                 ",0805 1% Resistors
 2,47,R-EU_R0805         ,R0805                 ,"R49, R52                                                                              ",0805 1% Resistors
 16,5.6K               ,R-EU_R0805         ,R0805                 ,"R19, R21, R23, R25, R27, R29, R31, R33, R35, R37, R39, R41, R43, R45, R47, R50        ",0805 1% Resistors
-1,CD74HC4067SM96     ,744067SO24         ,SOIC127P1030X265-24   ,U1                                                                                    ,16-channel analog MUX                                                   
+1,CD74HC4067M     ,744067SO24         ,SOIC127P1030X265-24   ,U1                                                                                    ,16-channel analog MUX
 2,DNP                ,R-EU_R0805         ,R0805                 ,"R17, R18                                                                              ",0805 1% Resistors
 8,MCP6004_SMD        ,MCP6004_SMD        ,SO14                  ,"U2, U3, U4, U5, U6, U7, U8, U9",MCP6004 quad op amp
 16,PJ302M             ,PJ302M             ,PJ302M                ,"J1, J2, J3, J4, J5, J6, J7, J8, J9, J10, J11, J12, J13, J14, J15, J16                 ",PJ302M horizontal / right angled mount 3.5 mm jack socket (available at Thonk) or CUI MJ-3536 (more expensive)
