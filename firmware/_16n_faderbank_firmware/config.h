@@ -10,6 +10,9 @@
 // reverses faders left-to-right
 // #define REV 1
 
+// flips faders up-down. You almost certainly want #REV enabled as well for this.
+// #define FLIP 1
+
 // activates printing of debug messages
 // #define DEBUG 1
 

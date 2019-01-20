@@ -171,7 +171,13 @@ void loop() {
 
     // read from the smoother, constrain (to account for tolerances), and map it
     temp = analog[i]->getValue();
+
+    #ifdef FLIP
+    temp = MAXFADER - temp;
+    #endif
+
     temp = constrain(temp, MINFADER, MAXFADER);
+
     temp = map(temp, MINFADER, MAXFADER, 0, 16383);
    
     
