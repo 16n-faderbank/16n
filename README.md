@@ -2,28 +2,28 @@
 
 Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespost].
 
-**16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack. 
+**16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack.
 
 It is currently at version **1.31**.
 
 # Repository contents
 
-* `firmware` is the Teensy source code.
-* `electronics` is schematics and gerber files for the PCB.
-* `panel` is SVG/DXF files for top and bottom panels.
-* `build` is build documentation.
-* `browser_test` is a webpage you can use in Google Chrome to test your 16n
+- `firmware` is the Teensy source code.
+- `electronics` is schematics and gerber files for the PCB.
+- `panel` is SVG/DXF files for top and bottom panels.
+- `build` is build documentation.
+- `browser_test` is a webpage you can use in Google Chrome to test your 16n
   using WebMIDI.
 
 Each directory has further `README` files in for you to read.
 
 ## 16n Details
 
-* 16 60mm faders
-* sixteen CCs over USB-midi
-* sixten CCs over minijack midi (with switch to swap between standards)
-* sixteen 0-5V CV output jacks, one per channel.
-* I2C: monome-style I2C protocol over TRS (tip is SDA, ring is SCL), works with Monome Teletype; also, I2C MASTER mode, works with monome Ansible, ER-301, TXo, etc (may require firmware patching or modification to connected device).
+- 16 60mm faders
+- sixteen CCs over USB-midi
+- sixten CCs over minijack midi (with switch to swap between standards)
+- sixteen 0-5V CV output jacks, one per channel.
+- I2C: monome-style I2C protocol over TRS (tip is SDA, ring is SCL), works with Monome Teletype; also, I2C MASTER mode, works with monome Ansible, ER-301, TXo, etc (may require firmware patching or modification to connected device).
 
 Power from 5V micro-usb into Teensy on left-hand side, or from your computer.
 
@@ -41,7 +41,7 @@ Connect USB to computer or other USB host. Faders 1-16 transmit MIDI CC data on 
 
 ### TRS MIDI
 
-Connect USB to computer/USB host, or a USB power supply. Set toggle switch to appropriate MIDI standard. Connect TRS midi converter to MIDI port. (If you have a TRS socket on your MIDI device, you can just use a 3.5mm TRS-TRS cable). Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered in firmware configuration. 
+Connect USB to computer/USB host, or a USB power supply. Set toggle switch to appropriate MIDI standard. Connect TRS midi converter to MIDI port. (If you have a TRS socket on your MIDI device, you can just use a 3.5mm TRS-TRS cable). Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered in firmware configuration.
 
 ### CV
 
@@ -61,6 +61,8 @@ By default, the 16n firmware is set up to work with a monome Teletype out of the
 
 The “MASTER” version of the 16n firmware causes the 16n to emit commands directly to a number of modules. (You need to compile and/or flash it to your 16n over USB - see the README in the `firmware` directory). It sends CV values to up to four monome Ansible, four bpcmusic TXo, and the Orthogonal Devices’ ER-301 all at the same time. Note: In this configuration, you need to have additional pull-up resistors on the I2C line (as mentioned above). Either use one of the available powered I2C busboards for this purpose or, if you don’t plan on connecting your 16n to a Teletype (which supplies its own pull-up), you can populate the pull-up resistors on the 16n PCB.
 
+"_Can I have multiple faderbanks working over I2C?_" - basically, no. [Brendon has a good explanation here of why not](https://github.com/16n-faderbank/16n/issues/16#issuecomment-455739461)
+
 ## BOM
 
 [Available on Octopart][octobom]; a CSV version is in `electronics/bom-csv.csv`
@@ -71,7 +73,7 @@ Most parts you can get from eg. Mouser. I recommend buying PJ-302 jacks from [Th
 
 Based on original work by [Brian Crabtree][tehn] and Sean Hellfritsch.  
 Minijack MIDI, I2C circuitry and CV outputs by [Tom Armitage][infovore].  
-Firmware by [Brian Crabtree][tehn], [Tom Armitage][infovore], and [Brendon Cassidy][bpcmusic].  
+Firmware by [Brian Crabtree][tehn], [Tom Armitage][infovore], and [Brendon Cassidy][bpcmusic].
 
 ## Licensing
 
