@@ -3,7 +3,7 @@
  * (c) 2016,2017 Brendon Cassidy
  * MIT License
  */
- 
+
 #ifndef TxHelper_h
 #define TxHelper_h
 
@@ -12,38 +12,35 @@
 
 #include "Arduino.h"
 
-struct TxResponse {
+struct TxResponse
+{
   byte Command;
   byte Output;
   int Value;
 };
 
-struct TxIO {
+struct TxIO
+{
   short Port;
   short Mode;
 };
 
 class TxHelper
 {
-  public:
+public:
+  static TxResponse Parse(size_t len);
+  static TxIO DecodeIO(int io);
 
-    static TxResponse Parse(size_t len);
-    static TxIO DecodeIO(int io);
+  static void SetPorts(int ports);
+  static void SetModes(int modes);
+  static void UseWire1(bool use);
 
-    static void SetPorts(int ports);
-    static void SetModes(int modes);
-    static void UseWire1(bool use);
+protected:
+  static int Ports;
+  static int Modes;
+  static bool W0;
 
-  protected:
-    
-    static int Ports;
-    static int Modes;
-    static bool W0;
-
-  private:
- 
-
+private:
 };
 
 #endif
-
