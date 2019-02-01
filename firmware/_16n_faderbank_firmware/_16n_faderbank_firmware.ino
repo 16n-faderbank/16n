@@ -246,7 +246,7 @@ void writeMidi(){
       sendi2c(0x31, 0, 0x11, q, notShiftyTemp);
 
       // ANSIBLE
-      sendi2c(0xA0, device << 1, 0x06, port, notShiftyTemp);
+      sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
     
       lastValue[q] = notShiftyTemp;
     }
