@@ -34,6 +34,9 @@
 #define MINFADER 15
 #define MAXFADER 8135
 
+// I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what
+#define I2C_ADDRESS 0x34
+
 #ifdef DEV
 
 const int channelCount = 1; 
