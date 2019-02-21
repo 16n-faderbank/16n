@@ -10,7 +10,7 @@ Written for Teensy 3.2.
 
 ## Compilation
 
-- You **must** compile this with Tools->USB type set to **MIDI** or **Serial+MIDI**.
+- You **must** compile this with Tools->USB type set to **MIDI**. (**Serial+MIDI** may have issues with certain devices you connect to).
 - Be sure that the board speed is set to 120mhz (overclock) for maximum repsonsiveness.
 - If you're having issues compiling related to MIDI libraries or code: make sure your Arduino `libraries` folder doesn't have any old versions of weird MIDI libraries in. The MIDI library should be installed by default via Teensyduino; otherwise, if you have the latest version of the 47effects MIDI library in your Libraries Manager, that'll also behave. It turns out that older versions in the legacy `libraries` folder sometimes lead to conflicts.
 
