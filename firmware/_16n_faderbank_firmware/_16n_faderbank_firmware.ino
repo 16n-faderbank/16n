@@ -62,10 +62,12 @@ const int muxMapping[16] = {8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0
 const int muxMapping[16] = {0, 1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8};
 #endif
 
-// the MIDI write timer
+// MIDI timers
 IntervalTimer midiWriteTimer;
 IntervalTimer midiReadTimer;
-int midiInterval = 5000; // 5ms
+int midiInterval = 1000; // 1ms
+bool shouldDoMidiRead = false;
+bool shouldDoMidiWrite = false;
 
 // helper values for i2c reading and future expansion
 int activeInput = 0;
@@ -185,33 +187,66 @@ void loop()
     temp = map(temp, MINFADER, MAXFADER, 0, 16383);
 
     // map and update the value
-    noInterrupts();
     currentValue[i] = temp;
+  }
+
+  if (shouldDoMidiRead)
+  {
+    doMidiRead();
+    noInterrupts();
+    shouldDoMidiRead = false;
+    interrupts();
+  }
+
+  if (shouldDoMidiWrite)
+  {
+    doMidiWrite();
+    noInterrupts();
+    shouldDoMidiWrite = false;
     interrupts();
   }
 }
 
+/*
+ * Tiny function called via interrupt
+ * (it's important to catch inbound MIDI messages even if we do nothing with
+ * them.)
+ */
 void readMidi()
 {
-  // important to catch inbound MIDI messages even if we do nothiing with them.
+  shouldDoMidiRead = true;
+}
+
+/*
+ * Function called when shouldDoMidiRead flag is HIGH
+ */
+
+void doMidiRead()
+{
   MIDI.read();
   usbMIDI.read();
 }
 
 /*
- * The function that writes changes in slider positions out the midi ports
+ * Tiny function called via interrupt
  */
 void writeMidi()
 {
+  shouldDoMidiWrite = true;
+}
 
+/*
+ * The function that writes changes in slider positions out the midi ports
+ * Called when shouldDoMidiWrite flag is HIGH
+ */
+void doMidiWrite()
+{
   // write loop using the q counter (
   // (can't use i or temp cuz this might interrupt the reads)
   for (q = 0; q < channelCount; q++)
   {
-
-    noInterrupts();
     notShiftyTemp = currentValue[q];
-    interrupts();
+
     // shift for MIDI precision (0-127)
     shiftyTemp = notShiftyTemp >> 7;
 
@@ -237,7 +272,6 @@ void writeMidi()
 
     if (notShiftyTemp != lastValue[q])
     {
-
 #ifdef DEBUG
       Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp);
 #endif
