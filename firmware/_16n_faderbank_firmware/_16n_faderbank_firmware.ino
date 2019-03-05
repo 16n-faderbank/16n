@@ -372,24 +372,18 @@ void i2cReadRequest()
   Serial.print("i2c Read\n");
 #endif
 
-  // disable interrupts. get and cast the value
+  // get and cast the value
   uint16_t shiftReady = 0;
   switch (activeMode)
   {
   case 1:
-    noInterrupts();
     shiftReady = (uint16_t)currentValue[activeInput];
-    interrupts();
     break;
   case 2:
-    noInterrupts();
     shiftReady = (uint16_t)currentValue[activeInput];
-    interrupts();
     break;
   default:
-    noInterrupts();
     shiftReady = (uint16_t)currentValue[activeInput];
-    interrupts();
     break;
   }
 
