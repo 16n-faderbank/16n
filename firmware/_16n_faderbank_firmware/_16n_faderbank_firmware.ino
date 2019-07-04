@@ -104,6 +104,12 @@ void setup()
 
     analog[i] = new ResponsiveAnalogRead(0, true, .0001);
     analog[i]->setAnalogResolution(1 << 13);
+    
+    // ResponsiveAnalogRead is designed for 10-bit ADCs
+    // meanining its threshold defaults to 4. Let's bump that for 
+    // our 13-bit adc by setting it to 4 << (13-10)
+    analog[i]->setActivityThreshold(32);
+
     currentValue[i] = 0;
     lastMidiValue[i] = 0;
 #ifdef MASTER
