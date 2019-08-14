@@ -4,7 +4,7 @@ Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespo
 
 **16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack.
 
-It is currently at version **1.33**.
+It is currently at version **1.34**.
 
 # Repository contents
 
