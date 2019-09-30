@@ -73,6 +73,17 @@ bool shouldDoMidiWrite = false;
 int activeInput = 0;
 int activeMode = 0;
 
+// master i2c specific stuff
+#ifdef MASTER
+
+const int ansibleI2Caddress = 0x20;
+const int er301I2Caddress = 0x31;
+const int txoI2Caddress = 0x60;
+bool er301Present = false;
+bool ansiblePresent = false;
+bool txoPresent = false;
+#endif
+
 /*
  * The function that sets up the application
  */
@@ -126,8 +137,86 @@ void setup()
 
 #ifdef V125
   Wire1.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
+  Wire1.setDefaultTimeout(10000); // 10ms
+
+#ifdef DEBUG
+  Serial.println ("Scanning I2C bus");
+#endif
+  
+  Wire1.begin();
+  
+  for (byte i = 8; i < 120; i++)
+  {
+    Wire1.beginTransmission (i);
+    if (Wire1.endTransmission () == 0)
+      {
+        if(i == ansibleI2Caddress) {
+          ansiblePresent = true;
+#ifdef DEBUG
+          Serial.println ("Found ansible");
+#endif
+        }
+
+        if(i == txoI2Caddress) {
+          txoPresent = true;
+#ifdef DEBUG
+          Serial.println ("Found TXO");
+#endif
+        }
+
+        if(i == er301I2Caddress) {
+          er301Present = true;
+#ifdef DEBUG
+          Serial.println ("Found ER301");
+#endif
+        }
+      delay (1);  // maybe unneeded?
+      } // end of good response
+  } // end of for loop
+
+  Serial.println ("I2C scan complete.");
+
 #else
   Wire.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+  Wire.setDefaultTimeout(10000); // 10ms
+
+#ifdef DEBUG
+  Serial.println ("Scanning I2C bus");
+#endif
+  
+  Wire.begin();
+  
+  for (byte i = 8; i < 120; i++)
+  {
+    Wire.beginTransmission (i);
+    if (Wire.endTransmission () == 0)
+      {
+        if(i == ansibleI2Caddress) {
+          ansiblePresent = true;
+#ifdef DEBUG
+          Serial.println ("Found ansible");
+#endif
+        }
+
+        if(i == txoI2Caddress) {
+          txoPresent = true;
+#ifdef DEBUG
+          Serial.println ("Found TXO");
+#endif
+        }
+
+        if(i == er301I2Caddress) {
+          er301Present = true;
+#ifdef DEBUG
+          Serial.println ("Found ER301");
+#endif
+        }
+      delay (1);  // maybe unneeded?
+      } // end of good response
+  } // end of for loop
+
+  Serial.println ("I2C scan complete.");
+
 #endif
 
 #else
@@ -287,13 +376,19 @@ void doMidiWrite()
       device = q / 4;
 
       // TXo
-      sendi2c(0x60, device, 0x11, port, notShiftyTemp);
+      if(txoPresent) {
+        sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+      }
 
       // ER-301
-      sendi2c(0x31, 0, 0x11, q, notShiftyTemp);
+      if(er301Present) {
+        sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
+      }
 
       // ANSIBLE
-      sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
+      if(ansiblePresent) {
+        sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
+      }
 
       lastValue[q] = notShiftyTemp;
     }
