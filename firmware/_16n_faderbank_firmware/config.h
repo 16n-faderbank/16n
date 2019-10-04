@@ -19,8 +19,11 @@
 // enables legacy compatibility with non-multiplexer boards
 // #define V125
 
-// turn on power LED
+// turn on power LED continuously.
 // #define LED 1
+
+// flash LED on MIDI OUT activity
+// #define FLASHLED 1
 
 // MASTER MODE allows you to broadcast values from the 16n
 // this supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301
@@ -34,7 +37,7 @@
 #define MINFADER 15
 #define MAXFADER 8135
 
-// I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what
+// I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what you are doing.
 #define I2C_ADDRESS 0x34
 
 #ifdef DEV

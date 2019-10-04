@@ -30,7 +30,8 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 int i, temp;
 
 // midi write helpers
-int q, shiftyTemp, notShiftyTemp;
+int q, shiftyTemp, notShiftyTemp, lastMidiActivityAt;
+int midiDirty = 0;
 
 // the storage of the values; current is in the main loop; last value is for midi output
 int volatile currentValue[channelCount];
@@ -241,8 +242,9 @@ void setup()
   midiWriteTimer.begin(writeMidi, midiInterval);
   midiReadTimer.begin(readMidi, midiInterval);
 
+pinMode(13, OUTPUT);
+
 #ifdef LED
-  pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
 #endif
 }
@@ -252,6 +254,16 @@ void setup()
  */
 void loop()
 {
+  #ifdef FLASHLED
+  if(midiDirty) {
+    if(millis() > (lastMidiActivityAt + 30)) {
+      digitalWrite(13, HIGH);
+      midiDirty = 1-midiDirty;
+    } else {
+      digitalWrite(13, LOW);
+    }
+  }
+  #endif
   // read loop using the i counter
   for (i = 0; i < channelCount; i++)
   {
@@ -346,6 +358,12 @@ void doMidiWrite()
     // if there was a change in the midi value
     if (shiftyTemp != lastMidiValue[q])
     {
+      #ifdef FLASHLED
+      if(!midiDirty) {
+        lastMidiActivityAt = millis();
+        midiDirty = 1-midiDirty;
+      }
+      #endif
       // send the message over USB and physical MIDI
       usbMIDI.sendControlChange(usb_ccs[q], shiftyTemp, usb_channels[q]);
       MIDI.sendControlChange(trs_ccs[q], shiftyTemp, trs_channels[q]);
