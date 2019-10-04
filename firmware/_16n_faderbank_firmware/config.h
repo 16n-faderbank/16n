@@ -22,7 +22,7 @@
 // turn on power LED continuously.
 // #define LED 1
 
-// flash LED on MIDI OUT activity
+// flash LED on attempting to send fader activity
 // #define FLASHLED 1
 
 // MASTER MODE allows you to broadcast values from the 16n
