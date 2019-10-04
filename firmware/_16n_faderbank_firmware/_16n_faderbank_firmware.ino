@@ -91,9 +91,7 @@ void setup()
 {
 
 #ifdef DEBUG
-  while (!Serial)
-    ;
-  Serial.print("16n Firmware Debug Mode\n");
+  Serial.println("16n Firmware Debug Mode");
 #endif
 
 // initialize the TX Helper
