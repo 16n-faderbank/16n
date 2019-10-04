@@ -46,6 +46,8 @@ const int channelCount = 1;
 const int ports[] = {A0};
 const int usb_ccs[] = {32};
 const int trs_ccs[] = {32};
+const int usb_channels[] = {1};
+const int trs_channels[] = {1};
 
 #else
 
