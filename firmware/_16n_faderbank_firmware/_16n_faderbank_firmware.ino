@@ -24,6 +24,13 @@
 
 #include "TxHelper.h"
 
+// wrap code to be executed only under DEBUG conditions in D()
+#ifdef DEBUG
+#define D(x) x
+#else
+#define D(x)
+#endif
+
 MIDI_CREATE_DEFAULT_INSTANCE();
 
 // loop helpers
@@ -91,9 +98,7 @@ bool txoPresent = false;
 void setup()
 {
 
-#ifdef DEBUG
-  Serial.println("16n Firmware Debug Mode");
-#endif
+  D(Serial.println("16n Firmware Debug Mode"));
 
 // initialize the TX Helper
 #ifdef V125
@@ -130,17 +135,13 @@ void setup()
 // i2c using the default I2C pins on a Teensy 3.2
 #ifdef MASTER
 
-#ifdef DEBUG
-  Serial.println("Enabling i2c in MASTER mode");
-#endif
+  D(Serial.println("Enabling i2c in MASTER mode"));
 
 #ifdef V125
   Wire1.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
   Wire1.setDefaultTimeout(10000); // 10ms
 
-#ifdef DEBUG
-  Serial.println ("Scanning I2C bus");
-#endif
+  D(Serial.println ("Scanning I2C bus"));
   
   Wire1.begin();
   
@@ -151,37 +152,29 @@ void setup()
       {
         if(i == ansibleI2Caddress) {
           ansiblePresent = true;
-#ifdef DEBUG
-          Serial.println ("Found ansible");
-#endif
+          D(Serial.println ("Found ansible"));
         }
 
         if(i == txoI2Caddress) {
           txoPresent = true;
-#ifdef DEBUG
-          Serial.println ("Found TXO");
-#endif
+          D(Serial.println ("Found TXO"));
         }
 
         if(i == er301I2Caddress) {
           er301Present = true;
-#ifdef DEBUG
-          Serial.println ("Found ER301");
-#endif
+          D(Serial.println ("Found ER301"));
         }
       delay (1);  // maybe unneeded?
       } // end of good response
   } // end of for loop
 
-  Serial.println ("I2C scan complete.");
+  D(Serial.println ("I2C scan complete."));
 
 #else
   Wire.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
   Wire.setDefaultTimeout(10000); // 10ms
 
-#ifdef DEBUG
-  Serial.println ("Scanning I2C bus");
-#endif
+  D(Serial.println ("Scanning I2C bus"));
   
   Wire.begin();
   
@@ -192,23 +185,17 @@ void setup()
       {
         if(i == ansibleI2Caddress) {
           ansiblePresent = true;
-#ifdef DEBUG
-          Serial.println ("Found ansible");
-#endif
+          D(Serial.println ("Found ansible"));
         }
 
         if(i == txoI2Caddress) {
           txoPresent = true;
-#ifdef DEBUG
-          Serial.println ("Found TXO");
-#endif
+          D(Serial.println ("Found TXO"));
         }
 
         if(i == er301I2Caddress) {
           er301Present = true;
-#ifdef DEBUG
-          Serial.println ("Found ER301");
-#endif
+          D(Serial.println ("Found ER301"));
         }
       delay (1);  // maybe unneeded?
       } // end of good response
@@ -221,9 +208,7 @@ void setup()
 #else
   // non-master mode
 
-#ifdef DEBUG
-  Serial.println("Enabling i2c enabled in SLAVE mode");
-#endif
+  D(Serial.println("Enabling i2c enabled in SLAVE mode"));
 
 #ifdef V125
   Wire1.begin(I2C_SLAVE, I2C_ADDRESS, I2C_PINS_29_30, I2C_PULLUP_EXT, 400000);
@@ -371,9 +356,7 @@ void doMidiWrite()
       // store the shifted value for future comparison
       lastMidiValue[q] = shiftyTemp;
 
-#ifdef DEBUG
-      Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp);
-#endif
+      D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
 #ifdef MASTER
@@ -383,9 +366,7 @@ void doMidiWrite()
 
     if (notShiftyTemp != lastValue[q])
     {
-#ifdef DEBUG
-      Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp);
-#endif
+      D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
 
       // for 4 output devices
       port = q % 4;
@@ -449,9 +430,7 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
 void i2cWrite(size_t len)
 {
 
-#ifdef DEBUG
-  Serial.printf("i2c Write (%d)\n", len);
-#endif
+  D(Serial.printf("i2c Write (%d)\n", len));
 
   // parse the response
   TxResponse response = TxHelper::Parse(len);
@@ -463,9 +442,7 @@ void i2cWrite(size_t len)
     // use a helper to decode the command
     TxIO io = TxHelper::DecodeIO(response.Command);
 
-#ifdef DEBUG
-    Serial.printf("Port: %d; Mode: %d [%d]\n", io.Port, io.Mode, response.Command);
-#endif
+    D(Serial.printf("Port: %d; Mode: %d [%d]\n", io.Port, io.Mode, response.Command));
 
     // this is the single byte that sets the active input
     activeInput = io.Port;
@@ -485,9 +462,7 @@ void i2cWrite(size_t len)
 void i2cReadRequest()
 {
 
-#ifdef DEBUG
-  Serial.print("i2c Read\n");
-#endif
+  D(Serial.print("i2c Read\n"));
 
   // get and cast the value
   uint16_t shiftReady = 0;
@@ -504,9 +479,7 @@ void i2cReadRequest()
     break;
   }
 
-#ifdef DEBUG
-  Serial.printf("delivering: %d; value: %d [%d]\n", activeInput, currentValue[activeInput], shiftReady);
-#endif
+  D(Serial.printf("delivering: %d; value: %d [%d]\n", activeInput, currentValue[activeInput], shiftReady));
 
 // send the puppy as a pair of bytes
 #ifdef V125
