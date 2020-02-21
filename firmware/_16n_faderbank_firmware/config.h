@@ -9,8 +9,8 @@
  * firmware metadata
  */
 
-int MAJOR_VERSION = 0x00;
-int MINOR_VERSION = 0x03;
+int MAJOR_VERSION = 0x02;
+int MINOR_VERSION = 0x00;
 int POINT_VERSION = 0x00;
 
 /*
