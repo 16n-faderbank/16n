@@ -16,19 +16,17 @@ Written for Teensy 3.2.
 
 ## Customisation and configuration
 
-Most configuration you'll want to do is handled in `config.h`, through a set of `define` statements.
+As of 16n firmware 2.0.0, you no longer should do ANY configuration through the Arduino IDE. All configuration is conducted from a web browser, using the [16n editor].
 
-```C
-#define REV 1
-```
+When you upgrade to 2.0.0 you will LOSE ANY CONFIGURATION YOU HAVE. This is a one-time thing; apologies.
 
-will reverse the order of the faders in MIDI and I2C, right-to-left
+The 16n will be initialised to factory defaults. Once this is done, connect over USB, and go to the [editor] in Google Chrome; you will be able to see the current configuration, edit the configuration, and transmit the new config to your device.
 
-```C
-#define FLIP 1
-```
+Note that if you do change any config related to I2C, you should power-cycle the 16n before it will be picked up.
 
-will invert the direction of the faders, top-to-bottom, for MIDI and I2C. Combined with `REV`, this will allow you to use the faderbank upside down - useful if your sole connection is I2C.
+Some options remain in `config.h`; they are primarily for developers.
+
+In `config.h`
 
 ```C
 #define DEBUG 1
@@ -42,23 +40,37 @@ will log debug messages to the serial port.
 
 will restrict the faderbank to its first channel. Designed for breadboard development; almost certainly not of interest.
 
-```C
-#define MASTER 1
-```
-
-will put the 16n into I2C MASTER mode, broadcasting values from the 16n directly.
+## I2C MASTER MODE
 
 MASTER MODE supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301.
 
 If you want to use 16n with an ER-301, you need to turn MASTER MODE on. If you want to use it with a Monome Teletype, leave you want MASTER MODE off - leave it commented out.
 
-### Customising continuous controller numbers and MIDI channels
+## Memory Map
 
-`config.h` also contains the MIDI configuration.
+Configuration is stored in the first 80 bytes of the on-board EEPROM. It looks like this:
 
-Midi Continuous Controller numbers are specified by the `usb_ccs` and `trs_ccs` variables; each array has sixteen items, for the faders, left to right. You can alter these should you want specific CCs to come out of the faderbank (if, for instance, you have a tool with fixed mapping, or want to directly control a piece of hardware). It is possible to set the USB MIDI port and the TRS MIDI port to output on different CCs if you wish.
+Addresses 0-15 are reserved for configuration flags/data.
 
-Channels are set per-fader in `usb_channels` and `trs_channels`; again, you can have a different channel per fader if you'd like, and different channels for USB and TRS.
+FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes as MSB and LSB; the actual number is calculated by `(MSB << 8) + LSB`
+
++---------+--------+------------------------------------+
+| Address | Format |            Description             |
++---------+--------+------------------------------------+
+| 0       | 0/1    | LED on when powered                |
+| 1       | 0/1    | LED blink on MIDI data             |
+| 2       | 0/1    | Rotate controller outputs via 180º |
+| 4       | 0/1    | I2C Master/Follower                |
+| 5,6     | 0-255  | FADERMIN msb/lsb                   |
+| 7,8     | 0-255  | FADERMAX msb/lsb                   |
+| 9-15    |        | Currently vacant                   |
++---------+--------+------------------------------------+
+| 16-31   | 0-15   | Channel for each control (USB)     |
+| 32-47   | 0-15   | Channel for each control (TRS)     |
+| 48-63   | 0-127  | CC for each control (USB)          |
+| 64-79   | 0-127  | CC for each control (TRS           |
++---------+--------+------------------------------------+
+
 
 ## LICENSING
 
