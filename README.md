@@ -4,7 +4,7 @@ Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespo
 
 **16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack.
 
-It is currently at version **1.34**.
+It is currently at hardware version **1.34**, firmware version **2.00a**
 
 # Repository contents
 
@@ -35,13 +35,17 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 ## User guide
 
+### Configuration
+
+The 16n configuration site can be found at TODOTODOTODO. You'll need to connect a 16n via USB, and then visit the site in a browser that supports WebMIDI. Currently, that means Google Chrome. Details of your 16n should appear on screen. The tool should be straightforward to use.
+
 ### USB MIDI
 
-Connect USB to computer or other USB host. Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered in firmware configuration.
+Connect USB to computer or other USB host. Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered using the configuration site.
 
 ### TRS MIDI
 
-Connect USB to computer/USB host, or a USB power supply. Set toggle switch to appropriate MIDI standard. Connect TRS midi converter to MIDI port. (If you have a TRS socket on your MIDI device, you can just use a 3.5mm TRS-TRS cable). Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered in firmware configuration.
+Connect USB to computer/USB host, or a USB power supply. Set toggle switch to appropriate MIDI standard. Connect TRS midi converter to MIDI port. (If you have a TRS socket on your MIDI device, you can just use a 3.5mm TRS-TRS cable). Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered using the configuration site.
 
 ### CV
 
@@ -59,7 +63,7 @@ I2C is complex and requires a bit more care when connecting up with your 16n. Yo
 
 By default, the 16n firmware is set up to work with a monome Teletype out of the box. Make sure you are running the latest Teletype firmware (3.0 as of this writing). Simply connect to the I2C bus and go. The 16n commands are listed in the Teletype documentation available here: [https://monome.org/docs/modular/teletype/manual/#n-faderbank](https://monome.org/docs/modular/teletype/manual/#n-faderbank). These commands allow for the Teletype to programmatically read the position of any of the 16n’s faders.
 
-The “MASTER” version of the 16n firmware causes the 16n to emit commands directly to a number of modules. (You need to compile and/or flash it to your 16n over USB - see the README in the `firmware` directory). It sends CV values to up to four monome Ansible, four bpcmusic TXo, and the Orthogonal Devices’ ER-301 all at the same time. Note: In this configuration, you need to have additional pull-up resistors on the I2C line (as mentioned above). Either use one of the available powered I2C busboards for this purpose or, if you don’t plan on connecting your 16n to a Teletype (which supplies its own pull-up), you can populate the pull-up resistors on the 16n PCB.
+The “I2C MASTER” option allows the 16n to emit commands directly to a number of modules. (This can be set in the configuration app, and then will be applied the next time the device boots). It sends CV values to up to four monome Ansible, four bpcmusic TXo, and the Orthogonal Devices’ ER-301 all at the same time. Note: In this configuration, you need to have additional pull-up resistors on the I2C line (as mentioned above). Either use one of the available powered I2C busboards for this purpose or, if you don’t plan on connecting your 16n to a Teletype (which supplies its own pull-up), you can populate the pull-up resistors on the 16n PCB.
 
 "_Can I have multiple faderbanks working over I2C?_" - basically, no. [Brendon has a good explanation here of why not](https://github.com/16n-faderbank/16n/issues/16#issuecomment-455739461)
 
