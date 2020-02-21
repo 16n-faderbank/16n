@@ -111,6 +111,9 @@ void setup()
 
   loadSettingsFromEEPROM();
 
+  usbMIDI.setHandleSystemExclusive(processIncomingSysex);
+
+
 // initialize the TX Helper
 #ifdef V125
   TxHelper::UseWire1(true);
