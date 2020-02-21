@@ -4,6 +4,21 @@
  * MIT License
  */
 
+
+/*
+ * firmware metadata
+ */
+
+int MAJOR_VERSION = 0x00;
+int MINOR_VERSION = 0x03;
+int POINT_VERSION = 0x00;
+
+/*
+ * device metadata
+ */
+
+int DEVICE_ID = 0x02; // 16n
+
 // restricts output to only channel 1 for development purposes
 // #define DEV 1
 
@@ -14,7 +29,7 @@
 // #define FLIP 1
 
 // activates printing of debug messages
-// #define DEBUG 1
+#define DEBUG 1
 
 // enables legacy compatibility with non-multiplexer boards
 // #define V125
@@ -44,10 +59,6 @@
 
 const int channelCount = 1;
 const int ports[] = {A0};
-const int usb_ccs[] = {32};
-const int trs_ccs[] = {32};
-const int usb_channels[] = {1};
-const int trs_channels[] = {1};
 
 #else
 
@@ -62,17 +73,5 @@ const int ports[] = {A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13,
 #endif
 
 #endif
-
-// set up CCs.
-// if you wish to have different CCs for TRS and USB, specify them here.
-
-const int usb_ccs[] = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
-const int trs_ccs[] = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
-
-// set up MIDI channels for each fader
-// if you wish to have different channels for TRS and USB - or for each channel - specify them here.
-
-const int usb_channels[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-const int trs_channels[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 #endif

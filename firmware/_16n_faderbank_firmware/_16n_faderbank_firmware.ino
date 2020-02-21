@@ -12,16 +12,18 @@
  */
 
 /*
+ * TODO TODO THIS IS NOT TRUE
  * ALL configuration should take place in config.h.
  * You can disable/enable flags, and configure  MIDI channels in there.
  */
 
-#include "config.h"
+#include <CD74HC4067.h>
+#include <EEPROM.h>
 #include <i2c_t3.h>
 #include <MIDI.h>
 #include <ResponsiveAnalogRead.h>
-#include <CD74HC4067.h>
 
+#include "config.h"
 #include "TxHelper.h"
 
 // wrap code to be executed only under DEBUG conditions in D()
@@ -44,6 +46,15 @@ int midiDirty = 0;
 int volatile currentValue[channelCount];
 int lastMidiValue[channelCount];
 
+// variables to hold configuration
+int usbChannels[channelCount];
+int trsChannels[channelCount];
+int usbCCs[channelCount];
+int trsCCs[channelCount];
+int flip;
+int ledOn;
+int ledFlash;
+
 #ifdef MASTER
 
 // memory of the last unshifted value
@@ -64,11 +75,7 @@ ResponsiveAnalogRead *analog[channelCount];
 
 // mux config
 CD74HC4067 mux(8, 7, 6, 5);
-#ifdef REV
-const int muxMapping[16] = {8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0};
-#else
 const int muxMapping[16] = {0, 1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8};
-#endif
 
 // MIDI timers
 IntervalTimer midiWriteTimer;
@@ -99,6 +106,10 @@ void setup()
 {
 
   D(Serial.println("16n Firmware Debug Mode"));
+
+  checkDefaultSettings();
+
+  loadSettingsFromEEPROM();
 
 // initialize the TX Helper
 #ifdef V125
@@ -227,11 +238,11 @@ void setup()
   midiWriteTimer.begin(writeMidi, midiInterval);
   midiReadTimer.begin(readMidi, midiInterval);
 
-pinMode(13, OUTPUT);
+  pinMode(13, OUTPUT);
 
-#ifdef LED
-  digitalWrite(13, HIGH);
-#endif
+  if(ledOn) {
+    digitalWrite(13, HIGH);
+  }
 }
 
 /*
@@ -239,16 +250,17 @@ pinMode(13, OUTPUT);
  */
 void loop()
 {
-  #ifdef FLASHLED
-  if(midiDirty) {
-    if(millis() > (lastMidiActivityAt + 30)) {
-      digitalWrite(13, HIGH);
-      midiDirty = 1-midiDirty;
-    } else {
-      digitalWrite(13, LOW);
+  if(ledFlash) {
+    if(midiDirty) {
+      if(millis() > (lastMidiActivityAt + 30)) {
+        digitalWrite(13, HIGH);
+        midiDirty = 1-midiDirty;
+      } else {
+        digitalWrite(13, LOW);
+      }
     }
   }
-  #endif
+
   // read loop using the i counter
   for (i = 0; i < channelCount; i++)
   {
@@ -268,9 +280,9 @@ void loop()
     // read from the smoother, constrain (to account for tolerances), and map it
     temp = analog[i]->getValue();
 
-#ifdef FLIP
-    temp = MAXFADER - temp;
-#endif
+    if(flip){ 
+      temp = MAXFADER - temp;
+    }
 
     temp = constrain(temp, MINFADER, MAXFADER);
 
@@ -343,20 +355,20 @@ void doMidiWrite()
     // if there was a change in the midi value
     if (shiftyTemp != lastMidiValue[q])
     {
-      #ifdef FLASHLED
-      if(!midiDirty) {
-        lastMidiActivityAt = millis();
-        midiDirty = 1-midiDirty;
+      if(ledFlash) {
+        if(!midiDirty) {
+          lastMidiActivityAt = millis();
+          midiDirty = 1-midiDirty;
+        }
       }
-      #endif
       // send the message over USB and physical MIDI
-      usbMIDI.sendControlChange(usb_ccs[q], shiftyTemp, usb_channels[q]);
-      MIDI.sendControlChange(trs_ccs[q], shiftyTemp, trs_channels[q]);
+      usbMIDI.sendControlChange(usbCCs[q], shiftyTemp, usbChannels[q]);
+      MIDI.sendControlChange(trsCCs[q], shiftyTemp, trsChannels[q]);
 
       // store the shifted value for future comparison
       lastMidiValue[q] = shiftyTemp;
 
-      D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
+      // D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
 #ifdef MASTER
