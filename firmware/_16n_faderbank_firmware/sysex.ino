@@ -23,9 +23,35 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
     case 0x0e:
       // 0E - c0nfig Edit - here is a new config
       D(Serial.println("Incoming c0nfig Edit"));
-      // updateSettingsAndStoreInFlash(sysexData, size);
+      updateSettingsAndStoreInEEPROM(sysexData, size);
       break;
   }
+}
+
+void updateSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
+  // store the settings from sysex in flash
+  // also update all our settings.
+  D(Serial.print("Received a new config with size "));
+  D(Serial.println(size));
+  // D(printHexArray(newConfig,size));
+
+  // walk the config
+  // ignore the top, tail, and firmware version
+  int startIndex = 9; // after the start signal + 
+  int dataLength = 80; // five chunks of 16
+
+  byte dataToWrite[dataLength];
+
+  for(int i = 0; i < (dataLength); i++) {
+    int configIndex = i + startIndex;
+    dataToWrite[i] = newConfig[configIndex];
+  }
+
+  // write new Data
+  writeEEPROMArray(0, dataToWrite, dataLength);
+
+  // now load that.
+  loadSettingsFromEEPROM();
 }
 
 void sendCurrentState() {

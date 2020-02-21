@@ -110,9 +110,3 @@ void loadSettingsFromEEPROM() {
   ledFlash = EEPROM.read(1);
   flip = EEPROM.read(2);
 }
-
-void readEEPROMArray(int start, byte buffer[], int length) {
-  for (int i = 0; i < length; i++) {
-    buffer[i] = EEPROM.read(start+i);
-  }
-}
