@@ -1,6 +1,7 @@
 <script>
   import { setContext } from 'svelte'
   import { ConfigurationObject } from "./Configuration.js";
+  import { ImportExport } from "./ImportExport.js";
   import { logger } from "./logger.js";
   import { OxionMidi } from "./OxionMidi.js";
 
@@ -49,52 +50,11 @@
         break;
       case "importConfig":
         // TODO: can you extract this to a file?
-        let fileInputNode = document.createElement('input');
-        fileInputNode.setAttribute("type", "file");
-        fileInputNode.setAttribute("id", "uploadedConfig");
-        fileInputNode.setAttribute("onchange", "window.handleFiles(this.files)");
-
-        window.handleFiles = (files) => {
-          if(files.length > 0) {
-            let newConfig = files[0];
-            const reader = new FileReader();
-
-            reader.addEventListener("load", e => {
-              const newConfigData = JSON.parse(reader.result);
-              const invalidConfig = $editConfiguration.isNewConfigInvalid(newConfigData);
-              if(invalidConfig) {
-                alert(invalidConfig);
-                return;
-              } else {
-                editConfiguration.update(old => $editConfiguration.updateFromJson(newConfigData));
-                if($editConfiguration.isEquivalent($configuration)) {
-                  alert("Imported configuration is identical to currently loaded configuration; no changes to upload.");
-                } else {
-                  alert("New configuration imported. Choose 'update controller' to import, or 'Cancel' to abort");
-                }
-              }
-            });
-
-            reader.readAsText(newConfig);
-
-            window.handleFiles = null;
-          }
-        }
-
-        fileInputNode.click();
-
-        fileInputNode.remove();
+        ImportExport.import($editConfiguration, $configuration, editConfiguration);
         break;
       case "exportConfig":
         // TODO extract to file
-        let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent($configuration.toJsonString());
-
-        let downloadAnchorNode = document.createElement('a');
-        downloadAnchorNode.setAttribute("href",     dataStr);
-        downloadAnchorNode.setAttribute("download", `${$configuration.device().name}_controller_config.json`);
-        document.body.appendChild(downloadAnchorNode); // required for firefox
-        downloadAnchorNode.click();
-        downloadAnchorNode.remove();
+        ImportExport.export($configuration);
         break;
       default:
         break;
