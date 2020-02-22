@@ -116,7 +116,7 @@ void loadSettingsFromEEPROM() {
   ledFlash = EEPROM.read(1);
   flip = EEPROM.read(2);
 
-  // i2cmaster only read at startup
+  // i2cMaster only read at startup
 
   int faderminLSB = EEPROM.read(4);
   int faderminMSB = EEPROM.read(5);

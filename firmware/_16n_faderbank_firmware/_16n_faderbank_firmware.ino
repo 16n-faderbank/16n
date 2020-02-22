@@ -56,26 +56,31 @@ int trsCCs[channelCount];
 int flip;
 int ledOn;
 int ledFlash;
-
-int i2cmaster = EEPROM.read(3) == 1;
+int i2cMaster;
 
 int faderMin;
 int faderMax;
 
-#ifdef MASTER
+// variables for i2c master mode
+  // memory of the last unshifted value
+  int lastValue[channelCount];
 
-// memory of the last unshifted value
-int lastValue[channelCount];
+  // the i2c message buffer we are sending
+  uint8_t messageBuffer[4];
 
-// the i2c message buffer we are sending
-uint8_t messageBuffer[4];
+  // temporary values
+  uint16_t valueTemp;
+  uint8_t device = 0;
+  uint8_t port = 0;
 
-// temporary values
-uint16_t valueTemp;
-uint8_t device = 0;
-uint8_t port = 0;
+  // master i2c specific stuff
+  const int ansibleI2Caddress = 0x20;
+  const int er301I2Caddress = 0x31;
+  const int txoI2Caddress = 0x60;
+  bool er301Present = false;
+  bool ansiblePresent = false;
+  bool txoPresent = false;
 
-#endif
 
 // the thing that smartly smooths the input
 ResponsiveAnalogRead *analog[channelCount];
@@ -95,17 +100,6 @@ bool shouldDoMidiWrite = false;
 int activeInput = 0;
 int activeMode = 0;
 
-// master i2c specific stuff
-#ifdef MASTER
-
-const int ansibleI2Caddress = 0x20;
-const int er301I2Caddress = 0x31;
-const int txoI2Caddress = 0x60;
-bool er301Present = false;
-bool ansiblePresent = false;
-bool txoPresent = false;
-#endif
-
 /*
  * The function that sets up the application
  */
@@ -117,6 +111,7 @@ void setup()
   checkDefaultSettings();
 
   loadSettingsFromEEPROM();
+  i2cMaster = EEPROM.read(3) == 1;
 
   usbMIDI.setHandleSystemExclusive(processIncomingSysex);
 
@@ -148,13 +143,14 @@ void setup()
 
     currentValue[i] = 0;
     lastMidiValue[i] = 0;
-#ifdef MASTER
-    lastValue[i] = 0;
-#endif
+
+    if(i2cMaster) {
+      lastValue[i] = 0;
+    }
   }
 
 // i2c using the default I2C pins on a Teensy 3.2
-#ifdef MASTER
+if(i2cMaster) {
 
   D(Serial.println("Enabling i2c in MASTER mode"));
 
@@ -226,7 +222,7 @@ void setup()
 
 #endif
 
-#else
+} else {
   // non-master mode
 
   D(Serial.println("Enabling i2c enabled in SLAVE mode"));
@@ -241,7 +237,7 @@ void setup()
   Wire.onRequest(i2cReadRequest);
 #endif
 
-#endif
+}
 
   // turn on the MIDI party
   MIDI.begin();
@@ -397,7 +393,7 @@ void doMidiWrite()
       // D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
-#ifdef MASTER
+if(i2cMaster) {
 
     // we send out to all three supported i2c slave devices
     // keeps the firmware simple :)
@@ -427,12 +423,9 @@ void doMidiWrite()
 
       lastValue[q] = notShiftyTemp;
     }
-
-#endif
+}
   }
 }
-
-#ifdef MASTER
 
 /*
  * Sends an i2c command out to a slave when running in master mode
@@ -458,8 +451,6 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
   Wire.endTransmission();
 #endif
 }
-
-#else
 
 /*
  * The function that responds to a command from i2c.
@@ -533,5 +524,3 @@ void i2cReadRequest()
  * Future function if we add more i2c capabilities beyond reading values.
  */
 void actOnCommand(byte cmd, byte out, int value) {}
-
-#endif
