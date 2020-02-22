@@ -2,6 +2,7 @@
   import WebMidi from "webmidi";
   import { onMount } from 'svelte'
   import { ConfigurationObject } from "../Configuration.js";
+  import { logger } from "../logger.js";
   import { OxionMidi } from "../OxionMidi.js";
 
   import {
@@ -16,22 +17,21 @@
 
   WebMidi.enable(function(err) {
     if (err) {
-      console.log("WebMidi could not be enabled.", err);
+      logger("WebMidi could not be enabled.", err);
     } else {
-      console.log("WebMidi enabled!");
+      logger("WebMidi enabled!");
       webMidiEnabled.update(old => true);
       setupMidiHeartBeat();
     }
   }, true); // enable sysex
 
   function setupMidiHeartBeat() {
-
-    console.log("Setting up hearbeat")
+    logger("Setting up heartbeat")
 
     doMidiHeartBeat();
 
     WebMidi.addListener("connected", (e) => {
-      console.log('connected event', e)
+      // logger('connected event', e)
 
       midiInputs.set(OxionMidi.allInputs(WebMidi));
       midiOutputs.set(OxionMidi.allOutputs(WebMidi));
@@ -46,20 +46,20 @@
     });
 
     WebMidi.addListener("disconnected", (e) => {
-      console.log('disconnected event', e)
+      // logger('disconnected event', e)
       midiInputs.set(OxionMidi.allInputs(WebMidi));
       midiOutputs.set(OxionMidi.allOutputs(WebMidi));
 
       // if($midiInputs.length > 0) {
         // selectedMidiInput.update(i => $midiInputs[0]);
-        // console.log($midiInputs);
+        // logger($midiInputs);
       // } else {
         selectedMidiInput.update(i => null);
       // }
 
       // if($midiOutputs.length > 0) {
         // selectedMidiOutput.update(i => $midiOutputs[0]);
-        // console.log($midiOutputs);
+        // logger($midiOutputs);
       // } else {
         selectedMidiOutput.update(i => null);
       // }
@@ -91,8 +91,7 @@
     if (!$configuration && $selectedMidiInput && $selectedMidiOutput) {
       listenForCC($selectedMidiInput);
       listenForSysex($selectedMidiInput);
-      console.log($midiInputs[0]);
-      console.log("Hearbeat requesting config.");
+      logger("Hearbeat requesting config.");
       requestConfig();
     }
   }
@@ -100,7 +99,6 @@
   selectedMidiInput.subscribe(newInput => {
     if (newInput) {
       $midiInputs.forEach(input => {
-        console.log("Removing put from ", input);
         input.removeListener();
       });
       listenForCC(newInput);
@@ -132,14 +130,13 @@
     input.addListener("controlchange", "all", e => {
       controllerMoved(e);
     });
-    console.log("Attached CC listener to ", input.name);
   }
 
   function listenForSysex(input) {
     input.addListener("sysex", "all", e => {
       let data = e.data;
       if (!OxionMidi.isOxionSysex(data)) {
-        console.log("Sysex not for us:", data);
+        logger("Sysex not for us:", data);
         return;
       }
       if (data[4] == 0x0f) {
@@ -151,7 +148,7 @@
         configuration.update(n =>
           ConfigurationObject.returnConfigHashFromSysex(data)
         );
-        console.log("Received config", $configuration);
+        logger("Received config", $configuration);
         if (document.getElementById("current_config")) {
           document.getElementById("current_config").value = configBytes.join(
             " "
@@ -159,13 +156,13 @@
         }
       }
     });
-    console.log("Attached sysex listener to ", input.name);
+    logger("Attached sysex listener to ", input.name);
   }
 
   function requestConfig() {
     if ($selectedMidiInput && $selectedMidiOutput) {
-      console.log("Requesting config over " + $selectedMidiOutput.name);
-      console.log("Hoping to receive on " + $selectedMidiInput.name);
+      logger("Requesting config over " + $selectedMidiOutput.name);
+      logger("Hoping to receive on " + $selectedMidiInput.name);
       OxionMidi.requestConfig($selectedMidiOutput);
     }
   }

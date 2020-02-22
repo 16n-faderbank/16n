@@ -1,3 +1,5 @@
+import { logger } from "./logger.js";
+
 export class ConfigurationObject {
   constructor({ ledOn = true,
     ledFlash = true,
@@ -23,7 +25,6 @@ export class ConfigurationObject {
   }
 
   isEquivalent(otherConfig) {
-    console.log(this, otherConfig);
     let optionEquivalents = (this.ledOn == otherConfig.ledOn &&
       this.ledFlash == otherConfig.ledFlash &&
       this.controllerFlip == otherConfig.controllerFlip);
@@ -43,7 +44,6 @@ export class ConfigurationObject {
     this.usbControls.forEach((control, i) => {
       let otherControl = otherConfig.usbControls[i];
       if (control.channel != otherControl.channel || control.cc != otherControl.cc) {
-        console.log("USB don't match");
         usbEquivalent = false
       }
     });
@@ -51,7 +51,6 @@ export class ConfigurationObject {
     this.trsControls.forEach((control, i) => {
       let otherControl = otherConfig.trsControls[i];
       if (control.channel != otherControl.channel || control.cc != otherControl.cc) {
-        console.log("TRS don't match");
         usbEquivalent = false
       }
     });
@@ -169,7 +168,7 @@ export class ConfigurationObject {
   
 
   static returnConfigHashFromSysex(data) {
-    console.log("Generating config from", data);
+    logger("Generating config from", data);
     let offset = 8;
 
     let deviceId = data[5];

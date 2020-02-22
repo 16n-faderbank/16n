@@ -1,6 +1,7 @@
 <script>
   import { setContext } from 'svelte'
   import { ConfigurationObject } from "./Configuration.js";
+  import { logger } from "./logger.js";
   import { OxionMidi } from "./OxionMidi.js";
 
   import {
@@ -22,6 +23,8 @@
   import MidiSelector from "./components/MidiSelector.svelte";
   import Subhead from "./components/Subhead.svelte";
   import { Tabs, TabList, TabPanel, Tab } from './components/tabs';
+
+  // window.debugMode = true;
 
   let editMode = false;
   let configDirty = false;
@@ -52,7 +55,6 @@
         window.handleFiles = (files) => {
           if(files.length > 0) {
             let newConfig = files[0];
-            console.log(newConfig);
             const reader = new FileReader();
 
             reader.addEventListener("load", e => {
@@ -101,17 +103,12 @@
     if (editMode) {
       let oldConfig = ConfigurationObject.clone($configuration);
       editConfiguration.update(c => oldConfig);
-    } else {
-      console.log($editConfiguration);
-      console.log($configuration);
-      console.log($configuration == $editConfiguration);
-      // this will have been changed by bindings.
     }
   }
 
   function transmitConfig() {
     let sysexArray = $editConfiguration.toSysexArray();
-    console.log(sysexArray);
+    logger("Sending sysex:", sysexArray);
 
     OxionMidi.sendConfig(sysexArray, $selectedMidiOutput);
 
@@ -122,7 +119,6 @@
 
   function touchControl() {
     editConfiguration.update(old => $editConfiguration);
-    console.log("touch", $editConfiguration);
   }
 </script>
 
