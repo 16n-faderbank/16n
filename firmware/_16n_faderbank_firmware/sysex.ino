@@ -74,6 +74,11 @@ void sendCurrentState() {
   // 	LED PERMANENT
   // 	LED DATA XFER
   // 	ROTATE (flip+reverse)
+  //  i2c MASTER/FOLLOEWR
+  //  fadermin LSB
+  //  fadermin MSB
+  //  fadermax LSB
+  //  fadermax MSB
 
   // 	16x USBccs
   // 	16x TRSccs

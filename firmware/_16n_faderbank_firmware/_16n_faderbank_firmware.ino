@@ -1,6 +1,6 @@
 /*
  * 16n Faderbank Firmware
- * (c) 2017,2018 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
+ * (c) 2017,2018,2020 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
  * MIT License
  */
 
@@ -56,6 +56,11 @@ int trsCCs[channelCount];
 int flip;
 int ledOn;
 int ledFlash;
+
+int i2cmaster = EEPROM.read(3) == 1;
+
+int faderMin;
+int faderMax;
 
 #ifdef MASTER
 
@@ -304,12 +309,12 @@ void loop()
     temp = analog[i]->getValue();
 
     if(flip){ 
-      temp = MAXFADER - temp;
+      temp = faderMax - temp;
     }
 
-    temp = constrain(temp, MINFADER, MAXFADER);
+    temp = constrain(temp, faderMin, faderMax);
 
-    temp = map(temp, MINFADER, MAXFADER, 0, 16383);
+    temp = map(temp, faderMin, faderMax, 0, 16383);
 
     // map and update the value
     currentValue[i] = temp;

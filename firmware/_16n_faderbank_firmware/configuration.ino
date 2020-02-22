@@ -24,9 +24,15 @@ void checkDefaultSettings() {
 
  void initializeFactorySettings() {
   // set default config flags (LED ON, LED DATA, ROTATE, etc)
+  // fadermin/max are based on "works for me" for twra2. Your mileage may vary.
   EEPROM.write(0,1); // LED ON
   EEPROM.write(1,1); // LED DATA
   EEPROM.write(2,0); // ROTATE
+  EEPROM.write(3,0); // I2C follower by default
+  EEPROM.write(4,15); // fadermin LSB
+  EEPROM.write(5,0); // fadermin MSB
+  EEPROM.write(6,71); // fadermax LSB
+  EEPROM.write(7,63); // fadermax MSB
 
   // set default USB channels
   for(int i = 0; i < channelCount; i++) {
@@ -92,7 +98,7 @@ void loadSettingsFromEEPROM() {
   }
 
   D(Serial.println("USB CCs loaded:"));
-  D(printIntArray(usbCCs,channelCount));
+  // D(printIntArray(usbCCs,channelCount));
 
 
   // load TRS ccs
@@ -103,10 +109,26 @@ void loadSettingsFromEEPROM() {
   }
 
   D(Serial.println("TRS CCs loaded:"));
-  D(printIntArray(trsCCs,channelCount));
+  // D(printIntArray(trsCCs,channelCount));
 
   // load other config
   ledOn = EEPROM.read(0);
   ledFlash = EEPROM.read(1);
   flip = EEPROM.read(2);
+
+  // i2cmaster only read at startup
+
+  int faderminLSB = EEPROM.read(4);
+  int faderminMSB = EEPROM.read(5);
+
+  D(Serial.print ("Setting fadermin to "));
+  D(Serial.println((faderminMSB << 7) + faderminLSB));
+  faderMin = (faderminMSB << 7) + faderminLSB;
+
+  int fadermaxLSB = EEPROM.read(6);
+  int fadermaxMSB = EEPROM.read(7);
+
+  D(Serial.print ("Setting fadermax to "));
+  D(Serial.println((fadermaxMSB << 7) + fadermaxLSB));
+  faderMax = (fadermaxMSB << 7) + fadermaxLSB;
 }

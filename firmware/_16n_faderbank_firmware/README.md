@@ -60,10 +60,10 @@ FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes 
 | 0       | 0/1    | LED on when powered                |
 | 1       | 0/1    | LED blink on MIDI data             |
 | 2       | 0/1    | Rotate controller outputs via 180º |
-| 4       | 0/1    | I2C Master/Follower                |
-| 5,6     | 0-255  | FADERMIN msb/lsb                   |
-| 7,8     | 0-255  | FADERMAX msb/lsb                   |
-| 9-15    |        | Currently vacant                   |
+| 3       | 0/1    | I2C Master/Follower                |
+| 4,5     | 0-127  | FADERMIN lsb/msb                   |
+| 6,7     | 0-127  | FADERMAX lsb/msb                   |
+| 8-15    |        | Currently vacant                   |
 +---------+--------+------------------------------------+
 | 16-31   | 0-15   | Channel for each control (USB)     |
 | 32-47   | 0-15   | Channel for each control (TRS)     |
