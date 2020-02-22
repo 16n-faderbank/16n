@@ -43,6 +43,8 @@
   <option value={true}>Master</option>
 </select>
 
+<p class='note'><strong>Follower</strong> mode is for use with Teletype.</p>
+<p class='note'><strong>Master</strong> mode is for use with Ansible, TXi, ER-301. 16n will not respond to Teletype when in master mode.</p>
 <p class='note'>This will not take effect until you restart (disconnect/reconnect) your 16n.</p>
 
 <h3>Fader Minimum/Maximum scalars</h3>
