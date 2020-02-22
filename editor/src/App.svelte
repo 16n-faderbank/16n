@@ -63,7 +63,11 @@
                 return;
               } else {
                 editConfiguration.update(old => $editConfiguration.updateFromJson(newConfigData));
-                alert("New configuration imported. Choose 'update controller' to import, or 'Cancel' to abort");
+                if($editConfiguration.isEquivalent($configuration)) {
+                  alert("Imported configuration is identical to currently loaded configuration; no changes to upload.");
+                } else {
+                  alert("New configuration imported. Choose 'update controller' to import, or 'Cancel' to abort");
+                }
               }
             });
 
@@ -82,7 +86,7 @@
 
         let downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href",     dataStr);
-        downloadAnchorNode.setAttribute("download", "oxion_controller_config" + ".json");
+        downloadAnchorNode.setAttribute("download", `${$configuration.device().name}_controller_config.json`);
         document.body.appendChild(downloadAnchorNode); // required for firefox
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
