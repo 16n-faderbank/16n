@@ -105,7 +105,7 @@ export class ConfigurationObject {
     let controllerCount = this.device().controlCount;
 
     o.usbControls = o.usbControls.splice(0,controllerCount);
-    o.usbControls.forEach(c => delete(c.value));
+    o.usbControls.forEach(c => delete(c.val));
 
     o.trsControls = o.trsControls.splice(0,controllerCount);
 

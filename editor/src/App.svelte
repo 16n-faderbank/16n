@@ -49,11 +49,9 @@
         OxionMidi.requestConfig($selectedMidiOutput);
         break;
       case "importConfig":
-        // TODO: can you extract this to a file?
         ImportExport.import($editConfiguration, $configuration, editConfiguration);
         break;
       case "exportConfig":
-        // TODO extract to file
         ImportExport.export($configuration);
         break;
       default:
