@@ -22,35 +22,11 @@ int DEVICE_ID = 0x02; // 16n
 // restricts output to only channel 1 for development purposes
 // #define DEV 1
 
-// reverses faders left-to-right
-// #define REV 1
-
-// flips faders up-down. You almost certainly want #REV enabled as well for this.
-// #define FLIP 1
-
 // activates printing of debug messages
 #define DEBUG 1
 
 // enables legacy compatibility with non-multiplexer boards
 // #define V125
-
-// turn on power LED continuously.
-// #define LED 1
-
-// flash LED on attempting to send fader activity
-// #define FLASHLED 1
-
-// MASTER MODE allows you to broadcast values from the 16n
-// this supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301
-// uncomment this #define and compile the firmware
-//
-// NOTE: in MASTER MODE the 16n will not respond to the Teletype
-//
-//#define MASTER 1
-
-// minimum and maximum values for faders (to deal with tolerances)
-#define MINFADER 15
-#define MAXFADER 8135
 
 // I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what you are doing.
 #define I2C_ADDRESS 0x34
