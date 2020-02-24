@@ -1,3 +1,9 @@
+/*
+ * 16n Faderbank Utility Functions
+ * (c) 2020 by Tom Armitage
+ * MIT License
+ */
+
 void readEEPROMArray(int start, byte buffer[], int length) {
   for (int i = 0; i < length; i++) {
     buffer[i] = EEPROM.read(start+i);

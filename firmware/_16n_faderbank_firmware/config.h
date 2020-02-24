@@ -1,6 +1,6 @@
 /*
- * 16n Faderbank Configuration
- * (c) 2017,2018 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
+ * 16n Faderbank Firmware Configuration
+ * (c) 2017,2018,2020 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
  * MIT License
  */
 
@@ -23,7 +23,7 @@ int DEVICE_ID = 0x02; // 16n
 // #define DEV 1
 
 // activates printing of debug messages
-#define DEBUG 1
+// #define DEBUG 1
 
 // enables legacy compatibility with non-multiplexer boards
 // #define V125

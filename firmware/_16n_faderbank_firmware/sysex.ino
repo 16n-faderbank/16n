@@ -1,3 +1,9 @@
+/*
+ * 16n Faderbank Configuration Sysex Processing
+ * (c) 2020 by Tom Armitage
+ * MIT License
+ */
+
 void processIncomingSysex(byte* sysexData, unsigned size) {
   D(Serial.println("Ooh, sysex"));
   D(printHexArray(sysexData, size));

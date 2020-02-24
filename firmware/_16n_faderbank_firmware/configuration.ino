@@ -1,3 +1,9 @@
+/*
+ * 16n Faderbank EEPROM-based configuration
+ * (c) 2020 by Tom Armitage
+ * MIT License
+ */
+
 const int defaultUSBCCs[] = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
 const int defaultTRSCCs[] = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47};
 
