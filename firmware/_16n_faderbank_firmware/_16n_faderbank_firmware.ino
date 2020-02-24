@@ -53,6 +53,7 @@ int usbChannels[channelCount];
 int trsChannels[channelCount];
 int usbCCs[channelCount];
 int trsCCs[channelCount];
+int legacyPorts[channelCount]; // for V125 only
 int flip;
 int ledOn;
 int ledFlash;
@@ -115,6 +116,20 @@ void setup()
 
   usbMIDI.setHandleSystemExclusive(processIncomingSysex);
 
+  #ifdef V125
+  // analog ports on the Teensy for the 1.25 board.
+  if(flip) {
+    int portsToAssign[] = {A15, A14, A13, A12, A11, A10, A9, A8, A7, A6, A5, A4, A3, A2, A1, A0};
+    for(int i=0; i < channelCount; i++) {
+      legacyPorts[i] = portsToAssign[i];
+    }
+  } else {
+    int portsToAssign[] = {A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15};
+    for(int i=0; i < channelCount; i++) {
+      legacyPorts[i] = portsToAssign[i];
+    }
+  }
+  #endif
 
 // initialize the TX Helper
 #ifdef V125
@@ -285,7 +300,7 @@ void loop()
   for (i = 0; i < channelCount; i++)
   {
 #ifdef V125
-    temp = analogRead(ports[i]); // mux goes into A0
+    temp = analogRead(legacyPorts[i]); // mux goes into A0
 #else
     // set mux to appropriate channel
     if(flip) {

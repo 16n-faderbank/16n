@@ -68,7 +68,7 @@ FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes 
 | 16-31   | 0-15   | Channel for each control (USB)     |
 | 32-47   | 0-15   | Channel for each control (TRS)     |
 | 48-63   | 0-127  | CC for each control (USB)          |
-| 64-79   | 0-127  | CC for each control (TRS           |
+| 64-79   | 0-127  | CC for each control (TRS)          |
 +---------+--------+------------------------------------+
 
 
