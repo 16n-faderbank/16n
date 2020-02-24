@@ -14,8 +14,8 @@ void checkDefaultSettings() {
   // if byte1 of EEPROM is FF for whatever reason, let's assume the machine needs initializing
   int firstByte = EEPROM.read(0x00);
 
-  if(firstByte == 0xff) {
-    D(Serial.println("First Byte is 0xFF, probably needs initialising"));
+  if(firstByte > 0x01) {
+    D(Serial.println("First Byte is > 0x01, probably needs initialising"));
     initializeFactorySettings();
   } else {
     D(Serial.print("First Byte is set to: "));
