@@ -96,6 +96,7 @@ IntervalTimer midiReadTimer;
 int midiInterval = 1000; // 1ms
 bool shouldDoMidiRead = false;
 bool shouldDoMidiWrite = false;
+bool forceMidiWrite = false;
 
 // helper values for i2c reading and future expansion
 int activeInput = 0;
@@ -392,7 +393,7 @@ void doMidiWrite()
     shiftyTemp = notShiftyTemp >> 7;
 
     // if there was a change in the midi value
-    if (shiftyTemp != lastMidiValue[q])
+    if ((shiftyTemp != lastMidiValue[q]) || forceMidiWrite)
     {
       if(ledFlash && !midiDirty) {
         lastMidiActivityAt = millis();
@@ -408,38 +409,39 @@ void doMidiWrite()
       // D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
-if(i2cMaster) {
+    if(i2cMaster) {
 
-    // we send out to all three supported i2c slave devices
-    // keeps the firmware simple :)
+      // we send out to all three supported i2c slave devices
+      // keeps the firmware simple :)
 
-    if (notShiftyTemp != lastValue[q])
-    {
-      D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
+      if (notShiftyTemp != lastValue[q])
+      {
+        D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
 
-      // for 4 output devices
-      port = q % 4;
-      device = q / 4;
+        // for 4 output devices
+        port = q % 4;
+        device = q / 4;
 
-      // TXo
-      if(txoPresent) {
-        sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+        // TXo
+        if(txoPresent) {
+          sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+        }
+
+        // ER-301
+        if(er301Present) {
+          sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
+        }
+
+        // ANSIBLE
+        if(ansiblePresent) {
+          sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
+        }
+
+        lastValue[q] = notShiftyTemp;
       }
-
-      // ER-301
-      if(er301Present) {
-        sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
-      }
-
-      // ANSIBLE
-      if(ansiblePresent) {
-        sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
-      }
-
-      lastValue[q] = notShiftyTemp;
     }
-}
   }
+  forceMidiWrite = false;
 }
 
 /*

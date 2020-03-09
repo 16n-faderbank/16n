@@ -110,4 +110,5 @@ void sendCurrentState() {
   D(printHexArray(sysexData,88));
 
   usbMIDI.sendSysEx(88, sysexData, false);
+  forceMidiWrite = true;
 }
