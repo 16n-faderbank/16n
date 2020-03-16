@@ -1,6 +1,10 @@
 # 16n Firmware
 
-Written for Teensy 3.2.
+16n Firmware is designed to run on a Teensy 3.2. It is not supported on any other platform.
+
+This README serves as a guide for **developing** and **compiling** your own versions of the firwmare. As of Firmware v2.0.0, the recommended method for putting firmware onto a 16n is to use Teensy Loader directly. [Find out more on the wiki][load-firmware]
+
+If you are interested in compiling your own firmware, or hacking on it, read on!
 
 ## Requirements
 
@@ -16,15 +20,15 @@ Written for Teensy 3.2.
 
 ## Customisation and configuration
 
-As of 16n firmware 2.0.0, you no longer should do ANY configuration through the Arduino IDE. All configuration is conducted from a web browser, using the [16n editor].
+As of 16n firmware 2.0.0, you no longer should do ANY configuration through the Arduino IDE. All configuration is conducted from a web browser, using the [16n editor][editor]
 
 When you upgrade to 2.0.0 you will LOSE ANY CONFIGURATION YOU HAVE. This is a one-time thing; apologies.
 
-The 16n will be initialised to factory defaults. Once this is done, connect over USB, and go to the [editor] in Google Chrome; you will be able to see the current configuration, edit the configuration, and transmit the new config to your device.
+The 16n will be initialised to a set of default settings (All outputs for TRS and USB set to MIDI channel 1, CCs 32-47, I2C set to follower). Once this is done, connect over USB, and go to the [editor][editor] in Google Chrome; you will be able to see the current configuration, edit the configuration, and transmit the new config to your device. You will likely need to customise the maximum fader value calibrations.
 
 Note that if you do change any config related to I2C, you should power-cycle the 16n before it will be picked up.
 
-Some options remain in `config.h`; they are primarily for developers.
+Some options _do_ remain in `config.h`; they are for developers to specify options that are likely to need setting once, or adjusting during the development process:
 
 In `config.h`
 
@@ -39,12 +43,6 @@ will log debug messages to the serial port.
 ```
 
 will restrict the faderbank to its first channel. Designed for breadboard development; almost certainly not of interest.
-
-## I2C MASTER MODE
-
-MASTER MODE supports up to 4 TXo modules and/or up to 4 Ansible devices and/or 1 ER-301.
-
-If you want to use 16n with an ER-301, you need to turn MASTER MODE on. If you want to use it with a Monome Teletype, leave you want MASTER MODE off - leave it commented out.
 
 ## Memory Map
 
@@ -71,7 +69,9 @@ FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes 
 | 64-79   | 0-127  | CC for each control (TRS)          |
 +---------+--------+------------------------------------+
 
-
 ## LICENSING
 
 see `LICENSE`
+
+[load-firmware]: https://github.com/16n-faderbank/16n/wiki/Firmware:-installation-instructions
+[editor]: https://16n-faderbank.github.io/editor
