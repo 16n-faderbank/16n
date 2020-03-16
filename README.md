@@ -12,10 +12,11 @@ It is currently at hardware version **1.34**, firmware version **2.00a**
 - `electronics` is schematics and gerber files for the PCB.
 - `panel` is SVG/DXF files for top and bottom panels.
 - `build` is build documentation.
-- `browser_test` is a webpage you can use in Google Chrome to test your 16n
-  using WebMIDI.
+- `browser_test` is a **legacy** test webpage to let you test your 16n. As of 16n 2.0.0, the [editor][editor] should be your point of call for debugging your 16n.
 
 Each directory has further `README` files in for you to read.
+
+Your main point of call for documentation, however, should be the [Github Wiki][wiki]
 
 ## 16n Details
 
@@ -35,43 +36,15 @@ Toggle switch allows you to swap between 'Arturia/Novation' (tip is current sour
 
 ## User guide
 
-### Configuration
-
-The 16n configuration site can be found at TODOTODOTODO. You'll need to connect a 16n via USB, and then visit the site in a browser that supports WebMIDI. Currently, that means Google Chrome. Details of your 16n should appear on screen. The tool should be straightforward to use.
-
-### USB MIDI
-
-Connect USB to computer or other USB host. Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered using the configuration site.
-
-### TRS MIDI
-
-Connect USB to computer/USB host, or a USB power supply. Set toggle switch to appropriate MIDI standard. Connect TRS midi converter to MIDI port. (If you have a TRS socket on your MIDI device, you can just use a 3.5mm TRS-TRS cable). Faders 1-16 transmit MIDI CC data on CCs 32-47, channel 1. This can be altered using the configuration site.
-
-### CV
-
-Connect USB to a USB power supply. Faders 1-16 emit 0-~5V out of their relevant jacks. Connect jack sockets to _inputs_ on your synthesizer. Do **not** connect jack sockets to _outputs_ on your Eurorack system; there is power protection on the Teensy, impedence resistors on the sockets, but damage may occur if you do so.
-
-### I2C
-
-I2C is complex and requires a bit more care when connecting up with your 16n. You can do some very powerful things with it, but you need to be very mindful of a few key points:
-
-- I2C is very picky about cable length. Keep your cable runs as short as possible. If your cables are too long, your bus may “hang” and cause connected instruments to become unresponsive until reboot.
-- Connect and disconnect devices only when they are powered down. This keeps your instruments from locking up or being damaged. (I2C just wasn’t designed to be as robust and hot-pluggable as MIDI or USB.)
-- Be extremely careful not to connect audio or MIDI cables to the I2C jack. This could damage your 16n’s processor.
-- 16n’s I2C jack is a 3.5mm stereo jack wired as follows: tip SDA, ring SCL, and sleeve GND (ground). The various devices in the ecosystem that support I2C order these pins differently. Check your devices documentation or PCB to ensure that you are connecting to it properly.
-- Depending on the number of devices on the I2C bus and your configuration, you my need to utilize a bus board to add additional “pull up” resistance to the bus in order to have reliable communications. There are a number of options available for this in the community.
-
-By default, the 16n firmware is set up to work with a monome Teletype out of the box. Make sure you are running the latest Teletype firmware (3.0 as of this writing). Simply connect to the I2C bus and go. The 16n commands are listed in the Teletype documentation available here: [https://monome.org/docs/modular/teletype/manual/#n-faderbank](https://monome.org/docs/modular/teletype/manual/#n-faderbank). These commands allow for the Teletype to programmatically read the position of any of the 16n’s faders.
-
-The “I2C MASTER” option allows the 16n to emit commands directly to a number of modules. (This can be set in the configuration app, and then will be applied the next time the device boots). It sends CV values to up to four monome Ansible, four bpcmusic TXo, and the Orthogonal Devices’ ER-301 all at the same time. Note: In this configuration, you need to have additional pull-up resistors on the I2C line (as mentioned above). Either use one of the available powered I2C busboards for this purpose or, if you don’t plan on connecting your 16n to a Teletype (which supplies its own pull-up), you can populate the pull-up resistors on the 16n PCB.
-
-"_Can I have multiple faderbanks working over I2C?_" - basically, no. [Brendon has a good explanation here of why not](https://github.com/16n-faderbank/16n/issues/16#issuecomment-455739461)
+[The user guide can be found on the Wiki](https://github.com/16n-faderbank/16n/wiki/User-Guide)
 
 ## BOM
 
-[Available on Octopart][octobom]; a CSV version is in `electronics/bom-csv.csv`
+[See more on the wiki](https://github.com/16n-faderbank/16n/wiki/BOM-(Bill-of-Materials))
 
-Most parts you can get from eg. Mouser. I recommend buying PJ-302 jacks from [Thonk](https://thonk.co.uk) as an alternative to the more expensive CUI parts. If in doubt, 1% 0805 resistors of any manufacturer will do; caps are X7R with appropriate voltage tolerance.
+## Build Guide
+
+[See more on the wiki](https://github.com/16n-faderbank/16n/wiki/Build-guide)
 
 ## Credits
 
@@ -93,3 +66,5 @@ Firmware is licensed under the [MIT License][mitlicense].
 [octobom]: https://octopart.com/bom-tool/unJxkzvR
 [ccbysa]: https://creativecommons.org/licenses/by-sa/4.0/
 [mitlicense]: https://opensource.org/licenses/MIT
+[editor]: https://16n-faderbank.github.io/editor
+[wiki]: https://github.com/16n-faderbank/16n/wiki
