@@ -12,9 +12,8 @@
  */
 
 /*
- * TODO TODO THIS IS NOT TRUE
- * ALL configuration should take place in config.h.
- * You can disable/enable flags, and configure  MIDI channels in there.
+ * Most configuration now hpapens via online editor.
+ * config.h is mainly for developer configuration.
  */
 
 #include <CD74HC4067.h>
