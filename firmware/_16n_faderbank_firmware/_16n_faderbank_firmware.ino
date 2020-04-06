@@ -1,6 +1,6 @@
 /*
  * 16n Faderbank Firmware
- * (c) 2017,2018 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
+ * (c) 2017,2018,2020 by Brian Crabtree, Sean Hellfritsch, Tom Armitage, and Brendon Cassidy
  * MIT License
  */
 
@@ -12,16 +12,17 @@
  */
 
 /*
- * ALL configuration should take place in config.h.
- * You can disable/enable flags, and configure  MIDI channels in there.
+ * Most configuration now hpapens via online editor.
+ * config.h is mainly for developer configuration.
  */
 
-#include "config.h"
+#include <CD74HC4067.h>
+#include <EEPROM.h>
 #include <i2c_t3.h>
 #include <MIDI.h>
 #include <ResponsiveAnalogRead.h>
-#include <CD74HC4067.h>
 
+#include "config.h"
 #include "TxHelper.h"
 
 // wrap code to be executed only under DEBUG conditions in D()
@@ -39,36 +40,54 @@ int i, temp;
 // midi write helpers
 int q, shiftyTemp, notShiftyTemp, lastMidiActivityAt;
 int midiDirty = 0;
+const int midiFlashDuration = 50;
+int ledPin = 13;
 
 // the storage of the values; current is in the main loop; last value is for midi output
 int volatile currentValue[channelCount];
 int lastMidiValue[channelCount];
 
-#ifdef MASTER
+// variables to hold configuration
+int usbChannels[channelCount];
+int trsChannels[channelCount];
+int usbCCs[channelCount];
+int trsCCs[channelCount];
+int legacyPorts[channelCount]; // for V125 only
+int flip;
+int ledOn;
+int ledFlash;
+int i2cMaster;
 
-// memory of the last unshifted value
-int lastValue[channelCount];
+int faderMin;
+int faderMax;
 
-// the i2c message buffer we are sending
-uint8_t messageBuffer[4];
+// variables for i2c master mode
+  // memory of the last unshifted value
+  int lastValue[channelCount];
 
-// temporary values
-uint16_t valueTemp;
-uint8_t device = 0;
-uint8_t port = 0;
+  // the i2c message buffer we are sending
+  uint8_t messageBuffer[4];
 
-#endif
+  // temporary values
+  uint16_t valueTemp;
+  uint8_t device = 0;
+  uint8_t port = 0;
+
+  // master i2c specific stuff
+  const int ansibleI2Caddress = 0x20;
+  const int er301I2Caddress = 0x31;
+  const int txoI2Caddress = 0x60;
+  bool er301Present = false;
+  bool ansiblePresent = false;
+  bool txoPresent = false;
+
 
 // the thing that smartly smooths the input
 ResponsiveAnalogRead *analog[channelCount];
 
 // mux config
 CD74HC4067 mux(8, 7, 6, 5);
-#ifdef REV
-const int muxMapping[16] = {8, 9, 10, 11, 12, 13, 14, 15, 7, 6, 5, 4, 3, 2, 1, 0};
-#else
 const int muxMapping[16] = {0, 1, 2, 3, 4, 5, 6, 7, 15, 14, 13, 12, 11, 10, 9, 8};
-#endif
 
 // MIDI timers
 IntervalTimer midiWriteTimer;
@@ -76,21 +95,11 @@ IntervalTimer midiReadTimer;
 int midiInterval = 1000; // 1ms
 bool shouldDoMidiRead = false;
 bool shouldDoMidiWrite = false;
+bool forceMidiWrite = false;
 
 // helper values for i2c reading and future expansion
 int activeInput = 0;
 int activeMode = 0;
-
-// master i2c specific stuff
-#ifdef MASTER
-
-const int ansibleI2Caddress = 0x20;
-const int er301I2Caddress = 0x31;
-const int txoI2Caddress = 0x60;
-bool er301Present = false;
-bool ansiblePresent = false;
-bool txoPresent = false;
-#endif
 
 /*
  * The function that sets up the application
@@ -99,6 +108,28 @@ void setup()
 {
 
   D(Serial.println("16n Firmware Debug Mode"));
+
+  checkDefaultSettings();
+
+  loadSettingsFromEEPROM();
+  i2cMaster = EEPROM.read(3) == 1;
+
+  usbMIDI.setHandleSystemExclusive(processIncomingSysex);
+
+  #ifdef V125
+  // analog ports on the Teensy for the 1.25 board.
+  if(flip) {
+    int portsToAssign[] = {A15, A14, A13, A12, A11, A10, A9, A8, A7, A6, A5, A4, A3, A2, A1, A0};
+    for(int i=0; i < channelCount; i++) {
+      legacyPorts[i] = portsToAssign[i];
+    }
+  } else {
+    int portsToAssign[] = {A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15};
+    for(int i=0; i < channelCount; i++) {
+      legacyPorts[i] = portsToAssign[i];
+    }
+  }
+  #endif
 
 // initialize the TX Helper
 #ifdef V125
@@ -127,13 +158,14 @@ void setup()
 
     currentValue[i] = 0;
     lastMidiValue[i] = 0;
-#ifdef MASTER
-    lastValue[i] = 0;
-#endif
+
+    if(i2cMaster) {
+      lastValue[i] = 0;
+    }
   }
 
 // i2c using the default I2C pins on a Teensy 3.2
-#ifdef MASTER
+if(i2cMaster) {
 
   D(Serial.println("Enabling i2c in MASTER mode"));
 
@@ -205,7 +237,7 @@ void setup()
 
 #endif
 
-#else
+} else {
   // non-master mode
 
   D(Serial.println("Enabling i2c enabled in SLAVE mode"));
@@ -220,18 +252,18 @@ void setup()
   Wire.onRequest(i2cReadRequest);
 #endif
 
-#endif
+}
 
   // turn on the MIDI party
   MIDI.begin();
   midiWriteTimer.begin(writeMidi, midiInterval);
   midiReadTimer.begin(readMidi, midiInterval);
 
-pinMode(13, OUTPUT);
+  pinMode(ledPin, OUTPUT);
 
-#ifdef LED
-  digitalWrite(13, HIGH);
-#endif
+  if(ledOn) {
+    digitalWrite(ledPin, HIGH);
+  }
 }
 
 /*
@@ -239,24 +271,43 @@ pinMode(13, OUTPUT);
  */
 void loop()
 {
-  #ifdef FLASHLED
-  if(midiDirty) {
-    if(millis() > (lastMidiActivityAt + 30)) {
-      digitalWrite(13, HIGH);
-      midiDirty = 1-midiDirty;
+  // this whole chunk makes the LED flicker on MIDI activity - 
+  // and inverts that flicker if the power light is on.
+  if (ledFlash) {
+    if (millis() > (lastMidiActivityAt + midiFlashDuration)) {
+      if(ledOn) {
+        digitalWrite(ledPin, HIGH);
+      } else {
+        digitalWrite(ledPin, LOW);
+      }
+      midiDirty = 0;
     } else {
-      digitalWrite(13, LOW);
+      if(ledOn) {
+        digitalWrite(ledPin, LOW);
+      } else {
+        digitalWrite(ledPin, HIGH);
+      }
+    }
+  } else {
+    if(ledOn) {
+      digitalWrite(ledPin, HIGH);
+    } else {
+      digitalWrite(ledPin, LOW);
     }
   }
-  #endif
+
   // read loop using the i counter
   for (i = 0; i < channelCount; i++)
   {
 #ifdef V125
-    temp = analogRead(ports[i]); // mux goes into A0
+    temp = analogRead(legacyPorts[i]); // mux goes into A0
 #else
     // set mux to appropriate channel
-    mux.channel(muxMapping[i]);
+    if(flip) {
+      mux.channel(muxMapping[channelCount - i - 1]);
+    } else {
+      mux.channel(muxMapping[i]);
+    }
 
     // read the value
     temp = analogRead(0); // mux goes into A0
@@ -268,13 +319,13 @@ void loop()
     // read from the smoother, constrain (to account for tolerances), and map it
     temp = analog[i]->getValue();
 
-#ifdef FLIP
-    temp = MAXFADER - temp;
-#endif
+    if(flip){ 
+      temp = faderMax - temp;
+    }
 
-    temp = constrain(temp, MINFADER, MAXFADER);
+    temp = constrain(temp, faderMin, faderMax);
 
-    temp = map(temp, MINFADER, MAXFADER, 0, 16383);
+    temp = map(temp, faderMin, faderMax, 0, 16383);
 
     // map and update the value
     currentValue[i] = temp;
@@ -341,60 +392,56 @@ void doMidiWrite()
     shiftyTemp = notShiftyTemp >> 7;
 
     // if there was a change in the midi value
-    if (shiftyTemp != lastMidiValue[q])
+    if ((shiftyTemp != lastMidiValue[q]) || forceMidiWrite)
     {
-      #ifdef FLASHLED
-      if(!midiDirty) {
+      if(ledFlash && !midiDirty) {
         lastMidiActivityAt = millis();
-        midiDirty = 1-midiDirty;
+        midiDirty = 1;
       }
-      #endif
       // send the message over USB and physical MIDI
-      usbMIDI.sendControlChange(usb_ccs[q], shiftyTemp, usb_channels[q]);
-      MIDI.sendControlChange(trs_ccs[q], shiftyTemp, trs_channels[q]);
+      usbMIDI.sendControlChange(usbCCs[q], shiftyTemp, usbChannels[q]);
+      MIDI.sendControlChange(trsCCs[q], shiftyTemp, trsChannels[q]);
 
       // store the shifted value for future comparison
       lastMidiValue[q] = shiftyTemp;
 
-      D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
+      // D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
-#ifdef MASTER
+    if(i2cMaster) {
 
-    // we send out to all three supported i2c slave devices
-    // keeps the firmware simple :)
+      // we send out to all three supported i2c slave devices
+      // keeps the firmware simple :)
 
-    if (notShiftyTemp != lastValue[q])
-    {
-      D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
+      if (notShiftyTemp != lastValue[q])
+      {
+        D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
 
-      // for 4 output devices
-      port = q % 4;
-      device = q / 4;
+        // for 4 output devices
+        port = q % 4;
+        device = q / 4;
 
-      // TXo
-      if(txoPresent) {
-        sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+        // TXo
+        if(txoPresent) {
+          sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+        }
+
+        // ER-301
+        if(er301Present) {
+          sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
+        }
+
+        // ANSIBLE
+        if(ansiblePresent) {
+          sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
+        }
+
+        lastValue[q] = notShiftyTemp;
       }
-
-      // ER-301
-      if(er301Present) {
-        sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
-      }
-
-      // ANSIBLE
-      if(ansiblePresent) {
-        sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
-      }
-
-      lastValue[q] = notShiftyTemp;
     }
-
-#endif
   }
+  forceMidiWrite = false;
 }
-
-#ifdef MASTER
 
 /*
  * Sends an i2c command out to a slave when running in master mode
@@ -420,8 +467,6 @@ void sendi2c(uint8_t model, uint8_t deviceIndex, uint8_t cmd, uint8_t devicePort
   Wire.endTransmission();
 #endif
 }
-
-#else
 
 /*
  * The function that responds to a command from i2c.
@@ -495,5 +540,3 @@ void i2cReadRequest()
  * Future function if we add more i2c capabilities beyond reading values.
  */
 void actOnCommand(byte cmd, byte out, int value) {}
-
-#endif
