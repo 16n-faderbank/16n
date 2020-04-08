@@ -1,6 +1,6 @@
 # 16n Firmware
 
-16n Firmware is designed to run on a Teensy 3.2. It is not supported on any other platform.
+16n Firmware is designed to run on a Teensy 3.2. It is not supported on any other platform. **In particular, it is currently entirely unsupported on Teensy LC right now.** If you aren't sure what board is inside your 16n, ask your supplier.
 
 This README serves as a guide for **developing** and **compiling** your own versions of the firwmare. As of Firmware v2.0.0, the recommended method for putting firmware onto a 16n is to use Teensy Loader directly. [Find out more on the wiki][load-firmware]
 
