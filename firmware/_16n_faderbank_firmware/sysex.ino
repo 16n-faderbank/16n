@@ -29,37 +29,85 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
     case 0x0e:
       // 0E - c0nfig Edit - here is a new config
       D(Serial.println("Incoming c0nfig Edit"));
-      updateSettingsAndStoreInEEPROM(sysexData, size);
+      updateAllSettingsAndStoreInEEPROM(sysexData, size);
+      break;
+    case 0x0d:
+      // 0D - c0nfig Device edit - new config just for device opts
+      D(Serial.println("Incoming c0nfig Device edit"));
+      updateDeviceSettingsAndStoreInEEPROM(sysexData, size);
+      break;
+    case 0x0c:
+      // 0C - c0nfig usb edit - here is a new config just for usb
+      D(Serial.println("Incoming c0nfig usb edit"));
+      updateUSBSettingsAndStoreInEEPROM(sysexData, size);
+      break;
+    case 0x0b:
+      // 0B - c0nfig trs edit - here is a new config just for trs
+      D(Serial.println("Incoming c0nfig trs edit"));
+      updateTRSSettingsAndStoreInEEPROM(sysexData, size);
       break;
   }
 }
 
-void updateSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
+void updateAllSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   // store the settings from sysex in flash
   // also update all our settings.
   D(Serial.print("Received a new config with size "));
   D(Serial.println(size));
   // D(printHexArray(newConfig,size));
 
-  // walk the config
-  // ignore the top, tail, and firmware version
-  int startIndex = 9; // after the start signal + 
-  int dataLength = 80; // five chunks of 16
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,9,80,0);
+}
 
-  byte dataToWrite[dataLength];
+void updateDeviceSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
+  // store the settings from sysex in flash
+  // also update all our settings.
+  D(Serial.print("Received a new device config with size "));
+  D(Serial.println(size));
+  // D(printHexArray(newConfig,size));
 
-  for(int i = 0; i < (dataLength); i++) {
-    int configIndex = i + startIndex;
-    dataToWrite[i] = newConfig[configIndex];
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,5,16,0);
+}
+
+void updateUSBSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
+  // store channels
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,5,16,16);
+  // store CCs
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,48);
+}
+
+void updateTRSSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
+  // store channels
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,5,16,32);
+  // store CCs
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,64);
+}
+
+void updateSettingsBlockAndStoreInEEPROM(byte* configFromSysex, unsigned sysexSize, int configStartIndex, int configDataLength, int EEPROMStartIndex) { 
+  D(Serial.print("Storing data of size "));
+  D(Serial.print(configDataLength));
+  D(Serial.print(" at location "));
+  D(Serial.print(EEPROMStartIndex));
+  D(Serial.print(" from data of length "));
+  D(Serial.print(sysexSize));
+  D(Serial.print(" beginning at byte "));
+  D(Serial.println(configStartIndex));
+  D(printHexArray(configFromSysex, sysexSize));
+
+  // walk the config, ignoring the top, tail, and firmware version
+  byte dataToWrite[configDataLength];
+
+  for(int i = 0; i < (configDataLength); i++) {
+    int configIndex = i + configStartIndex;
+    dataToWrite[i] = configFromSysex[configIndex];
   }
 
   // write new Data
-  writeEEPROMArray(0, dataToWrite, dataLength);
+  writeEEPROMArray(EEPROMStartIndex, dataToWrite, configDataLength);
 
   // now load that.
   loadSettingsFromEEPROM();
 }
-
 void sendCurrentState() {
   //   0F - "c0nFig" - outputs its config:
   byte sysexData[88];
