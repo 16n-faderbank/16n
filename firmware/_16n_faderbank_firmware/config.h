@@ -17,7 +17,11 @@ int POINT_VERSION = 0x00;
  * device metadata
  */
 
-int DEVICE_ID = 0x02; // 16n, do not change, needed by editor
+#if defined(__MKL26Z64__) || defined(__MK20DX128__) || defined(_LC_DEBUG)
+const int DEVICE_ID = 0x03; // 16n, do not change, needed by editor
+#else
+const int DEVICE_ID = 0x02; // 16n, do not change, needed by editor
+#endif
 
 // restricts output to only channel 1 for development purposes
 // #define DEV 1
