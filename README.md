@@ -4,9 +4,7 @@ Once upon a time, Sean Hellfritsch and Brian Crabtree [made a faderbank][linespo
 
 **16n** is the revised version of that object: it is open-source and ready for you to make, modify, or hack.
 
-It is currently at hardware version **1.34**, firmware version **2.0.0**.
-
-_Firmware version 2.0.0 is designed for Teensy 3.2 boards. If you're using a 16n derivative with another board, such as a Teensy LC, the hex files available will not currently work._
+It is currently at hardware version **1.34**, firmware version **2.0.1**.
 
 # Repository contents
 

@@ -1,8 +1,8 @@
 # 16n Firmware
 
-16n Firmware is designed to run on a Teensy 3.2. It is not supported on any other platform. **In particular, it is currently entirely unsupported on Teensy LC right now.** If you aren't sure what board is inside your 16n, ask your supplier.
+16n Firmware is designed to run on a Teensy 3.2; it is also compatible with a Teensy LC, although the official BOM recommends a 3.2.
 
-This README serves as a guide for **developing** and **compiling** your own versions of the firwmare. As of Firmware v2.0.0, the recommended method for putting firmware onto a 16n is to use Teensy Loader directly. [Find out more on the wiki][load-firmware]
+This README serves as a guide for **developing** and **compiling** your own versions of the firwmare. Since firmware v2.0.0, the recommended method for putting firmware onto a 16n is to use Teensy Loader directly. [Find out more on the wiki][load-firmware]
 
 If you are interested in compiling your own firmware, or hacking on it, read on!
 
@@ -22,7 +22,7 @@ If you are interested in compiling your own firmware, or hacking on it, read on!
 
 As of 16n firmware 2.0.0, you no longer should do ANY configuration through the Arduino IDE. All configuration is conducted from a web browser, using the [16n editor][editor]
 
-When you upgrade to 2.0.0 you will LOSE ANY CONFIGURATION YOU HAVE. This is a one-time thing; apologies.
+When you upgrade to 2.0.0 you will LOSE ANY CONFIGURATION YOU HAVE from v1.3x. This is a one-time thing; apologies. You will not lose future configurations (and also, they are easier to back up).
 
 The 16n will be initialised to a set of default settings (All outputs for TRS and USB set to MIDI channel 1, CCs 32-47, I2C set to follower). Once this is done, connect over USB, and go to the [editor][editor] in Google Chrome; you will be able to see the current configuration, edit the configuration, and transmit the new config to your device. You will likely need to customise the maximum fader value calibrations.
 
