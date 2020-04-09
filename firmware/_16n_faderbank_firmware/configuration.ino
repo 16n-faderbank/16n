@@ -104,7 +104,7 @@ void loadSettingsFromEEPROM() {
   }
 
   D(Serial.println("USB CCs loaded:"));
-  // D(printIntArray(usbCCs,channelCount));
+  D(printIntArray(usbCCs,channelCount));
 
 
   // load TRS ccs
@@ -115,7 +115,7 @@ void loadSettingsFromEEPROM() {
   }
 
   D(Serial.println("TRS CCs loaded:"));
-  // D(printIntArray(trsCCs,channelCount));
+  D(printIntArray(trsCCs,channelCount));
 
   // load other config
   ledOn = EEPROM.read(0);
