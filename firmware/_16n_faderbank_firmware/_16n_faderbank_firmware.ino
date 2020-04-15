@@ -109,6 +109,10 @@ void setup()
 
   D(Serial.println("16n Firmware Debug Mode"));
 
+#ifdef BOOTDELAY // wait some time before continuing boot-up (default is none)
+  delay(BOOTDELAY);
+#endif
+
   checkDefaultSettings();
 
   loadSettingsFromEEPROM();
