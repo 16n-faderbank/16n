@@ -16,7 +16,7 @@ It is currently at hardware version **1.34**, firmware version **2.0.1**.
 
 Each directory has further `README` files in for you to read.
 
-Your main point of call for documentation, however, should be the [Github Wiki][wiki]
+Your first point of call for documentation, however, should be the [Github Wiki][wiki].
 
 ## 16n Details
 
