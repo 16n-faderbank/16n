@@ -58,6 +58,7 @@ int ledOn;
 int ledFlash;
 int i2cMaster;
 
+const int adcResolutionBits = 13; // 13 bit ADC resolution on Teensy 3.2
 int faderMin;
 int faderMax;
 
@@ -145,7 +146,7 @@ void setup()
   TxHelper::SetModes(4);
 
   // set read resolution to teensy's 13 usable bits
-  analogReadResolution(13);
+  analogReadResolution(adcResolutionBits);
 
   // initialize the value storage
   for (i = 0; i < channelCount; i++)
@@ -153,7 +154,7 @@ void setup()
     // analog[i] = new ResponsiveAnalogRead(0, false);
 
     analog[i] = new ResponsiveAnalogRead(0, true, .0001);
-    analog[i]->setAnalogResolution(1 << 13);
+    analog[i]->setAnalogResolution(1 << adcResolutionBits);
     
     // ResponsiveAnalogRead is designed for 10-bit ADCs
     // meanining its threshold defaults to 4. Let's bump that for 
@@ -323,13 +324,13 @@ void loop()
     // read from the smoother, constrain (to account for tolerances), and map it
     temp = analog[i]->getValue();
 
-    if(flip){ 
-      temp = faderMax - temp;
-    }
-
     temp = constrain(temp, faderMin, faderMax);
 
     temp = map(temp, faderMin, faderMax, 0, 16383);
+
+    if(flip) {
+      temp = 16383-temp;
+    }
 
     // map and update the value
     currentValue[i] = temp;
