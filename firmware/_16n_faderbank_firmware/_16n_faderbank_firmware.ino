@@ -57,6 +57,7 @@ int flip;
 int ledOn;
 int ledFlash;
 int i2cMaster;
+int midithru = 1;
 
 const int adcResolutionBits = 13; // 13 bit ADC resolution on Teensy 3.2
 int faderMin;
@@ -120,6 +121,20 @@ void setup()
   i2cMaster = EEPROM.read(3) == 1;
 
   usbMIDI.setHandleSystemExclusive(processIncomingSysex);
+  usbMIDI.setHandleRealTimeSystem(midiClock);
+if(midithru){
+  usbMIDI.setHandleNoteOff(midiNoteOff);
+  usbMIDI.setHandleNoteOn(midiNoteOn);
+  usbMIDI.setHandleAfterTouchPoly(midiAfterTouchPoly);
+  usbMIDI.setHandleControlChange(midiControlChange);
+  usbMIDI.setHandleProgramChange(midiProgramChange);
+  usbMIDI.setHandleAfterTouch(midiAfterTouch);
+  usbMIDI.setHandleTimeCodeQuarterFrame(midiTimeCodeQuarterFrame);
+  usbMIDI.setHandleSongPosition(midiSongPosition);
+  usbMIDI.setHandleSongSelect(midiSongSelect);
+  usbMIDI.setHandleTuneRequest(midiTuneRequest);
+}
+
 
   #ifdef V125
   // analog ports on the Teensy for the 1.25 board.
