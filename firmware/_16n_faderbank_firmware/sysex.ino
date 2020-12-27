@@ -133,6 +133,7 @@ void sendCurrentState() {
   //  fadermin MSB
   //  fadermax LSB
   //  fadermax MSB
+  //  Soft MIDI thru
 
   // 	16x USBccs
   // 	16x TRSccs
