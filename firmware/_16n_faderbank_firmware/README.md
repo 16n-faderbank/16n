@@ -8,7 +8,7 @@ If you are interested in compiling your own firmware, or hacking on it, read on!
 
 ## Requirements
 
-- Latest Teensyduino install.
+- Teensyduino install (currently: Teensyduino v1.5.3 with Arduino 1.8.13)
 - `ResponsiveAnalogRead` library
 - `CD74HC4067` library
 

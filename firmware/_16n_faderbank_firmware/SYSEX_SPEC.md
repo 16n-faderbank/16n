@@ -26,9 +26,6 @@ Request for 16n to transmit current state via sysex. No other payload.
 
 "Here is a new set of TRS options for you". Payload (other than mfg header, top/tail, etc) of 32 bytes to go straight into appropriate locations of EEPROM, according to the memory map described in `README.md`.
 
----
-### PENDING
-
 ## `0x1A` - "1nitiAlize memory"
 
 "Wipe the EEPROM and force factory settings". Unlikely to ever be needed. The use case is "emptying" the EEPROM of a Teensy that's previously been used for other projects, and thus has an inaccurate configuration on it.
