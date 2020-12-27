@@ -41,6 +41,10 @@ void checkDefaultSettings() {
   EEPROM.write(7,63); // fadermax MSB
   EEPROM.write(8,0);  // Soft midi thru
 
+  for(int i = 9; i < 16; i ++) {
+    EEPROM.write(i,0);  // blank remaining config slots.
+  }
+
   // set default USB channels
   for(int i = 0; i < channelCount; i++) {
     int baseAddress = 16;
