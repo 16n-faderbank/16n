@@ -61,7 +61,8 @@ FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes 
 | 3       | 0/1    | I2C Master/Follower                |
 | 4,5     | 0-127  | FADERMIN lsb/msb                   |
 | 6,7     | 0-127  | FADERMAX lsb/msb                   |
-| 8-15    |        | Currently vacant                   |
+| 8       | 0/1    | Soft MIDI thru (default 0)         |
+| 9-15    |        | Currently vacant                   |
 +---------+--------+------------------------------------+
 | 16-31   | 0-15   | Channel for each control (USB)     |
 | 32-47   | 0-15   | Channel for each control (TRS)     |

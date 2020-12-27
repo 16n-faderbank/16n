@@ -57,7 +57,7 @@ int flip;
 int ledOn;
 int ledFlash;
 int i2cMaster;
-int midithru = 1;
+int midiThru;
 
 const int adcResolutionBits = 13; // 13 bit ADC resolution on Teensy 3.2
 int faderMin;
@@ -122,18 +122,19 @@ void setup()
 
   usbMIDI.setHandleSystemExclusive(processIncomingSysex);
   usbMIDI.setHandleRealTimeSystem(midiClock);
-if(midithru){
-  usbMIDI.setHandleNoteOff(midiNoteOff);
-  usbMIDI.setHandleNoteOn(midiNoteOn);
-  usbMIDI.setHandleAfterTouchPoly(midiAfterTouchPoly);
-  usbMIDI.setHandleControlChange(midiControlChange);
-  usbMIDI.setHandleProgramChange(midiProgramChange);
-  usbMIDI.setHandleAfterTouch(midiAfterTouch);
-  usbMIDI.setHandleTimeCodeQuarterFrame(midiTimeCodeQuarterFrame);
-  usbMIDI.setHandleSongPosition(midiSongPosition);
-  usbMIDI.setHandleSongSelect(midiSongSelect);
-  usbMIDI.setHandleTuneRequest(midiTuneRequest);
-}
+
+  if(midiThru){
+    usbMIDI.setHandleNoteOff(midiNoteOff);
+    usbMIDI.setHandleNoteOn(midiNoteOn);
+    usbMIDI.setHandleAfterTouchPoly(midiAfterTouchPoly);
+    usbMIDI.setHandleControlChange(midiControlChange);
+    usbMIDI.setHandleProgramChange(midiProgramChange);
+    usbMIDI.setHandleAfterTouch(midiAfterTouch);
+    usbMIDI.setHandleTimeCodeQuarterFrame(midiTimeCodeQuarterFrame);
+    usbMIDI.setHandleSongPosition(midiSongPosition);
+    usbMIDI.setHandleSongSelect(midiSongSelect);
+    usbMIDI.setHandleTuneRequest(midiTuneRequest);
+  }
 
 
   #ifdef V125
