@@ -46,6 +46,11 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
       D(Serial.println("Incoming c0nfig trs edit"));
       updateTRSSettingsAndStoreInEEPROM(sysexData, size);
       break;
+    case 0x1a:
+      // 1A - 1nitiAlize - blank EEPROM and reset to factory settings.
+      D(Serial.println("Incoming 1nitiAlize request"));
+      initializeFactorySettings();
+      break;
   }
 }
 
@@ -133,6 +138,7 @@ void sendCurrentState() {
   //  fadermin MSB
   //  fadermax LSB
   //  fadermax MSB
+  //  Soft MIDI thru
 
   // 	16x USBccs
   // 	16x TRSccs
