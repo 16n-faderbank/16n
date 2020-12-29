@@ -47,7 +47,7 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
       updateTRSSettingsAndStoreInEEPROM(sysexData, size);
       break;
     case 0x1a:
-      // 1A - 1nitiAlize - blank EEPROM and force factory settings.
+      // 1A - 1nitiAlize - blank EEPROM and reset to factory settings.
       D(Serial.println("Incoming 1nitiAlize request"));
       initializeFactorySettings();
       break;
