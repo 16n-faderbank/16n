@@ -32,9 +32,9 @@ const int DEVICE_ID = 0x02; // 16n, do not change, needed by editor
 // enables legacy compatibility with non-multiplexer boards
 // #define V125
 
-// define startup delay in milliseconds
-// largely only needed for "Sweet-Sixteen" type devices
-// #define BOOTDELAY 10000
+// define startup delay in milliseconds for i2c Leader devices
+// this gives follower devices time to boot up.
+#define BOOTDELAY 10000
 
 // I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what you are doing.
 #define I2C_ADDRESS 0x34
