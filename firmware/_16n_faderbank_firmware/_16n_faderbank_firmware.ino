@@ -111,14 +111,14 @@ void setup()
 
   D(Serial.println("16n Firmware Debug Mode"));
 
-#ifdef BOOTDELAY // wait some time before continuing boot-up (default is none)
-  delay(BOOTDELAY);
-#endif
-
   checkDefaultSettings();
 
   loadSettingsFromEEPROM();
   i2cMaster = EEPROM.read(3) == 1;
+
+  if(i2cMaster) {
+    delay(BOOTDELAY);
+  }
 
   usbMIDI.setHandleSystemExclusive(processIncomingSysex);
   usbMIDI.setHandleRealTimeSystem(midiClock);
