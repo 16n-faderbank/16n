@@ -50,6 +50,7 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
       // 1A - 1nitiAlize - blank EEPROM and reset to factory settings.
       D(Serial.println("Incoming 1nitiAlize request"));
       initializeFactorySettings();
+      loadSettingsFromEEPROM();
       break;
   }
 }
