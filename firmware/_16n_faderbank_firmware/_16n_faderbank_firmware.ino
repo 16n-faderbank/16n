@@ -335,19 +335,21 @@ void loop()
     // put the value into the smoother
     analog[i]->update(temp);
 
-    // read from the smoother, constrain (to account for tolerances), and map it
-    temp = analog[i]->getValue();
+    if(analog[i]->hasChanged()) {
+      // read from the smoother, constrain (to account for tolerances), and map it
+      temp = analog[i]->getValue();
 
-    temp = constrain(temp, faderMin, faderMax);
+      temp = constrain(temp, faderMin, faderMax);
 
-    temp = map(temp, faderMin, faderMax, 0, 16383);
+      temp = map(temp, faderMin, faderMax, 0, 16383);
 
-    if(flip) {
-      temp = 16383-temp;
+      if(flip) {
+        temp = 16383-temp;
+      }
+
+      // map and update the value
+      currentValue[i] = temp;
     }
-
-    // map and update the value
-    currentValue[i] = temp;
   }
 
   if (shouldDoMidiRead)
@@ -423,7 +425,7 @@ void doMidiWrite()
       // store the shifted value for future comparison
       lastMidiValue[q] = shiftyTemp;
 
-      // D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
+      D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
     }
 
     if(i2cMaster) {
