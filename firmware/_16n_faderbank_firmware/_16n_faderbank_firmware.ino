@@ -34,11 +34,8 @@
 
 MIDI_CREATE_DEFAULT_INSTANCE();
 
-// loop helpers
-int i, temp;
-
 // midi write helpers
-int q, shiftyTemp, notShiftyTemp, lastMidiActivityAt;
+int shiftyTemp, notShiftyTemp, lastMidiActivityAt;
 int midiDirty = 0;
 const int midiFlashDuration = 50;
 int ledPin = 13;
@@ -165,7 +162,7 @@ void setup()
   analogReadResolution(adcResolutionBits);
 
   // initialize the value storage
-  for (i = 0; i < channelCount; i++)
+  for (int i = 0; i < channelCount; i++)
   {
     // analog[i] = new ResponsiveAnalogRead(0, false);
 
@@ -318,8 +315,9 @@ void loop()
   }
 
   // read loop using the i counter
-  for (i = 0; i < channelCount; i++)
+  for (int i = 0; i < channelCount; i++)
   {
+    int temp;
 #ifdef V125
     temp = analogRead(legacyPorts[i]); // mux goes into A0
 #else
@@ -403,9 +401,8 @@ void writeMidi()
  */
 void doMidiWrite()
 {
-  // write loop using the q counter (
-  // (can't use i or temp cuz this might interrupt the reads)
-  for (q = 0; q < channelCount; q++)
+  // "q" is a legacy holdover
+  for (int q = 0; q < channelCount; q++)
   {
     notShiftyTemp = currentValue[q];
 
