@@ -39,6 +39,10 @@ const int DEVICE_ID = 0x02; // 16n, do not change, needed by editor
 // I2C Address for Faderbank. 0x34 unless you ABSOLUTELY know what you are doing.
 #define I2C_ADDRESS 0x34
 
+// The device has physically reversed faders relative to the 16n
+// e.g. Sweet Sixteen.
+// #define REVERSED_FADERS 1
+
 #ifdef DEV
 
 const int channelCount = 1;
