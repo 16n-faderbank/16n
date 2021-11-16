@@ -126,6 +126,12 @@ void loadSettingsFromEEPROM() {
   ledOn = EEPROM.read(0);
   ledFlash = EEPROM.read(1);
   flip = EEPROM.read(2);
+  flipOrder = flip;
+#ifdef REVERSED_FADERS
+  reverseMinMax = !flip;
+#else
+  reverseMinMax = flip;
+#endif
   midiThru = EEPROM.read(8);
 
   // i2cMaster only read at startup

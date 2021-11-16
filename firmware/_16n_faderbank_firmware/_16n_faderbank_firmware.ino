@@ -51,6 +51,8 @@ int usbCCs[channelCount];
 int trsCCs[channelCount];
 int legacyPorts[channelCount]; // for V125 only
 int flip;
+int flipOrder;
+int reverseMinMax;
 int ledOn;
 int ledFlash;
 int i2cMaster;
@@ -136,7 +138,7 @@ void setup()
 
   #ifdef V125
   // analog ports on the Teensy for the 1.25 board.
-  if(flip) {
+  if(flipOrder) {
     int portsToAssign[] = {A15, A14, A13, A12, A11, A10, A9, A8, A7, A6, A5, A4, A3, A2, A1, A0};
     for(int i=0; i < channelCount; i++) {
       legacyPorts[i] = portsToAssign[i];
@@ -322,7 +324,7 @@ void loop()
     temp = analogRead(legacyPorts[i]); // mux goes into A0
 #else
     // set mux to appropriate channel
-    if(flip) {
+    if(flipOrder) {
       mux.channel(muxMapping[channelCount - i - 1]);
     } else {
       mux.channel(muxMapping[i]);
@@ -343,7 +345,7 @@ void loop()
 
       temp = map(temp, faderMin, faderMax, 0, 16383);
 
-      if(flip) {
+      if(reverseMinMax) {
         temp = 16383-temp;
       }
 
