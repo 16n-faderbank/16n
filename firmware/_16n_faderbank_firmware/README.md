@@ -44,6 +44,13 @@ will log debug messages to the serial port.
 
 will restrict the faderbank to its first channel. Designed for breadboard development; almost certainly not of interest.
 
+```C
+#define REVERSED_FADERS 1
+```
+
+will reverse the logical direction of travel of faders for devices that are
+built so that 0 is at the top, such as the Tesseract Sweet Sixteen.
+
 ## Memory Map
 
 Configuration is stored in the first 80 bytes of the on-board EEPROM. It looks like this:
