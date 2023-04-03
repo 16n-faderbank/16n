@@ -25,6 +25,11 @@ void processIncomingSysex(byte* sysexData, unsigned size) {
       // 1F = "1nFo" - please send me your current config
       D(Serial.println("Got an 1nFo request"));
       sendCurrentState();
+
+      // also, in 1s time, please send the current state
+      // of the controls, so the editor looks nice.
+      shouldSendForcedControlUpdate = true;
+      sendForcedControlAt = millis() + 1000;
       break;
     case 0x0e:
       // 0E - c0nfig Edit - here is a new config

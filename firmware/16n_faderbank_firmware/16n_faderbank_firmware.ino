@@ -60,6 +60,9 @@ const int adcResolutionBits = 13; // 13 bit ADC resolution on Teensy 3.2
 int faderMin;
 int faderMax;
 
+bool shouldSendForcedControlUpdate = false;
+int sendForcedControlAt;
+
 // variables for i2c master mode
   // memory of the last unshifted value
   int lastValue[channelCount];
@@ -312,6 +315,16 @@ void loop()
     } else {
       digitalWrite(ledPin, LOW);
     }
+  }
+
+  if(shouldSendForcedControlUpdate && (millis() > sendForcedControlAt)) {
+    // it's now time to send a forced control update, so...
+
+    // disable this
+    shouldSendForcedControlUpdate = false;
+
+    // this will force a write the next time the midiWrite callback fires.
+    forceMidiWrite = true;
   }
 
   // read loop using the i counter
