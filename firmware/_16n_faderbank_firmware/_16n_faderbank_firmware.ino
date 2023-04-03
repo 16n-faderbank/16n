@@ -327,6 +327,8 @@ void loop()
     } else {
       mux.channel(muxMapping[i]);
     }
+    // wait for the mux channel to change
+    delayMicroseconds(10);
 
     // read the value
     temp = analogRead(0); // mux goes into A0
