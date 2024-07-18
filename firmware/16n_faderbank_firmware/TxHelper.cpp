@@ -8,7 +8,8 @@
 #include "Arduino.h"
 
 // i2c
-#include <i2c_t3.h>
+// #include <i2c_t3.h>
+#include <Wire.h>
 
 // initialize the basic values for the TXi
 int TxHelper::Ports = 8;

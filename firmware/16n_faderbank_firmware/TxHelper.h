@@ -8,7 +8,8 @@
 #define TxHelper_h
 
 // i2c
-#include <i2c_t3.h>
+// #include <i2c_t3.h>
+#include <Wire.h>
 
 #include "Arduino.h"
 

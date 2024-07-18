@@ -18,7 +18,8 @@
 
 #include <CD74HC4067.h>
 #include <EEPROM.h>
-#include <i2c_t3.h>
+// #include <i2c_t3.h>
+#include <Wire.h>
 #include <MIDI.h>
 #include <ResponsiveAnalogRead.h>
 
@@ -224,8 +225,9 @@ if(i2cMaster) {
   D(Serial.println ("I2C scan complete."));
 
 #else
-  Wire.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
-  Wire.setDefaultTimeout(10000); // 10ms
+  // Wire.begin(I2C_MASTER, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+  Wire.begin();
+  Wire.setTimeout(10000); // 10ms
 
   D(Serial.println ("Scanning I2C bus"));
   
@@ -268,7 +270,8 @@ if(i2cMaster) {
   Wire1.onReceive(i2cWrite);
   Wire1.onRequest(i2cReadRequest);
 #else
-  Wire.begin(I2C_SLAVE, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+  // Wire.begin(I2C_SLAVE, I2C_ADDRESS, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000);
+  Wire.begin(I2C_ADDRESS);
   Wire.onReceive(i2cWrite);
   Wire.onRequest(i2cReadRequest);
 #endif
