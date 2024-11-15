@@ -160,6 +160,8 @@ void sendCurrentState() {
   // 	16x TRSccs
   // 	16x USBchannel
   // 	16x TRS channel
+  //  2 bytes for USB CC modes
+  //  2 bytes for TRS CC modes
     
   // So that's 3 for the mfg + 1 for the message + 80 bytes
   // can be done with a simple "read EEPROM_DATA_SIZE bytes and send them."
