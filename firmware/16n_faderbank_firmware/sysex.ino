@@ -162,17 +162,14 @@ void sendCurrentState() {
   // 	16x TRS channel
     
   // So that's 3 for the mfg + 1 for the message + 80 bytes
-  // can be done with a simple "read eighty bytes and send them."
+  // can be done with a simple "read EEPROM_DATA_SIZE bytes and send them."
 
   byte buffer[EEPROM_DATA_SIZE];
   readEEPROMArray(0, buffer, EEPROM_DATA_SIZE);
 
   int offset = 8;
   for(int i = 0; i < EEPROM_DATA_SIZE; i++) {
-    byte data = buffer[i];
-    if(data == 0xff) {
-      data = 0x7f;
-    }
+    byte data = buffer[i] & 0x7F;
     sysexData[i+offset] = data;
   }
 

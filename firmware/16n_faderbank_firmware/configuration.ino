@@ -77,7 +77,7 @@ void checkDefaultSettings() {
   for(int i = 0; i < 4; i++) {
     int baseAddress = 80;
     int writeAddress = baseAddress + i;
-    EEPROM.write(writeAddress, 0x7F);
+    EEPROM.write(writeAddress, 0xFF);
   }
 
   // serial dump that config.
