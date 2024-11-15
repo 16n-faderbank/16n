@@ -10,8 +10,8 @@
  */
 
 int MAJOR_VERSION = 0x02;
-int MINOR_VERSION = 0x01;
-int POINT_VERSION = 0x01;
+int MINOR_VERSION = 0x02;
+int POINT_VERSION = 0x00;
 
 /*
  * device metadata
