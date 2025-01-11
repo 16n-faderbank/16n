@@ -51,4 +51,4 @@ const int channelCount = 16;
 #endif
 
 // size of eeprom config
-#define EEPROM_DATA_SIZE 84
+#define EEPROM_DATA_SIZE 86

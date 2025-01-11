@@ -8,7 +8,7 @@ If you are interested in compiling your own firmware, or hacking on it, read on!
 
 ## Requirements
 
-- Teensyduino install (currently: Teensyduino v1.5.3 with Arduino 1.8.13)
+- Arduino + Teensyduino install (currently: [Arduino](https://www.arduino.cc/en/software) 2.3.4 with [Teensyduino](https://www.pjrc.com/teensy/td_download.html) v1.59.0)
 - `ResponsiveAnalogRead` library
 - `CD74HC4067` library
 
@@ -46,7 +46,7 @@ will restrict the faderbank to its first channel. Designed for breadboard develo
 
 ## Memory Map
 
-Configuration is stored in the first 80 bytes of the on-board EEPROM. It looks like this:
+Configuration is stored in the first 86 bytes of the on-board EEPROM. It looks like this:
 
 Addresses 0-15 are reserved for configuration flags/data.
 
@@ -66,8 +66,8 @@ FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes 
 | 32-47   | 0-15    | Channel for each control (TRS)     |
 | 48-63   | 0-127   | CC for each control (USB)          |
 | 64-79   | 0-127   | CC for each control (TRS)          |
-| 80-81   | bitmask | CC mode: 1=normal, 0=14-bit (USB)  |
-| 82-83   | bitmask | CC mode: 1=normal, 0=14-bit (TRS)  |
+| 80-82   | 0-127   | Booleans for high-res mode (USB)   |
+| 83-85   | 0-127   | Booleans for high-res mode (TRS)   |
 
 ## LICENSING
 

@@ -16,6 +16,8 @@
  * config.h is mainly for developer configuration.
  */
 
+ #define DEBUG
+
 #include <CD74HC4067.h>
 #include <EEPROM.h>
 #include <i2c_t3.h>
@@ -38,9 +40,9 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 uint16_t current;
 uint8_t high7bits, low7bits;
 bool send14bitUSB, send14bitTRS;
-int lastMidiActivityAt;
+uint32_t lastMidiActivityAt;
 int midiDirty = 0;
-const int midiFlashDuration = 50;
+const uint32_t midiFlashDuration = 50;
 int ledPin = 13;
 
 // the storage of the values; current is in the main loop; last value is for midi output
@@ -67,7 +69,7 @@ int faderMin;
 int faderMax;
 
 bool shouldSendForcedControlUpdate = false;
-int sendForcedControlAt;
+uint32_t sendForcedControlAt;
 
 // variables for i2c master mode
 // memory of the last unshifted value
@@ -431,8 +433,8 @@ void doMidiWrite()
     current = currentValue[q];
     high7bits = (current >> 7) & 0x7F;
     low7bits = current & 0x7F;
-    send14bitUSB = usbCCs[q] < 32 && ((usbCCModes >> q) & 1) == 0;
-    send14bitTRS = trsCCs[q] < 32 && ((trsCCModes >> q) & 1) == 0;
+    send14bitUSB = usbCCs[q] < 32 && ((usbCCModes >> q) & 1) == 1;
+    send14bitTRS = trsCCs[q] < 32 && ((trsCCModes >> q) & 1) == 1;
 
     // if there was a change in the midi value
     if ((high7bits != lastMidiValue[q]) ||

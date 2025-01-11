@@ -86,7 +86,7 @@ void updateUSBSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   // store CCs
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,48);
   // store 14-bit flags
-  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,2,80);
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,3,80);
 }
 
 void updateTRSSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
@@ -95,7 +95,7 @@ void updateTRSSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   // store CCs
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,64);
   // store 14-bit flags
-  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,2,82);
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,3,83);
 }
 
 void updateSettingsBlockAndStoreInEEPROM(byte* configFromSysex, unsigned sysexSize, int configStartIndex, int configDataLength, int EEPROMStartIndex) { 
@@ -114,7 +114,7 @@ void updateSettingsBlockAndStoreInEEPROM(byte* configFromSysex, unsigned sysexSi
   unsigned dataToWriteLength = configDataLength;
 
   for(int i = 0; i < (configDataLength); i++) {
-    int configIndex = i + configStartIndex;
+    unsigned configIndex = i + configStartIndex;
     if (configIndex >= sysexSize) {
       // the sysex message is shorter than expected, only write what we receieved
       dataToWriteLength = i;
@@ -160,10 +160,10 @@ void sendCurrentState() {
   // 	16x TRSccs
   // 	16x USBchannel
   // 	16x TRS channel
-  //  2 bytes for USB CC modes
-  //  2 bytes for TRS CC modes
+  //  3 bytes for USB CC modes
+  //  3 bytes for TRS CC modes
     
-  // So that's 3 for the mfg + 1 for the message + 80 bytes
+  // So that's 3 for the mfg + 1 for the message + 86 bytes
   // can be done with a simple "read EEPROM_DATA_SIZE bytes and send them."
 
   byte buffer[EEPROM_DATA_SIZE];

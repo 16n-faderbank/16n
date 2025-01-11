@@ -74,10 +74,10 @@ void checkDefaultSettings() {
   }
 
   // set default CC modes
-  for(int i = 0; i < 4; i++) {
+  for(int i = 0; i < 6; i++) {
     int baseAddress = 80;
     int writeAddress = baseAddress + i;
-    EEPROM.write(writeAddress, 0xFF);
+    EEPROM.write(writeAddress, 0x00);
   }
 
   // serial dump that config.
@@ -130,18 +130,20 @@ void loadSettingsFromEEPROM() {
   D(printIntArray(trsCCs,channelCount));
 
   // load USB CC mode flags
-  usbCCModes = (EEPROM.read(80) << 8) | EEPROM.read(81);
+  usbCCModes = (EEPROM.read(80) & 0x7F) | ((EEPROM.read(81) & 0x7F) << 7) | ((EEPROM.read(82) & 0x03) << 14);
 
   D(Serial.println("USB CC modes loaded:"));
   D(printHex(usbCCModes >> 8));
   D(printHex(usbCCModes & 0xFF));
+  D(Serial.println());
 
-  // load TRS mode flags
-  trsCCModes = (EEPROM.read(82) << 8) | EEPROM.read(83);
+  // load TRS CC mode flags
+  trsCCModes = (EEPROM.read(83) & 0x7F) | ((EEPROM.read(84) & 0x7F) << 7) | ((EEPROM.read(85) & 0x03) << 14);
 
   D(Serial.println("TRS CC modes loaded:"));
   D(printHex(trsCCModes >> 8));
   D(printHex(trsCCModes & 0xFF));
+  D(Serial.println());
 
 
   // load other config

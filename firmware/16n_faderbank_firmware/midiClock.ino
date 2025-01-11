@@ -1,3 +1,3 @@
 void midiClock(byte realtimebyte){
-  MIDI.sendRealTime(realtimebyte);
+  MIDI.sendRealTime((midi::MidiType)realtimebyte);
 }
