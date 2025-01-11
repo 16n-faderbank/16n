@@ -16,8 +16,6 @@
  * config.h is mainly for developer configuration.
  */
 
- #define DEBUG
-
 #include <CD74HC4067.h>
 #include <EEPROM.h>
 #include <i2c_t3.h>
