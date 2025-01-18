@@ -431,8 +431,8 @@ void doMidiWrite()
     current = currentValue[q];
     high7bits = (current >> 7) & 0x7F;
     low7bits = current & 0x7F;
-    send14bitUSB = usbCCs[q] < 32 && ((usbCCModes >> q) & 1) == 1;
-    send14bitTRS = trsCCs[q] < 32 && ((trsCCModes >> q) & 1) == 1;
+    send14bitUSB = usbCCs[q] < 96 && ((usbCCModes >> q) & 1) == 1;
+    send14bitTRS = trsCCs[q] < 96 && ((trsCCModes >> q) & 1) == 1;
 
     // if there was a change in the midi value
     if ((high7bits != lastMidiValue[q]) ||
