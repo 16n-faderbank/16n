@@ -35,20 +35,26 @@
 MIDI_CREATE_DEFAULT_INSTANCE();
 
 // midi write helpers
-int shiftyTemp, notShiftyTemp, lastMidiActivityAt;
+uint16_t current;
+uint8_t high7bits, low7bits;
+bool send14bitUSB, send14bitTRS;
+uint32_t lastMidiActivityAt;
 int midiDirty = 0;
-const int midiFlashDuration = 50;
+const uint32_t midiFlashDuration = 50;
 int ledPin = 13;
 
 // the storage of the values; current is in the main loop; last value is for midi output
-int volatile currentValue[channelCount];
-int lastMidiValue[channelCount];
+uint16_t volatile currentValue[channelCount];
+uint8_t lastMidiValue[channelCount];
+uint8_t lastLowMidiValue[channelCount];
 
 // variables to hold configuration
 int usbChannels[channelCount];
 int trsChannels[channelCount];
 int usbCCs[channelCount];
 int trsCCs[channelCount];
+uint16_t usbCCModes;
+uint16_t trsCCModes;
 int legacyPorts[channelCount]; // for V125 only
 int flip;
 int ledOn;
@@ -61,27 +67,27 @@ int faderMin;
 int faderMax;
 
 bool shouldSendForcedControlUpdate = false;
-int sendForcedControlAt;
+uint32_t sendForcedControlAt;
 
 // variables for i2c master mode
-  // memory of the last unshifted value
-  int lastValue[channelCount];
+// memory of the last unshifted value
+uint16_t lastValue[channelCount];
 
-  // the i2c message buffer we are sending
-  uint8_t messageBuffer[4];
+// the i2c message buffer we are sending
+uint8_t messageBuffer[4];
 
-  // temporary values
-  uint16_t valueTemp;
-  uint8_t device = 0;
-  uint8_t port = 0;
+// temporary values
+uint16_t valueTemp;
+uint8_t device = 0;
+uint8_t port = 0;
 
-  // master i2c specific stuff
-  const int ansibleI2Caddress = 0x20;
-  const int er301I2Caddress = 0x31;
-  const int txoI2Caddress = 0x60;
-  bool er301Present = false;
-  bool ansiblePresent = false;
-  bool txoPresent = false;
+// master i2c specific stuff
+const int ansibleI2Caddress = 0x20;
+const int er301I2Caddress = 0x31;
+const int txoI2Caddress = 0x60;
+bool er301Present = false;
+bool ansiblePresent = false;
+bool txoPresent = false;
 
 
 // the thing that smartly smooths the input
@@ -179,6 +185,7 @@ void setup()
 
     currentValue[i] = 0;
     lastMidiValue[i] = 0;
+    lastLowMidiValue[i] = 0;
 
     if(i2cMaster) {
       lastValue[i] = 0;
@@ -421,26 +428,36 @@ void doMidiWrite()
   // "q" is a legacy holdover
   for (int q = 0; q < channelCount; q++)
   {
-    notShiftyTemp = currentValue[q];
-
-    // shift for MIDI precision (0-127)
-    shiftyTemp = notShiftyTemp >> 7;
+    current = currentValue[q];
+    high7bits = (current >> 7) & 0x7F;
+    low7bits = current & 0x7F;
+    send14bitUSB = usbCCs[q] < 96 && ((usbCCModes >> q) & 1) == 1;
+    send14bitTRS = trsCCs[q] < 96 && ((trsCCModes >> q) & 1) == 1;
 
     // if there was a change in the midi value
-    if ((shiftyTemp != lastMidiValue[q]) || forceMidiWrite)
+    if ((high7bits != lastMidiValue[q]) ||
+        ((low7bits != lastLowMidiValue[q]) && (send14bitUSB || send14bitTRS)) ||
+        forceMidiWrite)
     {
       if(ledFlash && !midiDirty) {
         lastMidiActivityAt = millis();
         midiDirty = 1;
       }
       // send the message over USB and physical MIDI
-      usbMIDI.sendControlChange(usbCCs[q], shiftyTemp, usbChannels[q]);
-      MIDI.sendControlChange(trsCCs[q], shiftyTemp, trsChannels[q]);
+      usbMIDI.sendControlChange(usbCCs[q], high7bits, usbChannels[q]);
+      if (send14bitUSB) {
+        usbMIDI.sendControlChange(usbCCs[q] + 32, low7bits, usbChannels[q]);
+      }
+      MIDI.sendControlChange(trsCCs[q], high7bits, trsChannels[q]);
+      if (send14bitTRS) {
+        MIDI.sendControlChange(trsCCs[q] + 32, low7bits, trsChannels[q]);
+      }
 
       // store the shifted value for future comparison
-      lastMidiValue[q] = shiftyTemp;
+      lastMidiValue[q] = high7bits;
+      lastLowMidiValue[q] = low7bits;
 
-      D(Serial.printf("MIDI[%d]: %d\n", q, shiftyTemp));
+      D(Serial.printf("MIDI[%d]: %d\n", q, high7bits));
     }
 
     if(i2cMaster) {
@@ -448,9 +465,9 @@ void doMidiWrite()
       // we send out to all three supported i2c slave devices
       // keeps the firmware simple :)
 
-      if (notShiftyTemp != lastValue[q])
+      if (current != lastValue[q])
       {
-        D(Serial.printf("i2c Master[%d]: %d\n", q, notShiftyTemp));
+        D(Serial.printf("i2c Master[%d]: %d\n", q, current));
 
         // for 4 output devices
         port = q % 4;
@@ -458,20 +475,20 @@ void doMidiWrite()
 
         // TXo
         if(txoPresent) {
-          sendi2c(txoI2Caddress, device, 0x11, port, notShiftyTemp);
+          sendi2c(txoI2Caddress, device, 0x11, port, current);
         }
 
         // ER-301
         if(er301Present) {
-          sendi2c(er301I2Caddress, 0, 0x11, q, notShiftyTemp);
+          sendi2c(er301I2Caddress, 0, 0x11, q, current);
         }
 
         // ANSIBLE
         if(ansiblePresent) {
-          sendi2c(0x20, device << 1, 0x06, port, notShiftyTemp);
+          sendi2c(0x20, device << 1, 0x06, port, current);
         }
 
-        lastValue[q] = notShiftyTemp;
+        lastValue[q] = current;
       }
     }
   }

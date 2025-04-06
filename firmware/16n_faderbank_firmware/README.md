@@ -8,7 +8,7 @@ If you are interested in compiling your own firmware, or hacking on it, read on!
 
 ## Requirements
 
-- Teensyduino install (currently: Teensyduino v1.5.3 with Arduino 1.8.13)
+- Arduino + Teensyduino install (currently: [Arduino](https://www.arduino.cc/en/software) 2.3.4 with [Teensyduino](https://www.pjrc.com/teensy/td_download.html) v1.59.0)
 - `ResponsiveAnalogRead` library
 - `CD74HC4067` library
 
@@ -46,26 +46,28 @@ will restrict the faderbank to its first channel. Designed for breadboard develo
 
 ## Memory Map
 
-Configuration is stored in the first 80 bytes of the on-board EEPROM. It looks like this:
+Configuration is stored in the first 86 bytes of the on-board EEPROM. It looks like this:
 
 Addresses 0-15 are reserved for configuration flags/data.
 
 FADERMAX and FADERMIN are 14-bit numbers; as such, they are stored in two bytes as MSB and LSB; the actual number is calculated by `(MSB << 8) + LSB`
 
-| Address | Format |            Description             |
-|---------|--------|------------------------------------|
-| 0       | 0/1    | LED on when powered                |
-| 1       | 0/1    | LED blink on MIDI data             |
-| 2       | 0/1    | Rotate controller outputs via 180º |
-| 3       | 0/1    | I2C Master/Follower                |
-| 4,5     | 0-127  | FADERMIN lsb/msb                   |
-| 6,7     | 0-127  | FADERMAX lsb/msb                   |
-| 8       | 0/1    | Soft MIDI thru (default 0)         |
-| 9-15    |        | Currently unused                   |
-| 16-31   | 0-15   | Channel for each control (USB)     |
-| 32-47   | 0-15   | Channel for each control (TRS)     |
-| 48-63   | 0-127  | CC for each control (USB)          |
-| 64-79   | 0-127  | CC for each control (TRS)          |
+| Address | Format  |            Description             |
+|---------|---------|------------------------------------|
+| 0       | 0/1     | LED on when powered                |
+| 1       | 0/1     | LED blink on MIDI data             |
+| 2       | 0/1     | Rotate controller outputs via 180º |
+| 3       | 0/1     | I2C Master/Follower                |
+| 4,5     | 0-127   | FADERMIN lsb/msb                   |
+| 6,7     | 0-127   | FADERMAX lsb/msb                   |
+| 8       | 0/1     | Soft MIDI thru (default 0)         |
+| 9-15    |         | Currently unused                   |
+| 16-31   | 0-15    | Channel for each control (USB)     |
+| 32-47   | 0-15    | Channel for each control (TRS)     |
+| 48-63   | 0-127   | CC for each control (USB)          |
+| 64-79   | 0-127   | CC for each control (TRS)          |
+| 80-82   | 0-127   | Booleans for high-res mode (USB)   |
+| 83-85   | 0-127   | Booleans for high-res mode (TRS)   |
 
 ## LICENSING
 

@@ -22,9 +22,9 @@ void checkDefaultSettings() {
     D(printHex(firstByte));
     D(Serial.println());
     byte buffer[80];
-    readEEPROMArray(0, buffer, 80);
+    readEEPROMArray(0, buffer, EEPROM_DATA_SIZE);
     D(Serial.println("Config found:"));
-    D(printHexArray(buffer, 80));
+    D(printHexArray(buffer, EEPROM_DATA_SIZE));
   }
 }
 
@@ -73,11 +73,18 @@ void checkDefaultSettings() {
     EEPROM.write(writeAddress, defaultTRSCCs[i]);
   }
 
+  // set default CC modes
+  for(int i = 0; i < 6; i++) {
+    int baseAddress = 80;
+    int writeAddress = baseAddress + i;
+    EEPROM.write(writeAddress, 0x00);
+  }
+
   // serial dump that config.
-  byte buffer[80];
-  readEEPROMArray(0,buffer,80);
+  byte buffer[EEPROM_DATA_SIZE];
+  readEEPROMArray(0,buffer,EEPROM_DATA_SIZE);
   D(Serial.println("Config Instantiated."));
-  D(printHexArray(buffer, 80));
+  D(printHexArray(buffer, EEPROM_DATA_SIZE));
 }
 
 void loadSettingsFromEEPROM() {
@@ -121,6 +128,23 @@ void loadSettingsFromEEPROM() {
 
   D(Serial.println("TRS CCs loaded:"));
   D(printIntArray(trsCCs,channelCount));
+
+  // load USB CC mode flags
+  usbCCModes = (EEPROM.read(80) & 0x7F) | ((EEPROM.read(81) & 0x7F) << 7) | ((EEPROM.read(82) & 0x03) << 14);
+
+  D(Serial.println("USB CC modes loaded:"));
+  D(printHex(usbCCModes >> 8));
+  D(printHex(usbCCModes & 0xFF));
+  D(Serial.println());
+
+  // load TRS CC mode flags
+  trsCCModes = (EEPROM.read(83) & 0x7F) | ((EEPROM.read(84) & 0x7F) << 7) | ((EEPROM.read(85) & 0x03) << 14);
+
+  D(Serial.println("TRS CC modes loaded:"));
+  D(printHex(trsCCModes >> 8));
+  D(printHex(trsCCModes & 0xFF));
+  D(Serial.println());
+
 
   // load other config
   ledOn = EEPROM.read(0);

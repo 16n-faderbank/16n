@@ -67,7 +67,7 @@ void updateAllSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   D(Serial.println(size));
   // D(printHexArray(newConfig,size));
 
-  updateSettingsBlockAndStoreInEEPROM(newConfig,size,9,80,0);
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,9,EEPROM_DATA_SIZE,0);
 }
 
 void updateDeviceSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
@@ -85,6 +85,8 @@ void updateUSBSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,5,16,16);
   // store CCs
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,48);
+  // store 14-bit flags
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,3,80);
 }
 
 void updateTRSSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
@@ -92,6 +94,8 @@ void updateTRSSettingsAndStoreInEEPROM(byte* newConfig, unsigned size) {
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,5,16,32);
   // store CCs
   updateSettingsBlockAndStoreInEEPROM(newConfig,size,21,16,64);
+  // store 14-bit flags
+  updateSettingsBlockAndStoreInEEPROM(newConfig,size,37,3,83);
 }
 
 void updateSettingsBlockAndStoreInEEPROM(byte* configFromSysex, unsigned sysexSize, int configStartIndex, int configDataLength, int EEPROMStartIndex) { 
@@ -107,21 +111,27 @@ void updateSettingsBlockAndStoreInEEPROM(byte* configFromSysex, unsigned sysexSi
 
   // walk the config, ignoring the top, tail, and firmware version
   byte dataToWrite[configDataLength];
+  unsigned dataToWriteLength = configDataLength;
 
   for(int i = 0; i < (configDataLength); i++) {
-    int configIndex = i + configStartIndex;
+    unsigned configIndex = i + configStartIndex;
+    if (configIndex >= sysexSize) {
+      // the sysex message is shorter than expected, only write what we receieved
+      dataToWriteLength = i;
+      break;
+    }
     dataToWrite[i] = configFromSysex[configIndex];
   }
 
   // write new Data
-  writeEEPROMArray(EEPROMStartIndex, dataToWrite, configDataLength);
+  writeEEPROMArray(EEPROMStartIndex, dataToWrite, dataToWriteLength);
 
   // now load that.
   loadSettingsFromEEPROM();
 }
 void sendCurrentState() {
   //   0F - "c0nFig" - outputs its config:
-  byte sysexData[88];
+  byte sysexData[EEPROM_DATA_SIZE + 8];
 
   sysexData[0] = 0x7d; // manufacturer
   sysexData[1] = 0x00;
@@ -150,25 +160,24 @@ void sendCurrentState() {
   // 	16x TRSccs
   // 	16x USBchannel
   // 	16x TRS channel
+  //  3 bytes for USB CC modes
+  //  3 bytes for TRS CC modes
     
-  // So that's 3 for the mfg + 1 for the message + 80 bytes
-  // can be done with a simple "read eighty bytes and send them."
+  // So that's 3 for the mfg + 1 for the message + 86 bytes
+  // can be done with a simple "read EEPROM_DATA_SIZE bytes and send them."
 
-  byte buffer[80];
-  readEEPROMArray(0, buffer, 80);
+  byte buffer[EEPROM_DATA_SIZE];
+  readEEPROMArray(0, buffer, EEPROM_DATA_SIZE);
 
   int offset = 8;
-  for(int i = 0; i < 80; i++) {
-    byte data = buffer[i];
-    if(data == 0xff) {
-      data = 0x7f;
-    }
+  for(int i = 0; i < EEPROM_DATA_SIZE; i++) {
+    byte data = buffer[i] & 0x7F;
     sysexData[i+offset] = data;
   }
 
   D(Serial.println("Sending this data"));
-  D(printHexArray(sysexData,88));
+  D(printHexArray(sysexData, EEPROM_DATA_SIZE + 8));
 
-  usbMIDI.sendSysEx(88, sysexData, false);
+  usbMIDI.sendSysEx(EEPROM_DATA_SIZE + 8, sysexData, false);
   forceMidiWrite = true;
 }

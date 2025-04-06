@@ -10,8 +10,8 @@
  */
 
 int MAJOR_VERSION = 0x02;
-int MINOR_VERSION = 0x01;
-int POINT_VERSION = 0x01;
+int MINOR_VERSION = 0x02;
+int POINT_VERSION = 0x00;
 
 /*
  * device metadata
@@ -49,3 +49,6 @@ const int ports[] = {A0};
 const int channelCount = 16;
 
 #endif
+
+// size of eeprom config
+#define EEPROM_DATA_SIZE 86

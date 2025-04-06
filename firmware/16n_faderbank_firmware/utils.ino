@@ -17,7 +17,7 @@ void writeEEPROMArray(int start, byte buffer[], int length) {
 }
 
 void printHex(uint8_t num) {
-  char hexCar[2];
+  char hexCar[3];
 
   sprintf(hexCar, "%02X", num);
   Serial.print(hexCar);
