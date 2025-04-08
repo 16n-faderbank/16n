@@ -21,7 +21,7 @@ void checkDefaultSettings() {
     D(Serial.print("First Byte is set to: "));
     D(printHex(firstByte));
     D(Serial.println());
-    byte buffer[80];
+    byte buffer[EEPROM_DATA_SIZE];
     readEEPROMArray(0, buffer, EEPROM_DATA_SIZE);
     D(Serial.println("Config found:"));
     D(printHexArray(buffer, EEPROM_DATA_SIZE));
