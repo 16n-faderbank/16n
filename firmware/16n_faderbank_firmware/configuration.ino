@@ -129,6 +129,12 @@ void loadSettingsFromEEPROM() {
   D(Serial.println("TRS CCs loaded:"));
   D(printIntArray(trsCCs,channelCount));
 
+  // On an upgrade from 2.1.x the 14-bit flag bytes (80-85) were never written; blank
+  // EEPROM (0xFF, as on the LC) would turn 14-bit on for every fader. Clear them once.
+  for (int i = 80; i < 86; i++) {
+    if (EEPROM.read(i) > 0x7F) EEPROM.write(i, 0x00);
+  }
+
   // load USB CC mode flags
   usbCCModes = (EEPROM.read(80) & 0x7F) | ((EEPROM.read(81) & 0x7F) << 7) | ((EEPROM.read(82) & 0x03) << 14);
 

@@ -92,6 +92,12 @@ bool txoPresent = false;
 
 // the thing that smartly smooths the input
 ResponsiveAnalogRead *analog[channelCount];
+// ResponsiveAnalogRead leaves its smoothValue float uninitialised. Made with plain `new`,
+// it picks up whatever the heap held at power-up; a NaN or infinity there never washes
+// out, (int)NaN is 0, and that fader is stuck at 0 until the next power cycle (seen on
+// Teensy LC: a different handful of faders each time). So the smoothers are built in
+// static storage instead, which starts zeroed.
+alignas(ResponsiveAnalogRead) static uint8_t analogStorage[channelCount][sizeof(ResponsiveAnalogRead)];
 
 // mux config
 CD74HC4067 mux(8, 7, 6, 5);
@@ -175,7 +181,7 @@ void setup()
   {
     // analog[i] = new ResponsiveAnalogRead(0, false);
 
-    analog[i] = new ResponsiveAnalogRead(0, true, .0001);
+    analog[i] = new (analogStorage[i]) ResponsiveAnalogRead(0, true, .0001);
     analog[i]->setAnalogResolution(1 << adcResolutionBits);
     
     // ResponsiveAnalogRead is designed for 10-bit ADCs
